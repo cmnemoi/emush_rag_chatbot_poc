@@ -45,10 +45,10 @@ class DocumentLoader:
                         # Handle both single document and list of documents
                         if isinstance(data, list):
                             for doc in data:
-                                doc["metadata"] = {"source": doc.get("source", ""), "link": doc.get("link", "")}
+                                doc["metadata"] = {"source": doc.get("source", ""), "link": doc.get("link", ""), "title": doc.get("title", "")}
                                 documents.append(Document(**doc))
                         else:
-                            data["metadata"] = {"source": data.get("source", ""), "link": data.get("link", "")}
+                            data["metadata"] = {"source": data.get("source", ""), "link": data.get("link", ""), "title": data.get("title", "")}
                             documents.append(Document(**data))
 
                 except json.JSONDecodeError as e:
