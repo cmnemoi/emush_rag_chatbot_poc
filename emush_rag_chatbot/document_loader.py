@@ -1,4 +1,4 @@
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Iterator
 from pathlib import Path
 import json
 import logging
@@ -21,10 +21,24 @@ class Document(BaseModel):
 class DocumentLoader:
     """Loads and processes eMush game documentation from JSON files"""
 
-    def __init__(self, data_dir: str = "data"):
+    def __init__(self, data_dir: str = "data", batch_size: int = 10):
         self.data_dir = Path(data_dir)
+        self.batch_size = batch_size
 
-    def load_documents(self) -> List[Document]:
+    def _batch_documents(self, documents: List[Document]) -> Iterator[List[Document]]:
+        """
+        Split documents into batches to avoid API rate limits
+
+        Args:
+            documents: List of documents to batch
+
+        Returns:
+            Iterator of document batches
+        """
+        for i in range(0, len(documents), self.batch_size):
+            yield documents[i:i + self.batch_size]
+
+    def load_documents(self, return_batches: bool = True) -> List[List[Document]] | List[Document]:
         """
         Load JSON documents from the data directory
 
@@ -57,6 +71,11 @@ class DocumentLoader:
                     logger.error(f"Error processing document {file_path}: {e}")
 
             logger.info(f"Successfully loaded {len(documents)} documents")
+            
+            if return_batches:
+                batched_docs = list(self._batch_documents(documents))
+                logger.info(f"Split documents into {len(batched_docs)} batches of size {self.batch_size}")
+                return batched_docs
             return documents
 
         except Exception as e:
