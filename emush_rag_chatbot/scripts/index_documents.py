@@ -19,18 +19,17 @@ async def main():
 
         # Load documents in batches
         document_batches = loader.load_documents(return_batches=True)
-        
+
         # Process each batch
         for batch_idx, documents in enumerate(document_batches, 1):
             logger.info(f"Processing batch {batch_idx}/{len(document_batches)}")
-            
+
             # Convert to Langchain documents
             langchain_docs = []
             for doc in documents:
                 langchain_docs.append(
                     LangchainDocument(
-                        page_content=doc.content,
-                        metadata={"title": doc.title, "source": doc.source, "link": doc.link}
+                        page_content=doc.content, metadata={"title": doc.title, "source": doc.source, "link": doc.link}
                     )
                 )
 

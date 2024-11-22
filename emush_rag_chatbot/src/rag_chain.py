@@ -101,12 +101,7 @@ class RAGChain:
             logger.info(f"Generated response for query: {query}")
             return {
                 "response": response,
-                "source_documents": [
-                    {
-                        "content": doc.page_content,
-                        "metadata": doc.metadata
-                    } for doc in docs
-                ]
+                "source_documents": [{"content": doc.page_content, "metadata": doc.metadata} for doc in docs],
             }
 
         except Exception as e:

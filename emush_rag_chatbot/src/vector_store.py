@@ -31,7 +31,6 @@ class VectorStore:
         """
         try:
             self.vector_store.add_documents(documents)
-            self.vector_store.persist()
             logger.info(f"Successfully indexed {len(documents)} documents")
         except Exception as e:
             logger.error(f"Error indexing documents: {e}")

@@ -2,6 +2,7 @@ from typing import List, Dict, Any, Iterator
 from pathlib import Path
 import json
 import logging
+
 from pydantic import BaseModel, Field
 
 logging.basicConfig(level=logging.INFO)
@@ -21,7 +22,7 @@ class Document(BaseModel):
 class DocumentLoader:
     """Loads and processes eMush game documentation from JSON files"""
 
-    def __init__(self, data_dir: str = "data", batch_size: int = 10):
+    def __init__(self, data_dir: str = "data", batch_size: int = 8):
         self.data_dir = Path(data_dir)
         self.batch_size = batch_size
 
@@ -36,7 +37,7 @@ class DocumentLoader:
             Iterator of document batches
         """
         for i in range(0, len(documents), self.batch_size):
-            yield documents[i:i + self.batch_size]
+            yield documents[i : i + self.batch_size]
 
     def load_documents(self, return_batches: bool = True) -> List[List[Document]] | List[Document]:
         """
@@ -59,10 +60,18 @@ class DocumentLoader:
                         # Handle both single document and list of documents
                         if isinstance(data, list):
                             for doc in data:
-                                doc["metadata"] = {"source": doc.get("source", ""), "link": doc.get("link", ""), "title": doc.get("title", "")}
+                                doc["metadata"] = {
+                                    "source": doc.get("source", ""),
+                                    "link": doc.get("link", ""),
+                                    "title": doc.get("title", ""),
+                                }
                                 documents.append(Document(**doc))
                         else:
-                            data["metadata"] = {"source": data.get("source", ""), "link": data.get("link", ""), "title": data.get("title", "")}
+                            data["metadata"] = {
+                                "source": data.get("source", ""),
+                                "link": data.get("link", ""),
+                                "title": data.get("title", ""),
+                            }
                             documents.append(Document(**data))
 
                 except json.JSONDecodeError as e:
@@ -71,7 +80,7 @@ class DocumentLoader:
                     logger.error(f"Error processing document {file_path}: {e}")
 
             logger.info(f"Successfully loaded {len(documents)} documents")
-            
+
             if return_batches:
                 batched_docs = list(self._batch_documents(documents))
                 logger.info(f"Split documents into {len(batched_docs)} batches of size {self.batch_size}")

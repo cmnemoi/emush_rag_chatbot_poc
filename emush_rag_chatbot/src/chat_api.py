@@ -22,11 +22,14 @@ class ChatRequest(BaseModel):
 
 class SourceDocument(BaseModel):
     """Schema for source documents used in response"""
+
     content: str
     metadata: Dict[str, Any]
 
+
 class ChatResponse(BaseModel):
     """Schema for chat responses"""
+
     response: str
     source_documents: List[SourceDocument]
 
@@ -54,7 +57,7 @@ async def chat_endpoint(request: ChatRequest):
         )
         return ChatResponse(
             response=response["response"],
-            source_documents=[SourceDocument(**doc) for doc in response["source_documents"]]
+            source_documents=[SourceDocument(**doc) for doc in response["source_documents"]],
         )
 
     except Exception as e:
