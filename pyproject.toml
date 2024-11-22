@@ -1,0 +1,39 @@
+[project]
+name = "emush-rag-chatbot"
+version = "0.0.0"
+description = "A RAG which can answer questions about eMush game."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = "AGPL-3.0-or-later"
+authors = [
+    {name = "Charles-Meldhine Madi Mnemoi", email = "charlesmeldhine.madimnemoi@gmail.com"}
+]
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest-watcher>=0.4.3",
+    "python-semantic-release>=9.14.0",
+]
+lint = [
+    "mypy>=1.13.0",
+    "pytest-mypy>=0.10.3",
+    "ruff>=0.7.2",
+]
+test = [
+    "pytest>=8.3.3",
+    "pytest-cov>=6.0.0",
+]
+
+[tool.ruff]
+line-length = 119
+
+[tool.semantic_release]
+version_toml = ["pyproject.toml:project.version"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["emush_rag_chatbot"]
