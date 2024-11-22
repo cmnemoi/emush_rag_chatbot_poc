@@ -33,7 +33,7 @@ OPENAI_API_KEY=your_api_key_here
 
 Start the API server:
 ```bash
-uv python -m emush_rag_chatbot.main
+uv python emush_rag_chatbot/main.py
 ```
 
 The API will be available at `http://localhost:8000` with Swagger documentation at `/docs`.
