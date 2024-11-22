@@ -16,8 +16,8 @@ class Settings(BaseSettings):
     CHROMA_PERSIST_DIR: Path = BASE_DIR / "chroma_db"
 
     # Model settings
-    EMBEDDING_MODEL: str = "text-embedding-3-small"
-    CHAT_MODEL: str = "gpt-4-turbo-preview"
+    EMBEDDING_MODEL: str = "text-embedding-3-large"
+    CHAT_MODEL: str = "gpt-4o-mini"
 
     class Config:
         env_file = ".env"

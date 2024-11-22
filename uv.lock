@@ -357,6 +357,7 @@ dependencies = [
     { name = "chromadb" },
     { name = "fastapi" },
     { name = "langchain" },
+    { name = "langchain-chroma" },
     { name = "langchain-openai" },
     { name = "pydantic" },
     { name = "python-dotenv" },
@@ -384,6 +385,7 @@ requires-dist = [
     { name = "chromadb", specifier = ">=0.4.0" },
     { name = "fastapi", specifier = ">=0.109.0" },
     { name = "langchain", specifier = ">=0.1.0" },
+    { name = "langchain-chroma", specifier = ">=0.1.4" },
     { name = "langchain-openai", specifier = ">=0.0.2" },
     { name = "pydantic", specifier = ">=2.5.0" },
     { name = "python-dotenv", specifier = ">=1.0.0" },
@@ -771,6 +773,21 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/82/59/1ce98c59890fbdbf865510fc6821c9f4d2455ca065b11e7aaa8635239b92/langchain-0.3.7.tar.gz", hash = "sha256:2e4f83bf794ba38562f7ba0ede8171d7e28a583c0cec6f8595cfe72147d336b2", size = 416796 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/49/09/72630413a7ded27684e33392a0ff52ff1c8ea6749fee641319e75f82072b/langchain-0.3.7-py3-none-any.whl", hash = "sha256:cf4af1d5751dacdc278df3de1ff3cbbd8ca7eb55d39deadccdd7fb3d3ee02ac0", size = 1005562 },
+]
+
+[[package]]
+name = "langchain-chroma"
+version = "0.1.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "chromadb" },
+    { name = "fastapi" },
+    { name = "langchain-core" },
+    { name = "numpy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ea/0d/b55c34db346e531d72e629891606512a792c83c8c82b40e6e313db3e36b9/langchain_chroma-0.1.4.tar.gz", hash = "sha256:5963a79bf72af0f72019084bbc1e610d03ba33ec2df9a4b47b27c0132aa533fb", size = 10157 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/bc/8c/ef0a589e523e72373a79a64cd1184682155113b865f889d815a9f264a755/langchain_chroma-0.1.4-py3-none-any.whl", hash = "sha256:2877b284fc736bfd31628aa542ed0f5410c3cdc63ad2c670cb67fc360b4a236a", size = 10452 },
 ]
 
 [[package]]
