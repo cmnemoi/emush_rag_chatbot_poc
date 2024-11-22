@@ -20,18 +20,9 @@ class ChatRequest(BaseModel):
     filter_metadata: Optional[Dict[str, Any]] = None
 
 
-class SourceDocument(BaseModel):
-    """Schema for source documents used in response"""
-
-    content: str
-    metadata: Dict[str, Any]
-
-
 class ChatResponse(BaseModel):
     """Schema for chat responses"""
-
     response: str
-    source_documents: List[SourceDocument]
 
 
 @app.get("/health")
@@ -55,10 +46,7 @@ async def chat_endpoint(request: ChatRequest):
         response = await rag_chain.generate_response(
             query=request.query, chat_history=request.chat_history, filter_metadata=request.filter_metadata
         )
-        return ChatResponse(
-            response=response["response"],
-            source_documents=[SourceDocument(**doc) for doc in response["source_documents"]],
-        )
+        return ChatResponse(response=response)
 
     except Exception as e:
         logger.error(f"Error processing chat request: {e}")

@@ -65,7 +65,7 @@ class RAGChain:
         query: str,
         chat_history: Optional[List[Dict[str, str]]] = None,
         filter_metadata: Optional[Dict[str, Any]] = None,
-    ) -> Dict[str, Any]:
+    ) -> str:
         """
         Generate a response using the RAG pipeline
 
@@ -99,10 +99,7 @@ class RAGChain:
 
             response = await chain.ainvoke({"question": query})
             logger.info(f"Generated response for query: {query}")
-            return {
-                "response": response,
-                "source_documents": [{"content": doc.page_content, "metadata": doc.metadata} for doc in docs],
-            }
+            return response
 
         except Exception as e:
             logger.error(f"Error generating response: {e}")
