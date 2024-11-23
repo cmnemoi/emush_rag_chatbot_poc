@@ -23,14 +23,13 @@ class Document(BaseModel):
 class DocumentLoader:
     """Loads and processes eMush game documentation from JSON files"""
 
-    def __init__(self, data_dir: str = "data", batch_size: int = 8, chunk_size: int = 1000, chunk_overlap: int = 200):
+    def __init__(self, data_dir: str = "data", batch_size: int = 8, chunk_size: int = 1000, chunk_overlap: int = 100):
         self.data_dir = Path(data_dir)
         self.batch_size = batch_size
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
             length_function=len,
-            separators=["\n\n", "\n", " ", ""]
         )
 
     def _batch_documents(self, documents: List[Document]) -> Iterator[List[Document]]:
