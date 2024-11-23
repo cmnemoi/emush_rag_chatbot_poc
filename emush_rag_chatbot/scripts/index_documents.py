@@ -17,27 +17,21 @@ async def main():
         loader = DocumentLoader(str(settings.DATA_DIR))
         vector_store = VectorStore()
 
-        # Load documents in batches
-        document_batches = loader.load_documents()
+        # Load documents
+        documents = loader.load_documents()
 
-        # Process each batch
-        for batch_idx, documents in enumerate(document_batches, 1):
-            logger.info(f"Processing batch {batch_idx}/{len(document_batches)}")
-
-            # Convert to Langchain documents
-            langchain_docs = []
-            for doc in documents:
-                langchain_docs.append(
-                    LangchainDocument(
-                        page_content=doc.content, metadata={"title": doc.title, "source": doc.source, "link": doc.link}
-                    )
+        # Convert to Langchain documents
+        langchain_docs = []
+        for doc in documents:
+            langchain_docs.append(
+                LangchainDocument(
+                    page_content=doc.content, metadata={"title": doc.title, "source": doc.source, "link": doc.link}
                 )
+            )
 
-            # Index current batch
-            vector_store.add_documents(langchain_docs)
-            logger.info(f"Successfully indexed batch {batch_idx}")
-
-        logger.info("Successfully indexed all document batches")
+        # Index documents
+        vector_store.add_documents(langchain_docs)
+        logger.info(f"Successfully indexed {len(documents)} documents")
 
     except Exception as e:
         logger.error(f"Error indexing documents: {e}")
