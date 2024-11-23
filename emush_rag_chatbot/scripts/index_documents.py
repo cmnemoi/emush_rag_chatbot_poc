@@ -18,7 +18,7 @@ async def main():
         vector_store = VectorStore()
 
         # Load documents in batches
-        document_batches = loader.load_documents(return_batches=True)
+        document_batches = loader.load_documents()
 
         # Process each batch
         for batch_idx, documents in enumerate(document_batches, 1):
