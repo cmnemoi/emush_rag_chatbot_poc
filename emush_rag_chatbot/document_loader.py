@@ -23,16 +23,22 @@ class Document(BaseModel):
 class DocumentLoader:
     """Loads and processes eMush game documentation from JSON files"""
 
-    def __init__(self, data_dir: str = "data", chunk_size: int = 1000, chunk_overlap: int = 100):
+    def __init__(self, data_dir: str = "data", chunk_size: int = 1000, chunk_overlap: int = 100, batch_size: int = 10):
         self.data_dir = Path(data_dir)
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
             length_function=len,
         )
+        self.batch_size = batch_size
 
 
-    def load_documents(self) -> List[Document]:
+    def _batch_documents(self, documents: List[Document]) -> Iterator[List[Document]]:
+        """Split documents into batches"""
+        for i in range(0, len(documents), self.batch_size):
+            yield documents[i:i + self.batch_size]
+
+    def load_documents(self) -> Iterator[List[Document]]:
         """
         Load JSON documents from the data directory
 
@@ -93,7 +99,7 @@ class DocumentLoader:
                     logger.error(f"Error processing document {file_path}: {e}")
 
             logger.info(f"Successfully loaded {len(documents)} documents")
-            return documents
+            return self._batch_documents(documents)
 
         except Exception as e:
             logger.error(f"Error loading documents: {e}")
