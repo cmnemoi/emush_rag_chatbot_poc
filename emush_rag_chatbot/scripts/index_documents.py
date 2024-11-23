@@ -30,7 +30,7 @@ async def main():
             )
 
         # Index documents
-        vector_store.add_documents(langchain_docs)
+        await vector_store.add_documents(langchain_docs)
         logger.info(f"Successfully indexed {len(documents)} documents")
 
     except Exception as e:
