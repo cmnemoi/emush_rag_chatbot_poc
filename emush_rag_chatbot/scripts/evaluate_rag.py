@@ -88,45 +88,35 @@ class RAGEvaluator:
         return results
 
     def save_results(self, results: List[Dict], output_file: Path):
-        """Save evaluation results to CSV file"""
+        """Save evaluation results to JSON file"""
         # Add metadata to results
-        evaluation_id = str(uuid.uuid4())
-        timestamp = datetime.datetime.now().isoformat()
+        evaluation_record = {
+            "evaluation_id": str(uuid.uuid4()),
+            "timestamp": datetime.datetime.now().isoformat(),
+            "dataset_name": "test_set_v1",
+            "rag_params": {
+                "top_k": 4,
+                "model": "gpt-4",
+                "temperature": 0
+            },
+            "results": results
+        }
         
-        # Flatten results for CSV
-        flattened_results = []
-        for result in results:
-            row = {
-                "evaluation_id": evaluation_id,
-                "timestamp": timestamp,
-                "dataset_name": "test_set_v1",
-                "rag_params": {
-                    "top_k": 4,
-                    "model": "gpt-4",
-                    "temperature": 0
-                },
-                "question": result["question"],
-                "ground_truth": result["ground_truth"],
-                "rag_response": result["rag_response"],
-                "correctness_score": result["evaluation"]["correctness_score"],
-                "completeness_score": result["evaluation"]["completeness_score"],
-                "relevance_score": result["evaluation"]["relevance_score"],
-                "overall_score": result["evaluation"]["overall_score"],
-                "explanation": result["evaluation"]["explanation"]
-            }
-            flattened_results.append(row)
+        # Save as JSON, loading existing results if file exists
+        output_file = output_file.with_suffix('.json')
+        existing_results = []
+        
+        if output_file.exists():
+            with open(output_file, 'r', encoding='utf-8') as f:
+                existing_results = json.load(f)
+                
+        if not isinstance(existing_results, list):
+            existing_results = []
             
-        # Save as CSV, appending if file exists
-        output_file = output_file.with_suffix('.csv')
-        file_exists = output_file.exists()
+        existing_results.append(evaluation_record)
         
-        mode = "a" if file_exists else "w"
-        with open(output_file, mode, newline="", encoding="utf-8") as f:
-            fieldnames = flattened_results[0].keys()
-            writer = csv.DictWriter(f, fieldnames=fieldnames)
-            if not file_exists:
-                writer.writeheader()
-            writer.writerows(flattened_results)
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(existing_results, f, indent=2, ensure_ascii=False)
 
 
 async def main():
@@ -156,7 +146,7 @@ async def main():
     print(f"Average Completeness Score: {avg_scores['completeness']:.2f}/5")
     print(f"Average Relevance Score: {avg_scores['relevance']:.2f}/5")
     print(f"Average Overall Score: {avg_scores['overall']:.2f}/5")
-    print(f"\nDetailed results saved to: {output_file}")
+    print(f"\nDetailed results saved to: {output_file.with_suffix('.json')}")
 
 
 if __name__ == "__main__":
