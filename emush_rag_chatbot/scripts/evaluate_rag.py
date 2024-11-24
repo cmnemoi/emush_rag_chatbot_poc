@@ -1,7 +1,9 @@
 import asyncio
 import csv
+import datetime
 import json
 import logging
+import uuid
 from pathlib import Path
 from typing import List, Dict
 
@@ -86,9 +88,41 @@ class RAGEvaluator:
         return results
 
     def save_results(self, results: List[Dict], output_file: Path):
-        """Save evaluation results to file"""
-        with open(output_file, "w", encoding="utf-8") as f:
-            json.dump(results, f, ensure_ascii=False, indent=2)
+        """Save evaluation results to CSV file"""
+        # Add metadata to results
+        evaluation_id = str(uuid.uuid4())
+        timestamp = datetime.datetime.now().isoformat()
+        
+        # Flatten results for CSV
+        flattened_results = []
+        for result in results:
+            row = {
+                "evaluation_id": evaluation_id,
+                "timestamp": timestamp,
+                "dataset_name": "test_set_v1",
+                "rag_params": {
+                    "top_k": 4,
+                    "model": "gpt-4",
+                    "temperature": 0
+                },
+                "question": result["question"],
+                "ground_truth": result["ground_truth"],
+                "rag_response": result["rag_response"],
+                "correctness_score": result["evaluation"]["correctness_score"],
+                "completeness_score": result["evaluation"]["completeness_score"],
+                "relevance_score": result["evaluation"]["relevance_score"],
+                "overall_score": result["evaluation"]["overall_score"],
+                "explanation": result["evaluation"]["explanation"]
+            }
+            flattened_results.append(row)
+            
+        # Save as CSV
+        if flattened_results:
+            fieldnames = flattened_results[0].keys()
+            with open(output_file.with_suffix('.csv'), "w", newline="", encoding="utf-8") as f:
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer.writeheader()
+                writer.writerows(flattened_results)
 
 
 async def main():
@@ -97,7 +131,7 @@ async def main():
     # Get script directory
     script_dir = Path(__file__).parent
     test_file = script_dir / "test_set.csv"
-    output_file = script_dir / "evaluation_results.json"
+    output_file = script_dir / "evaluation_results"  # Extension will be added in save_results
 
     # Run evaluation
     results = await evaluator.evaluate_test_set(test_file)
