@@ -29,11 +29,15 @@ run-chatbot:
 	uv run python emush_rag_chatbot/main.py
 
 semantic-release:
-	uv run semantic-release version --no-changelog --no-push --no-vcs-release --skip-build
+	uv run semantic-release version --no-changelog --no-push --no-vcs-release --skip-build --no-commit --no-tag
+	uv lock
+	git add pyproject.toml uv.lock
+	git commit --allow-empty --amend --no-edit
 
 setup-git-hooks:
 	chmod +x hooks/pre-commit
 	chmod +x hooks/pre-push
+	chmod +x hooks/post-commit
 	git config core.hooksPath hooks
 
 test:
