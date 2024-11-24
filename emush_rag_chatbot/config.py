@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     TOP_K: int = 3
     TEMPERATURE: float = 0
     SEED: int = 42
-    PROMPT_VERSION: str = "V3"
+    PROMPT_VERSION: str = "V5"
 
     # Evaluation settings
     EVALUATION_DATASET: str = "test_set_v2.csv"
