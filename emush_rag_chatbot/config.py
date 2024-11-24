@@ -17,7 +17,7 @@ class Settings(BaseSettings):
 
     # Model settings
     EMBEDDING_MODEL: str = "text-embedding-3-large"
-    CHAT_MODEL: str = "gpt-4o"
+    CHAT_MODEL: str = "gpt-4o-mini"
     EVALUATION_MODEL: str = "gpt-4o-mini"
     TOP_K: int = 3
     TEMPERATURE: float = 0
@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     PROMPT_VERSION: str = "V5"
 
     # Evaluation settings
-    EVALUATION_DATASET: str = "test_set_v2.csv"
+    EVALUATION_DATASET: str = "test_set_v3.csv"
 
     class Config:
         env_file = ".env"
