@@ -12,6 +12,15 @@ from emush_rag_chatbot.src.vector_store import VectorStore
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+REFORMULATE_TEMPLATE = """You are an expert at reformulating questions about the eMush game.
+Your task is to reformulate the user's question to make it clearer and more specific.
+Keep the reformulated question concise and focused on the key information needed.
+Maintain the original intent but make it more suitable for information retrieval.
+
+Original question: {question}
+
+Reformulated question:"""
+
 SYSTEM_TEMPLATE = """You are an expert assistant for the eMush game.
 Use the following pieces of retrieved context to answer questions about the game.
 If you don't know the answer, just say that you don't know.
@@ -43,6 +52,7 @@ class RAGChain:
                 ("human", HUMAN_TEMPLATE),
             ]
         )
+        self.reformulate_prompt = ChatPromptTemplate.from_template(REFORMULATE_TEMPLATE)
 
     def _format_chat_history(self, history: Optional[List[Dict[str, str]]] = None) -> str:
         """Format chat history for context"""
@@ -58,6 +68,13 @@ class RAGChain:
                 for doc in docs
             ]
         )
+
+    async def reformulate_question(self, query: str) -> str:
+        """Reformulate the user's question to be more suitable for RAG"""
+        chain = self.reformulate_prompt | self.llm | StrOutputParser()
+        reformulated = await chain.ainvoke({"question": query})
+        logger.info(f"Reformulated question: {reformulated}")
+        return reformulated
 
     async def generate_response(
         self,
@@ -77,8 +94,11 @@ class RAGChain:
             Generated response with source citations
         """
         try:
-            # Retrieve relevant documents
-            docs = self.vector_store.similarity_search(query, filter_metadata=filter_metadata)
+            # Reformulate the question
+            reformulated_query = await self.reformulate_question(query)
+            
+            # Retrieve relevant documents using reformulated query
+            docs = self.vector_store.similarity_search(reformulated_query, filter_metadata=filter_metadata)
 
             # Format inputs
             formatted_history = self._format_chat_history(chat_history)
