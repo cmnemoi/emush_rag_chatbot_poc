@@ -3162,5 +3162,444 @@
         }
       }
     ]
+  },
+  {
+    "evaluation_id": "07c0c0d5-99bd-4606-972e-6ca10712c7b1",
+    "timestamp": "2024-11-24T18:27:27.062744",
+    "dataset_name": "test_set_v2.csv",
+    "rag_params": {
+      "top_k": 3,
+      "model": "gpt-4o",
+      "temperature": 0.0,
+      "prompt_version": "V5"
+    },
+    "scores": {
+      "correctness": 3.4,
+      "completeness": 3.342857142857143,
+      "relevance": 4.628571428571429,
+      "overall": 3.7711428571428574
+    },
+    "results": [
+      {
+        "question": "Quand on prend un objet caché. Tout le monde voit le méssage non ?",
+        "ground_truth": "Oui, prendre un objet caché laisse un log public : le même que si l'objet n'était pas caché.",
+        "rag_response": "Non, prendre un objet caché est une action discrète, ce qui signifie qu'elle n'est pas visible par tout le monde. Selon les informations de la Mushpedia et des forums, l'action de cacher un objet est discrète, donc elle n'apparaît pas dans les logs publics. Cependant, prendre un objet est généralement visible, sauf pour certains objets spécifiques comme les Talkies Walkies. \n\nRaisonnement : Selon les sources de Twinpedia et Mushpedia, les actions discrètes ne sont visibles que si elles sont effectuées en présence d'une caméra ou d'autres personnages. Prendre un objet est généralement visible, mais cacher un objet est une action discrète.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 2,
+          "relevance_score": 3,
+          "explanation": "The AI assistant's response is incorrect regarding the visibility of taking a hidden object. The ground truth states that taking a hidden object leaves a public log, which the AI assistant contradicts by saying it is a discreet action. While the response does address the question, it fails to accurately reflect the mechanics of the action as described in the ground truth. It also introduces unnecessary details about specific objects, which detracts from the main point. Therefore, the correctness score is low, completeness is moderate due to some relevant points being mentioned, and relevance is fair as it does attempt to address the question.",
+          "overall_score": 2
+        }
+      },
+      {
+        "question": "Coucou, me revoilà avec une question, j'ai lu la liste de la tabulatrice et je m'attendais pas a ce qu'elle soit présentée comme ca, elle ne lave personne de tout soupcons, es ce que c'était comme ca il y a 10 ans ?",
+        "ground_truth": "Oui, la “liste de la tabulatrice” (qui est en réalité la “liste d’Eleesha) ne lave personne de tout soupçon. Il s’agit d’une liste de noms contenant au moins un Mush alpha. La liste commence avec 8 noms lors du réveil du premier équipier et perd un nom toutes les 24 heures. Vous confondez sans doute avec la liste de Finola qui elle peut réveler “l’état négatif” de certains équipiers, signifiant qu’ils ne sont pas Mushs alphas.",
+        "rag_response": "La liste de la Tabulatrix, également connue sous le nom de \"THE List\", est un document imprimé par le Tracker (Eleesha) dans le jeu Mush. Cette liste contient les noms de plusieurs personnages, dont au moins un est garanti d'être l'un des deux Mush alpha originaux. Les autres noms sont choisis aléatoirement et peuvent inclure d'autres Mush ou Chun, malgré son statut immunisé. La liste ne lave donc pas complètement de tout soupçon, car elle ne garantit pas que les autres noms ne sont pas des Mush ou qu'ils ne le deviendront pas par conversion.\n\nIl est important de noter que la liste ne peut être imprimée qu'une seule fois par partie et que le nombre de noms sur la liste diminue au fil du temps, commençant à 8 et diminuant de 1 tous les 8 cycles. Une fois imprimée, la liste ne change pas rétroactivement.\n\nIl semble que le fonctionnement de la liste n'ait pas changé de manière significative au cours des années, car les informations actuelles correspondent à celles décrites dans les sources disponibles. \n\nRéférences : Mushpedia, Aide aux Bolets.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, but it contains a minor inaccuracy regarding the number of names decreasing every 8 cycles instead of every 24 hours as stated in the ground truth. It also does not explicitly mention the confusion with the 'liste de Finola', which is a key point in the ground truth. However, it does address the main question and provides relevant context about the list's function and history, making it quite relevant.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "Désolé si c'est une question bête mais combien coûte de PA de bidouiller ? Un site dit 1 et un autre dit 2",
+        "ground_truth": "Bidouiller coûte 2 PA.",
+        "rag_response": "Bidouiller coûte généralement 1 point d'action (PA) dans le jeu Mush. Cependant, certaines actions ou conditions spécifiques peuvent modifier le coût en PA. Par exemple, des compétences ou des équipements particuliers peuvent influencer le coût des actions. \n\nRaisonnement : Selon les informations disponibles, la plupart des actions dans Mush coûtent 1 à 2 PA, mais bidouiller est généralement une action qui coûte 1 PA. Il est important de vérifier les compétences ou équipements qui pourraient affecter ce coût.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 2,
+          "relevance_score": 4,
+          "explanation": "The AI assistant's response inaccurately states that bidouiller generally costs 1 PA, while the ground truth specifies that it costs 2 PA. This is a significant error in correctness. The response does provide some context about how costs can vary based on skills or equipment, which adds some completeness, but it does not directly confirm the ground truth. The relevance is high as it addresses the question about the cost of bidouiller, but the inaccuracies heavily impact the overall evaluation.",
+          "overall_score": 2.33
+        }
+      },
+      {
+        "question": "Question : l'echolocateur augmente il les chances que d'autres cases (comme les grottes et les montagnes) donnent de l'hydrocarbure, ou augmente il seulement les chances de visiter une case hydrocarbure ?",
+        "ground_truth": "L’écholocateur n’augmente que les probabilités de visiter une section “Hydrocarbure” et non pas les chances de visiter des sections pouvant donner du fuel.",
+        "rag_response": "L'écholocateur augmente uniquement les chances de visiter une case \"Hydrocarbure\" si la planète en possède une. Il ne modifie pas les chances que d'autres types de cases, comme les grottes ou les montagnes, donnent de l'hydrocarbure. Cette information est confirmée par la source Mush Forums, qui précise que l'écholocateur n'affecte que la probabilité de tomber sur la case Hydrocarbure elle-même.\n\nReasoning: The context from Mush Forums clearly states that the echolocator increases the likelihood of encountering a Hydrocarbon sector if it exists on the planet, but it does not affect the probability of other sectors yielding hydrocarbons.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response accurately reflects the information provided in the ground truth answer. It correctly states that the echolocator only increases the chances of visiting a Hydrocarbon sector and does not affect the chances of other types of sectors yielding hydrocarbons. Additionally, it includes a reference to a source that supports this information, which adds credibility. The response fully addresses the question asked without omitting any key points.",
+          "overall_score": 5
+        }
+      },
+      {
+        "question": "Autre question : est ce que tout le monde devrait voir le lien du rapport d'expédition dans les logs ou seulement les membres de l'expédition ?",
+        "ground_truth": "Le lien du rapport d’expédition dans les logs n’est visible que pour les membres de l’expédition. Chaque explorateur aura un log privé avec le lien du rapport.",
+        "rag_response": "Seuls les membres de l'expédition peuvent consulter le rapport d'expédition pendant l'exploration. Une fois l'expédition terminée, le lien vers le rapport peut être partagé avec le reste de l'équipage. Cependant, le rapport d'expédition n'est pas automatiquement visible par tous dans les logs; il doit être partagé manuellement par ceux qui ont participé à l'expédition. \n\nCette information est confirmée par les sources de Twinpedia et Mushpedia, qui indiquent que le rapport d'expédition est initialement accessible uniquement aux explorateurs, mais peut être partagé avec l'équipage après l'expédition. \n\nReasoning: The information from Twinpedia and Mushpedia clearly states that the expedition report is initially only accessible to the explorers and can be shared with the rest of the crew after the expedition.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that only expedition members can initially access the report, which aligns with the ground truth. However, it introduces the idea of sharing the report with the rest of the crew after the expedition, which is not mentioned in the ground truth. This addition is somewhat misleading as it implies a different process than what is stated in the ground truth. The response covers the main points but lacks the specificity of the private logs mentioned in the ground truth. It is relevant to the question asked.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "Bonjour à toutes et à tous, dites moi je ne sais pas si vous aurez la réponse mais une blessure peut-elle être guérie avec le médikit ou bien forcément le plot chirurgical ? Et est ce que si on utilise le plot chirurgical ça guerri la blessure mais aussi les maladies que l'on peut avoir ou bien uniquement la blessure ? (J'imagine que si on utilise le medikit sur une blessure ça gueri aussi les maladies)",
+        "ground_truth": "Une blessure ne peut être guérie que par une chirurgie. Une opération peut être effectuée par un médecin sur une personne allongée. Si la personne est allongée hors de l’infirmerie, le medécin aura besoin du medikit pour débloquer l’action. Ou bien, on peut s'auto opérer avec le plot chirurgical. La chirurgie ne guérit que les blessures. Si maladie il y a durant l'opération, elle peut être guérie par les moyens habituels (soins au medikit ou à l'infirmerie, ou en consommant un médicament guérissant la maladie). ",
+        "rag_response": "Pour répondre à votre question, une blessure ne peut pas être guérie avec le Médikit. Le Médikit est utilisé pour soigner des maladies et restaurer des points de vie, mais il ne peut pas traiter les blessures. Pour guérir une blessure, il est nécessaire d'utiliser le Plot chirurgical dans l'infirmerie.\n\nEn ce qui concerne le Plot chirurgical, il est utilisé pour traiter uniquement les blessures. Il ne guérit pas les maladies. Si vous avez une maladie en plus de votre blessure, vous devrez utiliser un Médikit ou une autre méthode pour traiter la maladie séparément.\n\nCette information est confirmée par les sources de Twinpedia et Mushpedia, qui précisent que le Médikit ne peut pas aider avec une blessure, et que le Plot chirurgical est spécifiquement pour les blessures.\n\nRaisonnement : J'ai utilisé les informations de Twinpedia et Mushpedia pour confirmer que le Médikit ne guérit pas les blessures, et que le Plot chirurgical est nécessaire pour cela. Le Plot chirurgical ne traite que les blessures, pas les maladies.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is mostly accurate, stating that a wound cannot be healed with a Medikit and that a surgical bandage is necessary for treating wounds. However, it inaccurately implies that the Medikit cannot treat wounds at all, while the ground truth mentions that it can be used to unlock surgical actions if the person is lying down outside the infirmary. The response is complete in addressing the main points but lacks the nuance regarding the Medikit's role in surgical situations. It is relevant as it directly answers the user's questions.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "Bonsoir, petite question combien de spores un seul mush à le droit d'extirper en une journée ?",
+        "ground_truth": "4 + 1 spore par mush vivant qui a Esprit du Mycélium. La recherche “Gaz Antispore” réduit ce nombre de 2.",
+        "rag_response": "Un seul Mush peut extirper un maximum de 4 spores par jour. Cependant, ce nombre peut être réduit à 2 spores par jour si la recherche Gaz Antispore a été complétée. De plus, avec la compétence Esprit du Mycélium, les Mush peuvent produire un spore supplémentaire par jour. \n\nThis information is based on the Mushpedia source, which states that the entire mush team can produce a total of 4 spores each day, usually reduced to 2 by Antispore Gas, and can be increased by 1 with the Mycelium Spirit skill.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately reflects the information from the ground truth answer. It correctly states that a single Mush can extirper 4 spores per day, mentions the reduction to 2 spores due to the Gaz Antispore research, and includes the additional spore produced by the Esprit du Mycélium skill. All key points are covered, and the response is directly relevant to the question asked.",
+          "overall_score": 5
+        }
+      },
+      {
+        "question": "Bonjour, j'ai une question: est-ce qu'il est normal de pouvoir entrer en Icarus alors qu'une expé à 4 personnes est en cours...?",
+        "ground_truth": "Oui, il est normal de pouvoir rentrer en Baie Icarus alors qu’une expédition à 4 personnes est en cours. On y reste même quand ils reviennent. Par contre, si une expédition est lancée avec plus de 4 personnes en Baie Icarus, les 4 participants seront tirées au sort et les équipiers en trop ne partiront pas.",
+        "rag_response": "Oui, il est possible d'entrer dans la baie Icarus même si une expédition est en cours avec 4 personnes. Normalement, l'Icarus Bay est bloquée pour l'entrée si elle contient déjà 4 personnes ou plus (6 ou plus avec l'amélioration de la cale). Cependant, il est possible d'entrer dans la baie Icarus pendant qu'une expédition est en cours, ce qui peut entraîner plus de personnes présentes lorsque l'expédition se termine. Si une deuxième expédition est lancée et que 7 personnes ou plus se trouvent dans la baie Icarus, le jeu choisit aléatoirement 6 joueurs pour les envoyer sur la planète. Il est important de noter qu'il n'y a que 6 combinaisons spatiales à bord, donc il faut être prudent. \n\nCette information est basée sur les détails fournis par Mushpedia et Aide aux Bolets concernant les mécaniques de jeu et les expéditions.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate but contains a slight inaccuracy regarding the number of players that can be present in Icarus Bay. The ground truth states that if an expedition is launched with more than 4 people, the excess participants will be drawn randomly, while the AI mentions a threshold of 7 players. The response covers most key points but misses the specific detail about the random selection of participants. It is relevant to the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "petite question sur la liste d'Eleesha, à partir de quand commence le décompte pour la suppression d'un nom ? ça commence dès le reveil ou dès le début effectif de la partie (apparition des mushs) ?",
+        "ground_truth": "Le décompte pour la supression d’un nom de la liste d’Eleesha commence à partir du premier réveillé.",
+        "rag_response": "Le décompte pour la suppression d'un nom de la liste d'Eleesha commence au cycle du premier réveillé. Cela signifie que le calcul débute dès que le premier membre de l'équipage est réveillé, et non pas à l'apparition des mushs. Chaque jour, un nom est retiré de la liste. \n\nRaisonnement : Cette information est confirmée par le contexte fourni par les forums Mush, où il est précisé que le calcul commence au cycle du premier réveillé.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately states that the countdown for the removal of a name from Eleesha's list begins with the first member waking up, which aligns perfectly with the ground truth. It also clarifies that this countdown does not start with the appearance of the mushs, which is an important detail. Additionally, the response provides context from the Mush forums, reinforcing the accuracy of the information. Therefore, all criteria are met with high scores.",
+          "overall_score": 5
+        }
+      },
+      {
+        "question": "J'ai eu une question pour la prémonition de Chun Cela dit que cela révèle la dernière action de la personne Si Chun utilise plusieurs fois la compétence alors elle voit les X actions ou alors c'est vraiment tout le temps la dernière action comme le dit la description ?",
+        "ground_truth": "La prémonition de Chun révèle toujours la dernière action effectuée.",
+        "rag_response": "La compétence \"Prémonition\" de Chun permet de révéler uniquement la dernière action d'un équipier ciblé, et cela coûte un point de moral à chaque utilisation. Même si Chun utilise cette compétence plusieurs fois, elle ne verra que la dernière action effectuée par la personne à chaque fois. La compétence ne cumule pas les actions précédentes, elle se limite toujours à la plus récente. \n\nCette information est confirmée par la description de la compétence dans les sources disponibles, notamment sur Mushpedia, qui précise que la compétence révèle la dernière action d'un équipier à chaque utilisation. \n\nRaisonnement : J'ai utilisé les informations de Mushpedia qui décrivent la compétence \"Prémonition\" de Chun, confirmant qu'elle ne révèle que la dernière action d'un équipier à chaque utilisation.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response accurately reflects the ground truth answer, stating that Chun's premonition skill reveals only the last action performed. It also provides additional context about the skill's mechanics, such as the cost and the fact that it does not accumulate previous actions, which aligns with the ground truth. The response is thorough and directly addresses the question asked.",
+          "overall_score": 5
+        }
+      },
+      {
+        "question": "Questions pour les maladies Quand on soigne quelqu'un d'une maladie, on a un log mais si la maladie part d'elle-même, est ce que cela crée aussi un log ?",
+        "ground_truth": "Si la maladie guérit spontanément, le malade aura un log privé, donc invisible pour les autres contrairement à si la maladie avait été soignée (par un soin ou un médicament).",
+        "rag_response": "When someone is cured of a disease through treatment, a log is created to indicate the action. However, if a disease resolves on its own without any intervention, it does not create a log. This is because spontaneous recovery is considered a natural process and not an action that would be recorded in the logs. \n\nThis information is supported by the context from Aide aux Bolets, which mentions that recovering from a disease without treatment or medication is a personal action visible only to the player and not recorded in the public logs. \n\nReasoning: The context from Aide aux Bolets specifies that personal actions, such as recovering from a disease without treatment, are only visible to the player and not recorded in the public logs. Therefore, spontaneous recovery does not create a log.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately states that spontaneous recovery does not create a log, aligning with the ground truth. However, it could have mentioned that the log of the patient is private and not visible to others, which is a key point in the ground truth. Overall, the response is relevant and correct, but slightly less complete due to the omission of the private log detail.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "A question: when someone has 3 channels on, will I notice it when I check who I can invite into one of my channels?",
+        "ground_truth": "Yes, you will notice it, because you won’t see the player with 3 private channels in the list of the people you can invite into a private channel.",
+        "rag_response": "When someone already has 3 private channels open, you will not be able to invite them to a new private channel. However, there is no direct indication or notification that tells you they have reached their limit when you attempt to invite them. You simply won't be able to add them to your channel. \n\nThis information is based on the Mushpedia source, which states that a player can have up to 3 private channels open at once, and if they already have 3 tabs open, new people won't be able to invite them. \n\nReasoning: The Mushpedia source provides a clear explanation of the limitations on private channels, confirming that players cannot be invited to more than 3 channels at a time.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that a player with 3 private channels cannot be invited to a new one. However, it lacks the explicit mention that the player will not appear in the invite list, which is a key point in the ground truth. The response is relevant and directly addresses the question asked.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "Question random : Paola peut elle le faire avec gioele ?",
+        "ground_truth": "Non, Paola ne peut pas le faire avec Gioele. En effet, pour pouvoir le faire, il faut que l’un des deux équipiers fleurte avec l’autre. Or Paola et Gioele ne peuvent fleurter entre eux, étant de la même famille. ",
+        "rag_response": "Non, Paola et Gioele ne peuvent pas \"le faire\" ensemble dans le jeu eMush. Cette restriction est mentionnée dans les discussions sur les forums et les guides de jeu. \n\nRaisonnement : Selon les informations des forums Mush, il est spécifiquement indiqué que Paola et Gioele ne peuvent pas \"le faire\" ensemble. Cette règle est une des particularités du jeu concernant les interactions entre personnages.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that Paola and Gioele cannot 'le faire' together, which aligns with the ground truth. However, it lacks the specific reasoning provided in the ground truth about the familial relationship preventing them from flirting, which is a key point. The response is relevant to the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Bonsoir à tous ! Question un peu bête peut-être, mais est-ce que moisification de masse est révélée par les caméras ou les équipiers dans la pièce ? Et est-ce que tous les membres de l'équipage se retrouvent sales même celui qui a initié l'action ?",
+        "ground_truth": "Oui, moisification de masse est une action discrète, elle est donc révelée par les caméras ou les équipiers dans la pièce. Tous les membres d’équipage se retrouveront sales, y compris l’auteur de l’action. Il s’agit d’une action super salissante, donc le tablier intachable ne protège pas de la salissure.",
+        "rag_response": "La \"Moisification de masse\" est une compétence Mush qui rend tout l'équipage sale et leur fait perdre 2 points de moral. Selon la description de cette compétence sur Mushpedia, elle est secrète et ne cible personne en particulier, ce qui signifie qu'elle n'est pas révélée par les caméras ou les équipiers présents dans la pièce. \n\nEn ce qui concerne l'effet sur l'équipage, tous les membres, y compris celui qui a initié l'action, se retrouvent sales. Cependant, le Mush qui utilise cette compétence ne subit que la perte de spores et de points d'action nécessaires pour l'activer.\n\n**Reasoning:** La compétence \"Moisification de masse\" est décrite comme secrète, ce qui implique qu'elle n'est pas visible par les caméras ou les autres membres de l'équipage. Tous les membres de l'équipage, y compris l'utilisateur, deviennent sales, mais l'utilisateur ne perd que les ressources nécessaires pour activer la compétence. (Source: Mushpedia)",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 3,
+          "relevance_score": 4,
+          "explanation": "The AI assistant's response contains some accurate information regarding the 'Moisification de masse' skill, such as its effect on the crew becoming dirty. However, it incorrectly states that the action is secret and not revealed by cameras or crew members, which contradicts the ground truth that indicates it is revealed. The response also lacks mention of the 'super salissante' nature of the action and the ineffectiveness of the 'tablier intachable' in preventing dirt. While it addresses the question, it misses some key details and nuances from the ground truth.",
+          "overall_score": 3.33
+        }
+      },
+      {
+        "question": "Est-il normal que lorsqu'il y a moisissure de masse, les mushs perdent 2PA aussi?",
+        "ground_truth": "Oui, moisification de masse fait perdre 2PA à tous les membres d’équipage, y compris l’auteur et les autres Mushs.",
+        "rag_response": "Oui, c'est normal. Lors d'une Massive Mushification, tous les membres de l'équipage, y compris les mushs, perdent 2 points d'action (PA). Cette capacité est utilisée pour rendre tout le monde sale et faire perdre de l'énergie à l'équipage, mais elle affecte également les mushs en termes de perte de PA. Cependant, le mush qui utilise cette capacité ne perd que les 2 PA nécessaires pour l'activer. \n\nCette information est confirmée par la description de la capacité Massive Mushification sur Mushpedia, qui indique que la pénalité de 2 PA s'applique également aux mushs. \n\nReasoning: I used the information from Mushpedia, which clearly states that the 2 PA penalty applies to mushs as well during a Massive Mushification.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that all crew members, including mushs, lose 2 PA during a Massive Mushification. However, it introduces a slight inaccuracy by implying that the mush using the ability only loses the 2 PA necessary to activate it, which is not mentioned in the ground truth. This could lead to confusion about the overall impact on mushs. The response covers the main points but lacks clarity on the total loss of PA for mushs. It is relevant and directly addresses the question.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "Question : y a t'il un maximum pour les points de compétences ? Genre, les points tireurs, projets, cuisiniers, jardinnier ... Ou ils peuvent être accumulés à l'infini ?",
+        "ground_truth": "Les points de compétence ont effectivement des limites spécifiques selon chaque domaine. Voici des exemples de plafonds :   - **Tireur** : maximum de 4 points   - **Cuisinier** : maximum de 8 points   - **Botaniste** : maximum de 4 points   - **Pilgred** : maximum de 2 points    Ainsi, il n'est pas possible d'accumuler ces points à l'infini.",
+        "rag_response": "Les points de compétences tels que les points tireurs, projets, cuisiniers, et jardiniers ne peuvent pas être accumulés à l'infini. Selon les informations de Mushpedia, le maximum de points pour ces compétences est généralement le double de la quantité quotidienne gagnée. Par exemple, si une compétence vous donne 2 points par jour, vous pouvez accumuler jusqu'à 4 points au total. Cela signifie que vous pouvez accumuler ces points sur deux jours maximum avant de devoir les utiliser, sinon vous risquez de perdre les points supplémentaires que vous auriez pu gagner.\n\nRaisonnement: J'ai utilisé les informations de Mushpedia qui indiquent que les points de compétences ont un maximum basé sur le double de la quantité quotidienne gagnée. Cela signifie qu'ils ne peuvent pas être accumulés à l'infini.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response correctly states that skill points cannot be accumulated infinitely, which aligns with the ground truth. However, it inaccurately describes the maximum points as being based on the daily gain, which is not mentioned in the ground truth. Additionally, the response fails to provide specific maximum values for each skill, which is a key point in the ground truth. The relevance is high as it directly addresses the question.",
+          "overall_score": 3.33
+        }
+      },
+      {
+        "question": "une autre question... si un joueur qui a une gastro est converti en mush, est-ce qu'il garde la gastro ? ",
+        "ground_truth": "Un joueur converti au Mush garde la maladie durant le cycle de conversion. La maladie se retrouve soignée au changement de cycle.",
+        "rag_response": "Lorsqu'un joueur est converti en Mush, les maladies physiques disparaissent au premier changement de cycle après la conversion. Cependant, les maladies psychologiques restent. Donc, si un joueur a une gastro (qui est une maladie physique) et est converti en Mush, il ne devrait plus avoir la gastro après le changement de cycle suivant. \n\nCette information est confirmée par les discussions sur les forums Mush, où il est mentionné que les maladies physiques disparaissent après la conversion en Mush. \n\nReasoning: I used the information from the Mush Forums source, which states that physical diseases disappear after a player becomes a Mush, while psychological diseases remain.",
+        "evaluation": {
+          "correctness_score": 2,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response inaccurately states that physical diseases disappear after conversion, which contradicts the ground truth that a player retains the disease during the conversion cycle. While it correctly identifies gastro as a physical illness, it fails to mention that the disease is only cured at the end of the conversion cycle, not immediately after. The response is relevant to the question but lacks accuracy and completeness regarding the timing of the disease's resolution.",
+          "overall_score": 3
+        }
+      },
+      {
+        "question": "Bonjour à tous. Pour le retour sur Sol, est-ce que le filet magnétique rapatrie les patrouilleurs ?",
+        "ground_truth": "Tous les joueurs en vie rentrent sur Sol, quelque soit leur situation.",
+        "rag_response": "Oui, le filet magnétique est censé rapatrier les patrouilleurs. Cela signifie que si un patrouilleur est en vol lorsque le Daedalus quitte une orbite, le filet magnétique devrait permettre de récupérer le patrouilleur et son pilote. Cependant, il est important de s'assurer que le filet magnétique est activé pour que cela fonctionne correctement. \n\nCette information est confirmée par le contexte fourni par les forums Mush, où il est mentionné que le filet magnétique est censé récupérer le Pasiphae, un type de patrouilleur. \n\nRaisonnement: J'ai utilisé les informations des forums Mush qui confirment que le filet magnétique est censé récupérer les patrouilleurs, y compris le Pasiphae, lors du départ du Daedalus.",
+        "evaluation": {
+          "correctness_score": 2,
+          "completeness_score": 2,
+          "relevance_score": 4,
+          "explanation": "The AI assistant's response inaccurately states that the magnetic net is specifically for patrouilleurs, while the ground truth indicates that all players in life return to Sol regardless of their situation. The response does not fully capture the essence of the ground truth, which is more general. However, it does address the question about the magnetic net's function, which is relevant.",
+          "overall_score": 2.67
+        }
+      },
+      {
+        "question": "Hello, petite question, rapport à notre Chun qui est partie en Pasi et ne souhaite pas revenir: peut-on tirer sur le pasi depuis un patrouilleur? Et dans ce cas revient-il en baie une fois à 0 ...?",
+        "ground_truth": "On ne peut pas tirer sur la Pasiphae et il ne rentre pas une fois à 0 armure, mais est détruit. La seule solution pour forcer Chun à atterir est de développer le projet Filet magnétique qui fait atterir automatiquement les patrouilleurs et le Pasiphaé lors d’un voyage du Daedalus.",
+        "rag_response": "Non, il n'est pas possible de tirer sur le Pasiphae depuis un patrouilleur. Le Pasiphae est un patrouilleur spécialisé qui ne peut pas être attaqué par d'autres patrouilleurs. Il est conçu pour récupérer des débris dans l'espace et ne peut pas attaquer. Si le Pasiphae est endommagé, il doit être réparé pour être pleinement fonctionnel à nouveau, mais il ne peut pas être détruit par des tirs de patrouilleurs.\n\nReasoning: The context from Twinpedia and Mushpedia indicates that the Pasiphae is a specialized patrol ship that cannot attack and is used for retrieving debris. There is no mention of it being targetable by other patrol ships, and it is not designed to be involved in combat scenarios like other patrol ships.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 2,
+          "relevance_score": 4,
+          "explanation": "The AI assistant's response correctly states that it is not possible to shoot at the Pasiphae from a patrol ship, which aligns with the ground truth. However, it inaccurately suggests that the Pasiphae cannot be destroyed by patrol ships, while the ground truth states that it is destroyed when it reaches 0 armor. Additionally, the assistant fails to mention the need for the magnetic net project to force Chun to land, which is a key point in the ground truth. The response is relevant to the question but lacks completeness and contains inaccuracies.",
+          "overall_score": 3
+        }
+      },
+      {
+        "question": "question un peu bete mais vu que j'ai pas arreter de missclick avec, si on cache une plante, et ce que son fruit donné sera visible lui ?",
+        "ground_truth": "Les fruits produits par une plante cachée sont visibles par tous.",
+        "rag_response": "When a plant is hidden, its fruit production is not visible. The plant will still produce fruits, but they will not be visible to others, making it a method to protect the plant and its produce from other crew members. This information is based on the context provided by Twinpedia, which mentions that plants produce even when hidden, serving as a way to protect them from teammates. \n\nReasoning: The context from Twinpedia indicates that plants produce fruits even when hidden, and this production is not visible to others, which aligns with the user's question about the visibility of the fruit.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect regarding the visibility of the fruits. The ground truth states that the fruits are visible to all, while the assistant claims they are not visible. This fundamental inaccuracy significantly impacts the correctness score. The completeness score is low because it fails to mention that the fruits are visible, which is a key point from the ground truth. However, the response is relevant to the question asked, hence the relevance score is high.",
+          "overall_score": 2.67
+        }
+      },
+      {
+        "question": "Une caméra pas installé mais sur une personne fonctionne comme si elle était installée??",
+        "ground_truth": "Non, une caméra doit être installée pour révéler des actions.",
+        "rag_response": "Non, une caméra qui n'est pas installée et qui se trouve dans l'inventaire d'une personne ne fonctionne pas comme si elle était installée. Pour qu'une caméra soit opérationnelle et fournisse une surveillance, elle doit être installée dans une pièce. Lorsqu'elle est installée, elle peut révéler les actions secrètes et furtives qui se déroulent dans cette pièce. Une caméra dans l'inventaire est simplement un objet et ne fournit aucun bénéfice de surveillance. \n\nCette information est confirmée par la source de Mushpedia, qui indique qu'une caméra doit être installée pour être efficace et que lorsqu'elle est dans l'inventaire, elle ne fonctionne pas. \n\nReasoning: I used the information from Mushpedia which clearly states that cameras need to be installed to provide surveillance and do not work when they are in a personal inventory.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately reflects the ground truth answer, stating that a camera must be installed to function properly. It also elaborates on the necessity of installation for surveillance purposes, which aligns with the ground truth. Additionally, it includes a reference to Mushpedia, reinforcing the accuracy of the information provided. The response fully addresses the question and covers all key points.",
+          "overall_score": 5
+        }
+      },
+      {
+        "question": "est ce qu'une mycoalarme sonne lors de la consomation d'une ration piégée ?",
+        "ground_truth": " Non, la mycoalarme ne sonne pas lors de la consomation d'une ration piégée, mais uniquement lorsqu'un Mush piège la ration.",
+        "rag_response": "La Myco-Alarme ne sonne pas lors de la consommation d'une ration piégée. Selon les informations de Twinpedia et Mushpedia, la Myco-Alarme détecte certaines actions spécifiques des Mush, telles que l'infection, la cuisine fongique, le piégeur, le transfert, les câlins infectieux, et d'autres actions similaires. Cependant, elle ne réagit pas à la consommation de nourriture contaminée ou piégée. \n\nRaisonnement: J'ai utilisé les informations de Twinpedia et Mushpedia qui listent les actions qui déclenchent la Myco-Alarme. La consommation de nourriture piégée n'est pas mentionnée parmi ces actions.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately states that the Myco-Alarme does not sound during the consumption of a trapped ration, which aligns with the ground truth. However, it provides additional information about the specific actions that trigger the Myco-Alarme, which, while informative, is not necessary for answering the original question. This additional detail slightly detracts from the completeness score as it does not directly address the core of the ground truth answer. The response is relevant and directly addresses the question asked.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Bonsoir, est ce qu'il est possible de perdre son iTrakie dans un incendie ?",
+        "ground_truth": " Non, il n'est pas possible de perdre son iTrakie dans un incendie. L'iTrackie peut se casser dans un incendie, mais il ne peut pas être détruit.",
+        "rag_response": "Oui, il est possible de perdre son iTrakie dans un incendie. Selon Mushpedia, l'iTrakie peut devenir cassé (plutôt que détruit) lorsqu'il est exposé au feu. Cela signifie qu'il peut être endommagé et nécessiter des réparations avant de pouvoir être utilisé à nouveau. \n\nReasoning: I used the information from Mushpedia which states that the iTrakie can become broken when exposed to fire, indicating that it can be affected by an incident like an incendie.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect because it states that it is possible to lose the iTrakie in a fire, which contradicts the ground truth that states it cannot be destroyed. While it correctly mentions that the iTrakie can become broken, it fails to clarify that it cannot be lost in the sense of being destroyed. The response does address the question asked, but it does not accurately reflect the key points from the ground truth.",
+          "overall_score": 2.67
+        }
+      },
+      {
+        "question": "est ce que fouiller une pièce déclenche un potentiel piège mush ?",
+        "ground_truth": " Oui, fouiller une pièce déclenche un potentiel piège Mush, ainsi que toute interaction avec un équipement de la pièce.",
+        "rag_response": "Non, fouiller une pièce ne déclenche pas un piège mush. Selon les informations de Mushpedia, les actions qui déclenchent un piège mush sont celles qui impliquent une interaction avec les objets interactifs de la pièce, comme \"Prendre\", \"Accéder au terminal\", \"Lancer\", etc. Cependant, des actions comme \"Fouiller\" ou \"Cacher\" ne déclenchent pas le piège. \n\nRaisonnement: J'ai utilisé les informations de Mushpedia qui précisent quelles actions déclenchent un piège mush. \"Fouiller\" n'est pas mentionné comme une action qui déclenche un piège.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect as it states that searching a room does not trigger a mush trap, which directly contradicts the ground truth answer. It also fails to mention that any interaction with equipment in the room can trigger the trap, which is a key point from the ground truth. While the response is relevant to the question, the inaccuracies significantly impact the overall evaluation.",
+          "overall_score": 2.33
+        }
+      },
+      {
+        "question": "Comment fonctionne l'amélioration pilote des drones ? Plus précisément, est-ce qu'ils redescendent ? Sous qu'elle condition ?",
+        "ground_truth": " Les drones pilotes atterissent si leur patrouilleur n'a plus de charges ou s'il n'y a plus de hunters.",
+        "rag_response": "L'amélioration \"Pilote\" des drones permet aux drones de prendre le contrôle des patrouilleurs pour attaquer les hunters. Voici comment cela fonctionne :\n\n1. **Prise de contrôle** : Un drone avec l'amélioration \"Pilote\" peut embarquer dans un patrouilleur s'il y en a un disponible dans la pièce et s'il y a des hunters à proximité.\n\n2. **En vol** : Une fois en vol, le drone peut tirer sur les hunters avec la même efficacité qu'un joueur ayant la compétence \"Pilote\". Il a un bonus de 20% en visée par rapport aux humains.\n\n3. **Retour** : Le drone atterrit automatiquement s'il n'y a plus de vaisseaux ennemis ou de charges disponibles. Cependant, si le Daedalus se déplace sans le projet \"Filet Magnétique\", le drone et le patrouilleur sont perdus.\n\n4. **Conditions de descente** : Le drone redescend automatiquement lorsque les conditions suivantes sont remplies :\n   - Il n'y a plus de vaisseaux ennemis à attaquer.\n   - Il n'y a plus de charges disponibles pour tirer.\n   - Le Daedalus ne se déplace pas sans le projet \"Filet Magnétique\".\n\nEn résumé, un drone avec l'amélioration \"Pilote\" peut prendre le contrôle d'un patrouilleur pour attaquer les hunters, et il redescend automatiquement lorsque les conditions de combat ne sont plus remplies ou si le Daedalus se déplace sans protection. \n\nRaisonnement : J'ai utilisé les informations de Twinpedia et Mushpedia pour expliquer le fonctionnement de l'amélioration \"Pilote\" des drones, en détaillant les conditions de prise de contrôle, d'attaque et de retour.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, detailing how drones with the 'Pilot' upgrade function and the conditions under which they land. However, it introduces some additional context about the Daedalus and the 'Filet Magnétique' project, which is not mentioned in the ground truth answer. This could lead to slight inaccuracies regarding the core mechanics of the drone's landing conditions. The response covers the main points but adds extra information that may not be necessary. Overall, it is relevant and addresses the question well.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "Est ce que traître se déclenche si le mush reste bien au chaud parce qu'il a 'oublié' sa combinaison ?",
+        "ground_truth": " Oui, la compétence Traître fonctionne si le Mush est bloqué dans l'Icarus.",
+        "rag_response": "La compétence \"Traitor\" (Traître) est une compétence passive qui fonctionne même si le personnage possédant cette compétence reste sur l'Icarus, c'est-à-dire qu'il n'a pas besoin de participer activement à l'expédition pour que l'effet de la compétence s'applique. Cela signifie que même si le mush \"oublie\" sa combinaison et reste à bord, la probabilité de résultats négatifs sur les expéditions auxquelles il est associé est toujours multipliée par deux. \n\nCette information est confirmée par la description de la compétence \"Traitor\" sur Mushpedia, qui précise que l'effet est actif même si le possesseur est laissé sur l'Icarus.\n\nReasoning: The information from Mushpedia clearly states that the \"Traitor\" skill is passive and functions even if the possessor is left on the Icarus, indicating that the skill's effect is independent of the character's physical presence on the expedition.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately reflects the mechanics of the 'Traitor' skill, confirming that it activates even if the mush is not actively participating in the expedition. It also provides additional context about the skill's passive nature and references Mushpedia for verification, which aligns with the ground truth answer.",
+          "overall_score": 5
+        }
+      },
+      {
+        "question": "Curiosité : allergie aux mush fait perdre 4 pv en cas de contamination avec un spore. Mais du coup est ce que ça peut te tuer ? Et si oui c'est quoi l'intitulé de ta mort ?",
+        "ground_truth": " Oui, la perte de PV de l'allergie au Mush peut tuer. La cause de la mort est Blessures...",
+        "rag_response": "L'allergie au mush fait perdre 2 points de vie lorsqu'un personnage est poinçonné, c'est-à-dire lorsqu'un spore est attaché à lui. Cependant, il n'est pas précisé dans les sources disponibles si cela peut directement entraîner la mort du personnage. En général, les pertes de points de vie dues à des maladies ou des symptômes ne sont pas immédiatement mortelles, mais peuvent contribuer à une situation critique si le personnage est déjà affaibli.\n\nConcernant l'intitulé de la mort, il n'y a pas d'information spécifique sur un intitulé de mort lié directement à l'allergie au mush. Les décès dans le jeu sont souvent associés à des causes plus générales ou à des maladies spécifiques, mais l'allergie au mush n'est pas mentionnée comme ayant un intitulé de mort particulier.\n\nRéférences:\n- Twinpedia mentionne que l'allergie au mush fait perdre 2 points de vie lors d'un poinçonnement.\n- Aide aux Bolets indique que les mushs ne peuvent pas tomber malades ni subir des troubles psychologiques, mais ne précise pas d'intitulé de mort pour l'allergie au mush.",
+        "evaluation": {
+          "correctness_score": 2,
+          "completeness_score": 2,
+          "relevance_score": 4,
+          "explanation": "The AI assistant's response contains inaccuracies regarding the points of life lost due to the allergy, stating it causes a loss of 2 points instead of the correct 4. It also fails to confirm that the allergy can lead to death, which is a key point in the ground truth. While it does address the question about the title of death, it does not provide the specific title mentioned in the ground truth. The relevance is high as it addresses the question, but the inaccuracies and omissions significantly impact the overall quality.",
+          "overall_score": 2.67
+        }
+      },
+      {
+        "question": "Est-ce qu'avec la langue cisaillée on a toujours accès aux canaux privés ?",
+        "ground_truth": " Oui, vous avez toujours accès aux canaux privés avec la langue cisaillée, mais vous ne pourrez pas écrire dedans.",
+        "rag_response": "Avec une langue cisaillée, vous ne pouvez pas parler dans les canaux privés, mais vous pouvez toujours y avoir accès. Selon le contexte de Twinpedia, les plaies telles que la langue cisaillée empêchent de parler, mais pas l'accès aux canaux privés. Cela signifie que vous pouvez lire les messages dans les canaux privés, mais vous ne pourrez pas y contribuer tant que la blessure n'est pas soignée.\n\nReasoning: The Twinpedia source specifies that injuries like a cut tongue prevent speaking but do not prevent access to private channels. This means you can still read messages but cannot speak until the injury is healed.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately states that with a cut tongue, one cannot speak in private channels but can still access them, which aligns with the ground truth. However, it slightly lacks in completeness as it does not explicitly mention that one cannot write in private channels, which is a key point in the ground truth answer. Overall, the response is relevant and correct.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Est-ce que l'allergie au mush fonctionne à 100 % (si on croise un mush on éternue à coup sûr) ?",
+        "ground_truth": " Non, l'éternuement en présence d'un Mush si on a la maladie Allergie au Mush est aléatoire.",
+        "rag_response": "L'allergie au mush ne fonctionne pas à 100%. Lorsqu'une personne atteinte de l'allergie au mush entre dans une pièce où se trouve un mush, il y a une probabilité de détection qui se manifeste par un éternuement (\"Atchoum\") dans le registre. Cependant, ce n'est pas garanti à chaque fois qu'un mush est présent. \n\nCette information est basée sur le fait que l'allergie au mush est utilisée comme un détecteur à mush, mais il est mentionné qu'il y a une probabilité de détection, ce qui implique que ce n'est pas systématique. \n\nRaisonnement: La source du Mush Forums mentionne que l'allergie au mush peut être utilisée pour détecter la présence de mushs, mais elle parle de probabilité, ce qui signifie que ce n'est pas une détection automatique à chaque fois.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately states that the allergy to mush does not guarantee an eternal sneeze every time a mush is present, aligning with the ground truth. However, it could have been more concise and directly stated that the sneezing is random rather than implying a probability of detection, which could lead to some confusion. Overall, it effectively addresses the question asked.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "est-ce qu'un mush peut éternuer en sa propre présence s'il a une allergie au Mush ?",
+        "ground_truth": " Oui, un Mush peut éternuer en sa propre présence s'il a une allergie au Mush.",
+        "rag_response": "Non, un Mush ne peut pas éternuer en sa propre présence s'il a une allergie au Mush. L'allergie au Mush provoque un éternuement (\"Atchoum\") lorsqu'une personne entre dans une pièce où se trouve un Mush. Cependant, un Mush ne peut pas être affecté par cette allergie, car les Mushs ne peuvent pas tomber malades ni subir de troubles psychologiques. Cela signifie qu'un Mush ne peut pas avoir l'allergie au Mush et donc ne peut pas éternuer en sa propre présence. \n\nCette information est confirmée par le fait que les Mushs ne sont pas affectés par les maladies ou les troubles psychologiques, comme mentionné dans les sources de Aide aux Bolets.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect as it states that a Mush cannot sneeze in its own presence if it has an allergy to Mush, which directly contradicts the ground truth answer. While it does provide some context about Mushs not being affected by allergies, this is inaccurate in the context of the question. The response is relevant to the question but fails to provide the correct information, leading to a low correctness score. The completeness score is low because it does not acknowledge the possibility of a Mush sneezing due to its own allergy, which is the crux of the question. The relevance score is high as the response is directly related to the question asked.",
+          "overall_score": 2
+        }
+      },
+      {
+        "question": "Est-ce que plusieurs montures rocheuses sont cummulables entre-elles ?",
+        "ground_truth": " Non, les montures rocheuses ne sont cumulables entre elles. Une monture rocheuse se cumule cependant avec la trotinette anti-gravité.",
+        "rag_response": "La question des montures rocheuses n'est pas abordée dans les sources fournies. Par conséquent, je ne peux pas confirmer si elles sont cumulables entre elles. \n\nRaisonnement : Les sources disponibles ne mentionnent pas les montures rocheuses, donc je ne peux pas fournir une réponse basée sur les informations disponibles.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 2,
+          "explanation": "The AI assistant's response does not provide accurate information regarding the cumulative nature of rocky mounts, which is explicitly stated in the ground truth answer. It fails to mention that rocky mounts are not cumulative with each other and only mentions the lack of information in the sources. This leads to a low correctness and completeness score. The relevance score is slightly higher as it does attempt to address the question, but ultimately does not provide a useful answer.",
+          "overall_score": 1.33
+        }
+      },
+      {
+        "question": "Question : est ce que s'allonger sur un lit dans une pièce piégée provoque une contamination comme l'usage d'un équipement ?",
+        "ground_truth": " Oui, s'allonger sur un lit dans une pièce piégée provoque une contamination.",
+        "rag_response": "S'allonger sur un lit dans une pièce piégée ne déclenche pas le piège. Les pièges sont activés par des actions spécifiques sur des objets interactifs de la pièce, comme \"Prendre\", \"Accéder au terminal\", \"Lancer\", etc. S'allonger sur un lit ne fait pas partie de ces actions interactives qui déclencheraient un piège. \n\nCette information est confirmée par la description du fonctionnement des pièges dans le jeu, où il est précisé que les actions d'interaction avec l'inventaire ou simplement regarder les unités de stockage ne comptent pas comme des actions déclenchant le piège. \n\nRaisonnement basé sur la source de Mushpedia concernant le fonctionnement des pièges.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 2,
+          "explanation": "The AI assistant's response incorrectly states that lying on a bed does not trigger a trap, which contradicts the ground truth answer that confirms it does cause contamination. The response fails to accurately reflect the implications of the question regarding contamination. Additionally, it does not address the concept of contamination directly, which is a key point in the ground truth. While it provides some context about traps, it does not relate this information back to the question effectively.",
+          "overall_score": 1.33
+        }
+      },
+      {
+        "question": "Bonjour, lorsqu'un Mush active un piège, est-ce que c'est notifié dans le canal Mush ? Style 'Machin a activé son propre piège, le spore est perdu' ?",
+        "ground_truth": " Non, si un Mush déclenche un piège dans une pièce, il n'y a pas de message dans le canal Mush.",
+        "rag_response": "Non, lorsqu'un Mush active un piège, cela n'est pas notifié dans le canal Mush. Selon les informations de Mushpedia, si un Mush ou un personnage immunisé (comme Chun, Hygienist, ou quelqu'un avec Antique Perfume) déclenche un piège, le spore est simplement perdu, et il n'y a pas de notification spécifique dans le canal Mush pour indiquer que le piège a été activé par un Mush. La seule indication pour le Mush qui a posé le piège est qu'il pourra poser un autre piège dans la même pièce, ce qui signifie que le précédent a été déclenché sans effet. \n\nReasoning: I used the Mushpedia source which explains the mechanics of the Trapper skill and how traps are triggered. It specifies that there is no notification in the Mush channel when a trap is triggered by a Mush or an immune character.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately states that there is no notification in the Mush channel when a Mush activates a trap, which aligns with the ground truth. However, it includes additional information about the mechanics of trap activation and the loss of spores, which, while relevant, slightly diverges from the core question. This additional detail is useful but not strictly necessary for answering the original question, hence the completeness score is slightly lower.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "On est bien d'accord qu'un mush malade n'a pas de symptômes ?",
+        "ground_truth": " Non, un Mush subit bien les symptômes de ses maladies. Bien que les Mushs ne peuvent pas tomber malade, s'ils avaient une maladie avant d'être converti au Mush, ils subissent bien les symptômes de cette dernière.",
+        "rag_response": "Un mush ne peut pas tomber malade, mais s'il était déjà malade avant de devenir un mush, il conserve sa maladie et ses symptômes. Cela signifie qu'un mush peut avoir des symptômes s'il les avait déjà en tant qu'humain avant sa conversion. \n\nCette information est confirmée par plusieurs sources, notamment Aide aux Bolets et les forums Mush, qui indiquent qu'un humain converti en mush garde sa maladie. \n\nEn résumé, un mush ne peut pas attraper de nouvelles maladies, mais peut conserver les symptômes d'une maladie contractée avant sa conversion. \n\nReasoning: J'ai utilisé les informations des sources Aide aux Bolets et Mush Forums qui précisent que les mushs ne peuvent pas tomber malades, mais conservent les maladies et symptômes qu'ils avaient avant leur conversion.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately reflects the information provided in the ground truth answer. It correctly states that a mush cannot become ill but can exhibit symptoms of a pre-existing condition. Additionally, it includes the important detail that these symptoms are retained from the time before conversion. The response is thorough and directly addresses the question asked.",
+          "overall_score": 5
+        }
+      },
+      {
+        "question": "Dites, est ce qu'il y a des exceptions aux pertes de moral en cas de décès ? Par ce que j'ai l'impression que ça fait plusieurs parties que je ne perd pas de moral quand des inactifs meurent de dépression...? (évidemment, je ne parle pas du moral des mushs)",
+        "ground_truth": " Oui, il existe des exceptions aux pertes de moral en cas de décès : les morts par dépression fatale ou par quarantaine ne retirent pas de moral.",
+        "rag_response": "Oui, il y a des exceptions aux pertes de moral en cas de décès dans le jeu Mush. Selon les informations disponibles, la mort par dépression fatale et la mise en quarantaine par NERON ne font pas perdre de moral aux autres membres de l'équipage. Cela est fait pour éviter un effet boule de neige où la perte de moral entraînerait d'autres décès par dépression. Donc, si un équipier meurt de dépression fatale, cela n'affectera pas le moral des autres membres de l'équipage.\n\nReasoning: This information is based on the context provided from the Mush Forums, which states that deaths by fatal depression and quarantine by NERON do not cause a loss of morale for the crew. This aligns with your observation of not losing morale when inactives die of depression.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately reflects the ground truth answer, stating that deaths by fatal depression and quarantine do not result in a loss of morale. It also provides additional context about the reasoning behind this mechanic, which enhances understanding. All key points from the ground truth are covered, and the response directly addresses the user's question about exceptions to morale loss.",
+          "overall_score": 5
+        }
+      }
+    ]
   }
 ]

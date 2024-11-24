@@ -17,7 +17,7 @@ class Settings(BaseSettings):
 
     # Model settings
     EMBEDDING_MODEL: str = "text-embedding-3-large"
-    CHAT_MODEL: str = "gpt-4o-mini"
+    CHAT_MODEL: str = "gpt-4o"
     EVALUATION_MODEL: str = "gpt-4o-mini"
     TOP_K: int = 3
     TEMPERATURE: float = 0
