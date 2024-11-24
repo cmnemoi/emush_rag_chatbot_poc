@@ -1,6 +1,6 @@
 [project]
 name = "emush-rag-chatbot"
-version = "0.0.0"
+version = "0.1.0"
 description = "A RAG which can answer questions about eMush game."
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
