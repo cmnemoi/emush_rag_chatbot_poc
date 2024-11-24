@@ -1,266 +1,1849 @@
 [
   {
-    "question": "Quand on prend un objet caché. Tout le monde voit le méssage non ?",
-    "ground_truth": "Oui, prendre un objet caché laisse un log public : le même que si l'objet n'était pas caché.",
-    "rag_response": "Oui, lorsque vous découvrez un objet caché, un message public s'affiche pour indiquer que vous avez trouvé l'objet.",
-    "evaluation": {
-      "correctness_score": 5,
-      "completeness_score": 4,
-      "relevance_score": 5,
-      "explanation": "The AI assistant's response is accurate, stating that a public message is displayed when an object is discovered, which aligns with the ground truth. However, it does not explicitly mention that this log is the same as if the object were not hidden, which is a key point in the ground truth. The response is relevant and directly addresses the question asked.",
-      "overall_score": 4.67
-    }
+    "evaluation_id": "1edb0cb2-58bc-4ef5-aaf7-e4bf0298c903",
+    "timestamp": "2024-11-24T14:30:51.557096",
+    "dataset_name": "test_set_v1",
+    "rag_params": {
+      "top_k": 4,
+      "model": "gpt-4",
+      "temperature": 0,
+      "prompt_version": "V1"
+    },
+    "results": [
+      {
+        "question": "Quand on prend un objet caché. Tout le monde voit le méssage non ?",
+        "ground_truth": "Oui, prendre un objet caché laisse un log public : le même que si l'objet n'était pas caché.",
+        "rag_response": "Oui, lorsque vous découvrez un objet caché, un message public s'affiche pour indiquer que vous avez trouvé l'objet.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate, stating that a public message is displayed when an object is discovered, which aligns with the ground truth. However, it does not explicitly mention that this log is the same as if the object were not hidden, which is a key point in the ground truth. The response is directly relevant to the question asked.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Coucou, me revoilà avec une question, j'ai lu la liste de la tabulatrice et je m'attendais pas a ce qu'elle soit présentée comme ca, elle ne lave personne de tout soupcons, es ce que c'était comme ca il y a 10 ans ?",
+        "ground_truth": "Oui, la “liste de la tabulatrice” (qui est en réalité la “liste d’Eleesha\") ne lave personne de tout soupçon. Il s’agit d’une liste de noms contenant au moins un Mush alpha. La liste commence avec 8 noms lors du réveil du premier équipier et perd un nom toutes les 24 heures. Vous confondez sans doute avec la liste de Finola qui elle peut réveler “l’état négatif” de certains équipiers, signifiant qu’ils ne sont pas Mushs alphas.",
+        "rag_response": "Je ne sais pas.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI Assistant's response is not correct as it does not provide any information related to the question asked. It fails to address the specifics of the 'liste de la tabulatrice' and its historical context, which are crucial to the question. The response is minimally relevant as it acknowledges a lack of knowledge but does not attempt to engage with the question.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Désolé si c'est une question bête mais combien coûte de PA de bidouiller ? Un site dit 1 et un autre dit 2",
+        "ground_truth": "Bidouiller coûte 2 PA.",
+        "rag_response": "Bidouiller coûte 2 PA.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response accurately states that 'bidouiller' costs 2 PA, which matches the ground truth answer. It also fully addresses the user's question without omitting any key points. Additionally, the response is directly relevant to the inquiry about the cost of 'bidouiller'.",
+          "overall_score": 5
+        }
+      },
+      {
+        "question": "uestion : l'echolocateur augmente il les chances que d'autres cases (comme les grottes et les montagnes) donnent de l'hydrocarbure, ou augmente il seulement les chances de visiter une case hydrocarbure ?",
+        "ground_truth": "L’écholocateur n’augmente que les probabilités de visiter une section “Hydrocarbure” et non pas les chances de visiter des sections pouvant donner du fuel.",
+        "rag_response": "L'écholocateur augmente seulement les chances de tomber sur la case HydroCarbure si la planète en a une. Cela n'augmente pas les chances pour d'autres cases comme les grottes et les montagnes.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately states that the echolocator only increases the chances of landing on an 'HydroCarbure' case and does not affect the chances of visiting other types of cases like caves and mountains. However, it could have explicitly mentioned that it does not increase the chances of visiting sections that can yield fuel, which is a key point in the ground truth answer. Overall, the response is relevant and correct.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Autre question : est ce que tout le monde devrait voir le lien du rapport d'expédition dans les logs ou seulement les membres de l'expédition ?",
+        "ground_truth": "Le lien du rapport d’expédition dans les logs n’est visible que pour les membres de l’expédition. Chaque explorateur aura un log privé avec le lien du rapport.",
+        "rag_response": "Seuls les membres de l'expédition peuvent voir le lien du rapport d'expédition dans les logs.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is correct in stating that only expedition members can see the link to the expedition report in the logs. However, it lacks the detail that each explorer has a private log with the link, which is a key point from the ground truth. The response is relevant as it directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Bonjour à toutes et à tous, dites moi je ne sais pas si vous aurez la réponse mais une blessure peut-elle être guérie avec le médikit ou bien forcément le plot chirurgical ? Et est ce que si on utilise le plot chirurgical ça guerri la blessure mais aussi les maladies que l'on peut avoir ou bien uniquement la blessure ? (J'imagine que si on utilise le medikit sur une blessure ça gueri aussi les maladies)",
+        "ground_truth": "Une blessure ne peut être guérie que par une chirurgie. Une opération peut être effectuée par un médecin sur une personne allongée. Si la personne est allongée hors de l’infirmerie, le medécin aura besoin du medikit pour débloquer l’action. Ou bien, on peut s'auto opérer avec le plot chirurgical. La chirurgie ne guérit que les blessures. Si maladie il y a durant l'opération, elle peut être guérie par les moyens habituels (soins au medikit ou à l'infirmerie, ou en consommant un médicament guérissant la maladie). ",
+        "rag_response": "Bonjour ! Une blessure peut être guérie avec le médikit, mais pour certaines blessures, il est préférable d'utiliser le plot chirurgical à l'infirmerie. L'utilisation du plot chirurgical ne guérit que la blessure et non les maladies. Le médikit peut aider à récupérer des points de vie, mais il ne guérit pas les maladies.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 3,
+          "relevance_score": 4,
+          "explanation": "The AI assistant's response contains some accurate information, such as the fact that a plot chirurgical is preferable for certain injuries and that it does not heal diseases. However, it inaccurately states that a wound can be healed with a medikit, which contradicts the ground truth that specifies only surgical methods can heal wounds. Additionally, the response lacks details about the need for a medikit to perform surgery if the person is not in the infirmary, which is a key point from the ground truth. The response is relevant to the question but does not fully address all aspects.",
+          "overall_score": 3.33
+        }
+      },
+      {
+        "question": "Bonsoir, petite question combien de spores un seul mush à le droit d'extirper en une journée ?",
+        "ground_truth": "4 + 1 spore par mush vivant qui a Esprit du Mycélium. La recherche “Gaz Antispore” réduit ce nombre de 2.",
+        "rag_response": "Un mush peut extirper jusqu'à 2 spores par jour.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect as it states that a mush can extirpate up to 2 spores per day, while the ground truth indicates that it can extirpate 4 + 1 spore if it has 'Esprit du Mycélium', and that the 'Gaz Antispore' research reduces this number by 2. The response also fails to mention the additional spore from the 'Esprit du Mycélium' and the effect of 'Gaz Antispore', which are key points in the ground truth. However, the response is relevant to the question asked.",
+          "overall_score": 2.33
+        }
+      },
+      {
+        "question": "Bonjour, j'ai une question: est-ce qu'il est normal de pouvoir entrer en Icarus alors qu'une expé à 4 personnes est en cours...?",
+        "ground_truth": "Oui, il est normal de pouvoir rentrer en Baie Icarus alors qu’une expédition à 4 personnes est en cours. On y reste même quand ils reviennent. Par contre, si une expédition est lancée avec plus de 4 personnes en Baie Icarus, les 4 participants seront tirées au sort et les équipiers en trop ne partiront pas.",
+        "rag_response": "Non, il n'est pas normal de pouvoir entrer dans l'Icarus pendant qu'une expédition à 4 personnes est en cours. Cela pourrait indiquer un bug dans le jeu.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is incorrect as it states that it is not normal to enter Icarus during an ongoing expedition, which contradicts the ground truth that confirms it is normal. The response also fails to mention the details about the maximum number of participants and the random selection process, which are key points in the ground truth. However, it does directly address the question asked, hence the relevance score is high.",
+          "overall_score": 2.33
+        }
+      },
+      {
+        "question": "petite question sur la liste d'Eleesha, à partir de quand commence le décompte pour la suppression d'un nom ? ça commence dès le reveil ou dès le début effectif de la partie (apparition des mushs) ?",
+        "ground_truth": "Le décompte pour la supression d’un nom de la liste d’Eleesha commence à partir du premier réveillé.",
+        "rag_response": "Le décompte pour la suppression d'un nom sur la liste d'Eleesha commence au cycle du premier réveillé.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that the countdown for the deletion of a name starts at the cycle of the first awakened, which is similar to the ground truth that specifies it starts at the first awakened. However, the term 'cycle' could introduce slight ambiguity compared to the ground truth's phrasing. The response covers the key point but does not explicitly mention 'réveillé' as the ground truth does, which affects completeness slightly. The response is relevant and directly addresses the question.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "J'ai eu une question pour la prémonition de Chun Cela dit que cela révèle la dernière action de la personne Si Chun utilise plusieurs fois la compétence alors elle voit les X actions ou alors c'est vraiment tout le temps la dernière action comme le dit la description ?",
+        "ground_truth": "La prémonition de Chun révèle toujours la dernière action effectuée.",
+        "rag_response": "La prémonition de Chun révèle uniquement la dernière action de la personne, et non plusieurs actions.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is accurate, stating that Chun's premonition reveals only the last action, which aligns with the ground truth. However, it does not explicitly mention that this is a consistent feature of the ability, which is a key point in the ground truth. Therefore, it loses a point in completeness. The response is directly relevant to the question asked.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Questions pour les maladies Quand on soigne quelqu'un d'une maladie, on a un log mais si la maladie part d'elle-même, est ce que cela crée aussi un log ?",
+        "ground_truth": "Si la maladie guérit spontanément, le malade aura un log privé, donc invisible pour les autres contrairement à si la maladie avait été soignée (par un soin ou un médicament).",
+        "rag_response": "Non, si la maladie part d'elle-même, cela ne crée pas de log. Les logs sont générés uniquement lorsque quelqu'un est soigné d'une maladie.",
+        "evaluation": {
+          "correctness_score": 2,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect because it states that no log is created if the disease resolves on its own, which contradicts the ground truth that mentions a private log exists for the patient. The response also lacks the nuance that the log is private and not visible to others, which is a key point in the ground truth. However, the response is relevant to the question asked, hence it scores a 5 in relevance.",
+          "overall_score": 3
+        }
+      },
+      {
+        "question": "A question: when someone has 3 channels on, will I notice it when I check who I can invite into one of my channels?",
+        "ground_truth": "Yes, you will notice it, because you won’t see the player with 3 private channels in the list of the people you can invite into a private channel.",
+        "rag_response": "Yes, if someone has 3 private channels active, you will notice it when you check who you can invite into one of your channels.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate and correctly states that you will notice the player with 3 private channels when checking who to invite. However, it lacks the specific detail that the player will not appear in the invite list, which is a key point in the ground truth answer. The response is relevant and directly addresses the question asked.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Question random : Paola peut elle \"le faire\" avec gioele ?",
+        "ground_truth": "Non, Paola ne peut pas le faire avec Gioele. En effet, pour pouvoir le faire, il faut que l’un des deux équipiers fleurte avec l’autre. Or Paola et Gioele ne peuvent fleurter entre eux, étant de la même famille. ",
+        "rag_response": "Non, Paola et Gioele ne peuvent pas le faire ensemble.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly correct in stating that Paola and Gioele cannot do it together, but it lacks the specific reasoning provided in the ground truth about the requirement of flirting and the familial relationship that prevents it. Therefore, while the answer is relevant and mostly correct, it is incomplete in terms of the reasoning behind the answer.",
+          "overall_score": 3.67
+        }
+      },
+      {
+        "question": "Bonsoir à tous ! Question un peu bête peut-être, mais est-ce que \"moisification de masse\" est révélée par les caméras ou les équipiers dans la pièce ? Et est-ce que tous les membres de l'équipage se retrouvent sales même celui qui a initié l'action ?",
+        "ground_truth": "Oui, moisification de masse est une action discrète, elle est donc révelée par les caméras ou les équipiers dans la pièce. Tous les membres d’équipage se retrouveront sales, y compris l’auteur de l’action. Il s’agit d’une action super salissante, donc le tablier intachable ne protège pas de la salissure.",
+        "rag_response": "La \"moisification de masse\" n'est pas révélée par les caméras ni par les équipiers dans la pièce. En ce qui concerne les membres de l'équipage, tous se retrouvent sales, y compris celui qui a initié l'action.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response contains a significant inaccuracy regarding the revelation of 'moisification de masse' by cameras or crew members, stating that it is not revealed, which contradicts the ground truth. While it correctly states that all crew members, including the initiator, end up dirty, it fails to mention the nature of the action being very messy and the ineffectiveness of the 'tablier intachable' in preventing dirt. Therefore, the correctness score is low, and the completeness score is also affected due to missing key details. The relevance score is high as it directly addresses the question asked.",
+          "overall_score": 2.67
+        }
+      },
+      {
+        "question": "Est-il normal que lorsqu'il y a moisissure de masse, les mushs perdent 2PA aussi?",
+        "ground_truth": "Oui, moisification de masse fait perdre 2PA à tous les membres d’équipage, y compris l’auteur et les autres Mushs.",
+        "rag_response": "Je ne sais pas.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI assistant's response 'Je ne sais pas' does not provide any accurate information regarding the question about mass mold and the loss of 2PA. It fails to confirm or deny the claim made in the ground truth answer, resulting in a score of 0 for correctness and completeness. The response is minimally relevant as it acknowledges a lack of knowledge, but it does not engage with the content of the question.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Question : y a t'il un maximum pour les points de compétences ? Genre, les points tireurs, projets, cuisiniers, jardinnier ... Ou ils peuvent être accumulés à l'infini ?",
+        "ground_truth": "Les points de compétence ont effectivement des limites spécifiques selon chaque domaine. Voici des exemples de plafonds :   - **Tireur** : maximum de 4 points   - **Cuisinier** : maximum de 8 points   - **Botaniste** : maximum de 4 points   - **Pilgred** : maximum de 2 points    Ainsi, il n'est pas possible d'accumuler ces points à l'infini.",
+        "rag_response": "Il y a un maximum pour les points de compétences, qui se cumulent sur deux jours maximum. Par exemple, tu peux gagner un maximum de 4 points de jardinage, 8 points de cuisine, etc.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response correctly states that there is a maximum for skill points, which is relevant to the question. However, it inaccurately mentions that points can accumulate over two days, which is not mentioned in the ground truth. Additionally, it fails to provide specific maximum values for each skill category, which is a key point in the ground truth answer. Therefore, while it is relevant, it lacks accuracy and completeness.",
+          "overall_score": 3.33
+        }
+      },
+      {
+        "question": "une autre question... si un joueur qui a une gastro est converti en mush, est-ce qu'il garde la gastro ? ",
+        "ground_truth": "Un joueur converti au Mush garde la maladie durant le cycle de conversion. La maladie se retrouve soignée au changement de cycle.",
+        "rag_response": "Non, un mush ne peut pas attraper de maladies physiques après sa conversion. Cependant, s'il avait une maladie avant de devenir mush, il la garde.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is partially correct as it states that a mush retains any pre-existing illness, which aligns with the ground truth. However, it inaccurately suggests that a mush cannot catch new physical illnesses after conversion, which contradicts the ground truth that states the illness is treated at the end of the conversion cycle. The response lacks the detail about the illness being cured at the cycle change, which is a key point in the ground truth. The response is relevant to the question asked.",
+          "overall_score": 3.33
+        }
+      },
+      {
+        "question": "Bonjour à tous. Pour le retour sur Sol, est-ce que le filet magnétique rapatrie les patrouilleurs ?",
+        "ground_truth": "Tous les joueurs en vie rentrent sur Sol, quelque soit leur situation.",
+        "rag_response": "Oui, le filet magnétique ramène les patrouilleurs au vaisseau.",
+        "evaluation": {
+          "correctness_score": 2,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is partially correct in that it mentions the return of patrouilleurs, but it inaccurately states that the magnetic net specifically brings them back to the ship, which is not supported by the ground truth. The ground truth states that all players in life return to Sol regardless of their situation, which the AI response fails to capture. The relevance is high as it directly addresses the question about the magnetic net's function.",
+          "overall_score": 3
+        }
+      },
+      {
+        "question": "Hello, petite question, rapport à notre Chun qui est partie en Pasi et ne souhaite pas revenir: peut-on tirer sur le pasi depuis un patrouilleur? Et dans ce cas revient-il en baie une fois à 0 ...?",
+        "ground_truth": "On ne peut pas tirer sur la Pasiphae et il ne rentre pas une fois à 0 armure, mais est détruit. La seule solution pour forcer Chun à atterir est de développer le projet Filet magnétique qui fait atterir automatiquement les patrouilleurs et le Pasiphaé lors d’un voyage du Daedalus.",
+        "rag_response": "Non, on ne peut pas tirer sur le Pasiphae depuis un patrouilleur. Si le Pasiphae est à 0, il ne reviendra pas automatiquement en baie.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately states that one cannot shoot at the Pasiphae from a patrol ship and correctly mentions that it does not return automatically when at 0 armor. However, it fails to mention that the Pasiphae is destroyed when it reaches 0 armor, which is a critical point from the ground truth. Additionally, it does not address the solution of developing the magnetic net project to force Chun to land, which is another key aspect of the ground truth answer.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "question un peu bete mais vu que j'ai pas arreter de missclick avec, si on cache une plante, et ce que son fruit donné sera visible lui ?",
+        "ground_truth": "Les fruits produits par une plante cachée sont visibles par tous.",
+        "rag_response": "Oui, si tu caches une plante, son fruit ne sera pas visible. Seule la plante elle-même sera cachée, mais le fruit qu'elle produit sera toujours visible.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect because it states that the fruit will not be visible if the plant is hidden, which contradicts the ground truth answer. While it does address the question directly, it fails to provide accurate information about the visibility of the fruit. The completeness score is low because it does not acknowledge that the fruit is visible to everyone, which is a key point from the ground truth. The relevance score is high as it directly addresses the user's question about the visibility of the fruit in relation to the hidden plant.",
+          "overall_score": 2.67
+        }
+      },
+      {
+        "question": "Une caméra pas installé mais sur une personne fonctionne comme si elle était installée??",
+        "ground_truth": "Non, une caméra doit être installée pour révéler des actions.",
+        "rag_response": "Non, une caméra qui n'est pas installée ne fonctionne pas comme si elle était installée. Elle doit être installée pour détecter les actions dans la pièce.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately reflects the ground truth answer, stating that a camera must be installed to function properly. It also elaborates on the necessity of installation for detecting actions, which aligns with the original answer's intent. The response is directly relevant to the question asked.",
+          "overall_score": 5
+        }
+      }
+    ]
   },
   {
-    "question": "Coucou, me revoilà avec une question, j'ai lu la liste de la tabulatrice et je m'attendais pas a ce qu'elle soit présentée comme ca, elle ne lave personne de tout soupcons, es ce que c'était comme ca il y a 10 ans ?",
-    "ground_truth": "Oui, la “liste de la tabulatrice” (qui est en réalité la “liste d’Eleesha\") ne lave personne de tout soupçon. Il s’agit d’une liste de noms contenant au moins un Mush alpha. La liste commence avec 8 noms lors du réveil du premier équipier et perd un nom toutes les 24 heures. Vous confondez sans doute avec la liste de Finola qui elle peut réveler “l’état négatif” de certains équipiers, signifiant qu’ils ne sont pas Mushs alphas.",
-    "rag_response": "Je ne sais pas.",
-    "evaluation": {
-      "correctness_score": 0,
-      "completeness_score": 0,
-      "relevance_score": 1,
-      "explanation": "The AI Assistant's response is not correct as it does not provide any information related to the question asked. It fails to address the specifics of the 'liste de la tabulatrice' and its historical context, which are crucial to the user's inquiry. The response is minimally relevant as it acknowledges a lack of knowledge but does not engage with the question at all.",
-      "overall_score": 0.5
-    }
+    "evaluation_id": "1cab7b26-50df-49c2-80ef-accbac1483a4",
+    "timestamp": "2024-11-24T14:47:49.439584",
+    "dataset_name": "test_set_v1",
+    "rag_params": {
+      "top_k": 4,
+      "model": "gpt-4",
+      "temperature": 0,
+      "prompt_version": "V1"
+    },
+    "results": [
+      {
+        "question": "Quand on prend un objet caché. Tout le monde voit le méssage non ?",
+        "ground_truth": "Oui, prendre un objet caché laisse un log public : le même que si l'objet n'était pas caché.",
+        "rag_response": "Non, si tu prends un objet caché, cela ne sera pas visible par les autres. Seul le joueur qui a caché l'objet le verra.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect as it states that taking a hidden object is not visible to others, which contradicts the ground truth that indicates a public log is created regardless of the object's hidden status. The response also fails to mention the logging aspect, which is a key point in the ground truth. However, it does directly address the question asked, hence the relevance score is high.",
+          "overall_score": 2.33
+        }
+      },
+      {
+        "question": "Coucou, me revoilà avec une question, j'ai lu la liste de la tabulatrice et je m'attendais pas a ce qu'elle soit présentée comme ca, elle ne lave personne de tout soupcons, es ce que c'était comme ca il y a 10 ans ?",
+        "ground_truth": "Oui, la “liste de la tabulatrice” (qui est en réalité la “liste d’Eleesha\") ne lave personne de tout soupçon. Il s’agit d’une liste de noms contenant au moins un Mush alpha. La liste commence avec 8 noms lors du réveil du premier équipier et perd un nom toutes les 24 heures. Vous confondez sans doute avec la liste de Finola qui elle peut réveler “l’état négatif” de certains équipiers, signifiant qu’ils ne sont pas Mushs alphas.",
+        "rag_response": "Je ne sais pas.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI assistant's response is not correct as it does not provide any information related to the question asked. It fails to address the specifics of the 'liste de la tabulatrice' and its historical context, which are crucial to the question. The response is minimally relevant as it acknowledges a lack of knowledge but does not attempt to engage with the question.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Désolé si c'est une question bête mais combien coûte de PA de bidouiller ? Un site dit 1 et un autre dit 2",
+        "ground_truth": "Bidouiller coûte 2 PA.",
+        "rag_response": "Utiliser un bidouilleur coûte 1 PA par essai.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 3,
+          "explanation": "The AI assistant's response incorrectly states that using a bidouilleur costs 1 PA per attempt, while the ground truth states that bidouiller costs 2 PA. This is a significant inaccuracy. The response does not address the specific cost of bidouiller as asked in the question, leading to a low completeness score. However, it does somewhat relate to the topic of PA costs, which gives it a slightly higher relevance score.",
+          "overall_score": 1.67
+        }
+      },
+      {
+        "question": "uestion : l'echolocateur augmente il les chances que d'autres cases (comme les grottes et les montagnes) donnent de l'hydrocarbure, ou augmente il seulement les chances de visiter une case hydrocarbure ?",
+        "ground_truth": "L’écholocateur n’augmente que les probabilités de visiter une section “Hydrocarbure” et non pas les chances de visiter des sections pouvant donner du fuel.",
+        "rag_response": "L'écholocateur augmente seulement les chances de tomber sur la case HydroCarbure si la planète en a une. Cela n'augmente pas les chances que d'autres cases (comme les grottes et les montagnes) donnent de l'hydrocarbure.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately states that the echolocator only increases the chances of visiting a HydroCarbure case and does not affect the chances of other cases yielding hydrocarbons. However, it could have explicitly stated that it does not increase the chances of visiting sections that can yield fuel, which is a key point in the ground truth answer. Overall, the response is correct and relevant.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Autre question : est ce que tout le monde devrait voir le lien du rapport d'expédition dans les logs ou seulement les membres de l'expédition ?",
+        "ground_truth": "Le lien du rapport d’expédition dans les logs n’est visible que pour les membres de l’expédition. Chaque explorateur aura un log privé avec le lien du rapport.",
+        "rag_response": "Seuls les membres de l'expédition peuvent voir le lien du rapport d'expédition dans les logs.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is accurate, stating that only expedition members can see the link to the expedition report in the logs, which aligns with the ground truth. However, it lacks the detail about each explorer having a private log with the link, which is a key point in the ground truth. The response is directly relevant to the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Bonjour à toutes et à tous, dites moi je ne sais pas si vous aurez la réponse mais une blessure peut-elle être guérie avec le médikit ou bien forcément le plot chirurgical ? Et est ce que si on utilise le plot chirurgical ça guerri la blessure mais aussi les maladies que l'on peut avoir ou bien uniquement la blessure ? (J'imagine que si on utilise le medikit sur une blessure ça gueri aussi les maladies)",
+        "ground_truth": "Une blessure ne peut être guérie que par une chirurgie. Une opération peut être effectuée par un médecin sur une personne allongée. Si la personne est allongée hors de l’infirmerie, le medécin aura besoin du medikit pour débloquer l’action. Ou bien, on peut s'auto opérer avec le plot chirurgical. La chirurgie ne guérit que les blessures. Si maladie il y a durant l'opération, elle peut être guérie par les moyens habituels (soins au medikit ou à l'infirmerie, ou en consommant un médicament guérissant la maladie). ",
+        "rag_response": "Une blessure peut être guérie avec le médikit ou en utilisant le plot chirurgical. Cependant, le plot chirurgical est nécessaire pour effectuer une chirurgie, qui est souvent requise pour des blessures plus graves. \n\nL'utilisation du plot chirurgical ne guérit que la blessure et non les maladies. Pour guérir une maladie, il faut utiliser un médicament ou un soin spécifique. Le médikit, quant à lui, est principalement utilisé pour soigner les blessures et peut ne pas guérir les maladies.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 3,
+          "relevance_score": 4,
+          "explanation": "The AI assistant's response contains some accurate information, such as the need for a surgical plot for serious injuries and that the medikit is primarily for wounds. However, it inaccurately states that a wound can be healed with a medikit, which contradicts the ground truth that specifies surgery is necessary for wounds. Additionally, it does not mention that the medikit can also be used to treat diseases, which is a key point in the ground truth. The response is relevant to the question but lacks some critical details.",
+          "overall_score": 3.33
+        }
+      },
+      {
+        "question": "Bonsoir, petite question combien de spores un seul mush à le droit d'extirper en une journée ?",
+        "ground_truth": "4 + 1 spore par mush vivant qui a Esprit du Mycélium. La recherche “Gaz Antispore” réduit ce nombre de 2.",
+        "rag_response": "Un mush peut s'extirper jusqu'à 4 spores par jour.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response correctly states that a mush can extirpate up to 4 spores per day, which aligns with part of the ground truth. However, it fails to mention the additional spore that can be extirpated if the mush has 'Esprit du Mycélium' and does not address the reduction in spores due to the 'Gaz Antispore' research. Therefore, while the response is relevant and partially correct, it lacks completeness and full accuracy.",
+          "overall_score": 3.33
+        }
+      },
+      {
+        "question": "Bonjour, j'ai une question: est-ce qu'il est normal de pouvoir entrer en Icarus alors qu'une expé à 4 personnes est en cours...?",
+        "ground_truth": "Oui, il est normal de pouvoir rentrer en Baie Icarus alors qu’une expédition à 4 personnes est en cours. On y reste même quand ils reviennent. Par contre, si une expédition est lancée avec plus de 4 personnes en Baie Icarus, les 4 participants seront tirées au sort et les équipiers en trop ne partiront pas.",
+        "rag_response": "Non, il n'est pas normal de pouvoir entrer dans l'Icarus pendant qu'une expédition est en cours. L'accès à l'Icarus est généralement restreint durant une expédition pour éviter des complications.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is incorrect as it states that it is not normal to enter Icarus during an ongoing expedition, which contradicts the ground truth that confirms it is normal to do so. The response also fails to mention the details about the restrictions when more than 4 participants are involved, which is a key point in the ground truth. However, the response is relevant to the question asked.",
+          "overall_score": 2.33
+        }
+      },
+      {
+        "question": "petite question sur la liste d'Eleesha, à partir de quand commence le décompte pour la suppression d'un nom ? ça commence dès le reveil ou dès le début effectif de la partie (apparition des mushs) ?",
+        "ground_truth": "Le décompte pour la supression d’un nom de la liste d’Eleesha commence à partir du premier réveillé.",
+        "rag_response": "Le décompte pour la suppression d'un nom sur la liste d'Eleesha commence dès le cycle du premier réveillé.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that the countdown for the deletion of a name starts with the first awakened, which aligns with the ground truth. However, the phrase 'dès le cycle du premier réveillé' introduces slight ambiguity compared to the clearer 'à partir du premier réveillé' in the ground truth. The response covers the key point but could be clearer. It is directly relevant to the question asked.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "J'ai eu une question pour la prémonition de Chun Cela dit que cela révèle la dernière action de la personne Si Chun utilise plusieurs fois la compétence alors elle voit les X actions ou alors c'est vraiment tout le temps la dernière action comme le dit la description ?",
+        "ground_truth": "La prémonition de Chun révèle toujours la dernière action effectuée.",
+        "rag_response": "La prémonition de Chun révèle uniquement la dernière action de la personne, même si elle utilise la compétence plusieurs fois. Elle ne voit pas les actions précédentes, seulement la plus récente.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response accurately reflects the ground truth answer, stating that Chun's premonition reveals only the last action performed. It also clarifies that even if the skill is used multiple times, only the most recent action is visible, which aligns perfectly with the ground truth. The response directly addresses the question asked, providing a clear and concise answer.",
+          "overall_score": 5
+        }
+      },
+      {
+        "question": "Questions pour les maladies Quand on soigne quelqu'un d'une maladie, on a un log mais si la maladie part d'elle-même, est ce que cela crée aussi un log ?",
+        "ground_truth": "Si la maladie guérit spontanément, le malade aura un log privé, donc invisible pour les autres contrairement à si la maladie avait été soignée (par un soin ou un médicament).",
+        "rag_response": "Oui, si une maladie guérit d'elle-même, cela crée également un log indiquant que la personne a contracté la maladie et qu'elle a guéri.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is partially correct as it states that a log is created when a disease heals itself, which aligns with the idea of tracking the disease. However, it does not mention that this log is private and invisible to others, which is a key point in the ground truth. Therefore, while it is relevant and addresses the question, it lacks some important details that affect its correctness and completeness.",
+          "overall_score": 3.67
+        }
+      },
+      {
+        "question": "A question: when someone has 3 channels on, will I notice it when I check who I can invite into one of my channels?",
+        "ground_truth": "Yes, you will notice it, because you won’t see the player with 3 private channels in the list of the people you can invite into a private channel.",
+        "rag_response": "Yes, if someone has 3 private channels active, you will notice it when you check who you can invite into one of your channels.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is accurate and correctly states that you will notice the player with 3 private channels when checking who to invite. However, it lacks the specific detail that the player will not appear in the invite list, which is a key point from the ground truth answer. The response is relevant and directly addresses the question asked.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Question random : Paola peut elle \"le faire\" avec gioele ?",
+        "ground_truth": "Non, Paola ne peut pas le faire avec Gioele. En effet, pour pouvoir le faire, il faut que l’un des deux équipiers fleurte avec l’autre. Or Paola et Gioele ne peuvent fleurter entre eux, étant de la même famille. ",
+        "rag_response": "Non, Paola et Gioele ne peuvent pas \"le faire\" ensemble, car ils sont père et fille.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate in stating that Paola and Gioele cannot 'le faire' together because they are father and daughter, which aligns with the ground truth. However, it lacks the detail about the requirement of flirting between the two, which is mentioned in the ground truth. Despite this omission, the core information is correct and relevant to the question.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Bonsoir à tous ! Question un peu bête peut-être, mais est-ce que \"moisification de masse\" est révélée par les caméras ou les équipiers dans la pièce ? Et est-ce que tous les membres de l'équipage se retrouvent sales même celui qui a initié l'action ?",
+        "ground_truth": "Oui, moisification de masse est une action discrète, elle est donc révelée par les caméras ou les équipiers dans la pièce. Tous les membres d’équipage se retrouveront sales, y compris l’auteur de l’action. Il s’agit d’une action super salissante, donc le tablier intachable ne protège pas de la salissure.",
+        "rag_response": "La \"moisification de masse\" est révélée par les caméras et les équipiers présents dans la pièce. Tous les membres de l'équipage se retrouvent sales, y compris celui qui a initié l'action.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately states that 'moisification de masse' is revealed by cameras and crew members, and confirms that all crew members, including the initiator, end up dirty. However, it lacks the additional detail from the ground truth about the action being 'super salissante' and the ineffectiveness of the 'tablier intachable' in preventing dirt, which is a key point in the ground truth. Therefore, while the correctness and relevance are high, the completeness is slightly lower due to this omission.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Est-il normal que lorsqu'il y a moisissure de masse, les mushs perdent 2PA aussi?",
+        "ground_truth": "Oui, moisification de masse fait perdre 2PA à tous les membres d’équipage, y compris l’auteur et les autres Mushs.",
+        "rag_response": "Oui, c'est normal. Les mushs peuvent perdre des PA en raison de la moisissure de masse, tout comme les humains.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly correct, stating that mushs can lose PA due to moisissure de masse, which aligns with the ground truth. However, it does not explicitly mention that all crew members, including the author and other mushs, lose 2PA, which is a key point in the ground truth. Therefore, while the response is relevant and mostly accurate, it lacks some completeness regarding the specifics of the loss of PA for all members of the crew.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Question : y a t'il un maximum pour les points de compétences ? Genre, les points tireurs, projets, cuisiniers, jardinnier ... Ou ils peuvent être accumulés à l'infini ?",
+        "ground_truth": "Les points de compétence ont effectivement des limites spécifiques selon chaque domaine. Voici des exemples de plafonds :   - **Tireur** : maximum de 4 points   - **Cuisinier** : maximum de 8 points   - **Botaniste** : maximum de 4 points   - **Pilgred** : maximum de 2 points    Ainsi, il n'est pas possible d'accumuler ces points à l'infini.",
+        "rag_response": "Il y a un maximum pour les points de compétences. Chaque compétence a un plafond de points que l'on peut accumuler, et une fois atteint, il n'est plus possible d'en gagner davantage dans cette compétence.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is mostly correct as it states that there is a maximum for skill points and that once the maximum is reached, no further points can be earned in that skill. However, it lacks specific details about the maximum points for each skill, which is crucial for completeness. The response is relevant as it directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "une autre question... si un joueur qui a une gastro est converti en mush, est-ce qu'il garde la gastro ? ",
+        "ground_truth": "Un joueur converti au Mush garde la maladie durant le cycle de conversion. La maladie se retrouve soignée au changement de cycle.",
+        "rag_response": "Non, les maladies physiques disparaissent au premier changement de cycle après être devenu Mush.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect regarding the retention of the illness during the conversion process. The ground truth states that the player retains the illness during the conversion cycle, which the AI fails to acknowledge. While the response is relevant to the question, it does not accurately reflect the situation described in the ground truth, leading to low scores for correctness and completeness.",
+          "overall_score": 2.33
+        }
+      },
+      {
+        "question": "Bonjour à tous. Pour le retour sur Sol, est-ce que le filet magnétique rapatrie les patrouilleurs ?",
+        "ground_truth": "Tous les joueurs en vie rentrent sur Sol, quelque soit leur situation.",
+        "rag_response": "Oui, le filet magnétique ramène les patrouilleurs, y compris le Pasiphae, à bord du vaisseau.",
+        "evaluation": {
+          "correctness_score": 2,
+          "completeness_score": 2,
+          "relevance_score": 4,
+          "explanation": "The AI assistant's response inaccurately states that the magnetic net specifically brings back patrouilleurs and mentions the Pasiphae, which is not part of the ground truth. The ground truth states that all players alive return to Sol regardless of their situation, which the AI does not fully capture. While the response is relevant to the question, it lacks accuracy and completeness regarding the broader context of all players returning.",
+          "overall_score": 2.67
+        }
+      },
+      {
+        "question": "Hello, petite question, rapport à notre Chun qui est partie en Pasi et ne souhaite pas revenir: peut-on tirer sur le pasi depuis un patrouilleur? Et dans ce cas revient-il en baie une fois à 0 ...?",
+        "ground_truth": "On ne peut pas tirer sur la Pasiphae et il ne rentre pas une fois à 0 armure, mais est détruit. La seule solution pour forcer Chun à atterir est de développer le projet Filet magnétique qui fait atterir automatiquement les patrouilleurs et le Pasiphaé lors d’un voyage du Daedalus.",
+        "rag_response": "Non, on ne peut pas tirer sur le Pasiphae depuis un patrouilleur. Si le Pasiphae est à 0 PV, il ne reviendra pas en baie.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate in stating that one cannot shoot at the Pasiphae from a patrol ship and correctly mentions that it does not return to the bay at 0 HP. However, it fails to mention the alternative solution of developing the magnetic net project, which is a key point in the ground truth answer. Therefore, while the correctness and relevance are high, the completeness is lower due to the omission of this important detail.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "question un peu bete mais vu que j'ai pas arreter de missclick avec, si on cache une plante, et ce que son fruit donné sera visible lui ?",
+        "ground_truth": "Les fruits produits par une plante cachée sont visibles par tous.",
+        "rag_response": "Si vous cachez une plante, son fruit ne sera pas visible tant que la plante est cachée. Les fruits ne deviennent visibles que lorsque la plante est accessible et non cachée.",
+        "evaluation": {
+          "correctness_score": 2,
+          "completeness_score": 2,
+          "relevance_score": 4,
+          "explanation": "The AI assistant's response is incorrect because it states that the fruit will not be visible as long as the plant is hidden, which contradicts the ground truth that states the fruits are visible regardless of the plant's visibility. The response does not fully address the key point that the fruits are visible to everyone, leading to a low completeness score. However, it does somewhat address the question, hence a higher relevance score.",
+          "overall_score": 2.67
+        }
+      },
+      {
+        "question": "Une caméra pas installé mais sur une personne fonctionne comme si elle était installée??",
+        "ground_truth": "Non, une caméra doit être installée pour révéler des actions.",
+        "rag_response": "Non, une caméra qui n'est pas installée ne fonctionne pas comme si elle était installée. Elle doit être placée dans une pièce pour détecter les actions.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate, stating that a camera that is not installed does not function as if it were installed, which aligns with the ground truth. However, it adds that the camera must be placed in a room to detect actions, which is slightly more specific than the ground truth answer. This additional detail is relevant but not necessary for completeness. Overall, the response is relevant and correct.",
+          "overall_score": 4.67
+        }
+      }
+    ]
   },
   {
-    "question": "Désolé si c'est une question bête mais combien coûte de PA de bidouiller ? Un site dit 1 et un autre dit 2",
-    "ground_truth": "Bidouiller coûte 2 PA.",
-    "rag_response": "Bidouiller coûte 2 PA.",
-    "evaluation": {
-      "correctness_score": 5,
-      "completeness_score": 5,
-      "relevance_score": 5,
-      "explanation": "The AI Assistant's response accurately states that 'bidouiller coûte 2 PA', which matches the ground truth answer perfectly. It covers all key points without any omissions and directly addresses the user's question about the cost of bidouiller.",
-      "overall_score": 5
-    }
+    "evaluation_id": "6f40bdbd-7fc0-47f5-98f5-b308c10aa28d",
+    "timestamp": "2024-11-24T16:03:56.473457",
+    "dataset_name": "test_set_v2.csv",
+    "rag_params": {
+      "top_k": 10,
+      "model": "gpt-4o-mini",
+      "temperature": 0.0,
+      "prompt_version": "V1"
+    },
+    "scores": {
+      "correctness": 2.8857142857142857,
+      "completeness": 2.3714285714285714,
+      "relevance": 4.457142857142857,
+      "overall": 3.1617142857142855
+    },
+    "results": [
+      {
+        "question": "Quand on prend un objet caché. Tout le monde voit le méssage non ?",
+        "ground_truth": "Oui, prendre un objet caché laisse un log public : le même que si l'objet n'était pas caché.",
+        "rag_response": "Non, lorsque tu prends un objet caché, cela n'apparaît pas dans les logs des autres joueurs. Seule la personne qui a caché l'objet peut le voir.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect as it states that taking a hidden object does not appear in the logs for other players, which contradicts the ground truth answer that states it does leave a public log. The completeness score is low because it fails to mention the logging aspect, which is a key point of the ground truth. However, the response is relevant to the question asked, hence the relevance score is high.",
+          "overall_score": 2
+        }
+      },
+      {
+        "question": "Coucou, me revoilà avec une question, j'ai lu la liste de la tabulatrice et je m'attendais pas a ce qu'elle soit présentée comme ca, elle ne lave personne de tout soupcons, es ce que c'était comme ca il y a 10 ans ?",
+        "ground_truth": "Oui, la “liste de la tabulatrice” (qui est en réalité la “liste d’Eleesha) ne lave personne de tout soupçon. Il s’agit d’une liste de noms contenant au moins un Mush alpha. La liste commence avec 8 noms lors du réveil du premier équipier et perd un nom toutes les 24 heures. Vous confondez sans doute avec la liste de Finola qui elle peut réveler “l’état négatif” de certains équipiers, signifiant qu’ils ne sont pas Mushs alphas.",
+        "rag_response": "Je ne sais pas.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI Assistant's response is not correct as it does not provide any information related to the question asked. It fails to address the specifics of the 'liste de la tabulatrice' and its historical context, which are crucial to the question. The response is minimally relevant as it acknowledges a lack of knowledge but does not attempt to engage with the content of the question.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Désolé si c'est une question bête mais combien coûte de PA de bidouiller ? Un site dit 1 et un autre dit 2",
+        "ground_truth": "Bidouiller coûte 2 PA.",
+        "rag_response": "Utiliser un bidouilleur coûte 1 PA par essai.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 3,
+          "explanation": "The AI assistant's response is incorrect regarding the cost of bidouiller, stating it costs 1 PA per attempt instead of the correct 2 PA. It also fails to address the confusion between the two sources mentioned in the question. However, it does mention the concept of using a bidouilleur, which is somewhat relevant to the question.",
+          "overall_score": 1.67
+        }
+      },
+      {
+        "question": "Question : l'echolocateur augmente il les chances que d'autres cases (comme les grottes et les montagnes) donnent de l'hydrocarbure, ou augmente il seulement les chances de visiter une case hydrocarbure ?",
+        "ground_truth": "L’écholocateur n’augmente que les probabilités de visiter une section “Hydrocarbure” et non pas les chances de visiter des sections pouvant donner du fuel.",
+        "rag_response": "L'écholocateur augmente seulement les chances de tomber sur la case HydroCarbure si la planète en a une. Cela n'augmente pas les chances pour d'autres événements comme les grottes et les montagnes.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately states that the echolocator only increases the chances of encountering a HydroCarbure case and does not affect the chances of finding other types of cases like caves and mountains. However, it could have explicitly mentioned that it does not increase the chances of visiting sections that can yield fuel, which is a key point in the ground truth answer. Overall, the response is relevant and correct, but slightly less complete.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Autre question : est ce que tout le monde devrait voir le lien du rapport d'expédition dans les logs ou seulement les membres de l'expédition ?",
+        "ground_truth": "Le lien du rapport d’expédition dans les logs n’est visible que pour les membres de l’expédition. Chaque explorateur aura un log privé avec le lien du rapport.",
+        "rag_response": "Seuls les membres de l'expédition peuvent voir le lien du rapport d'expédition dans les logs.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is accurate, stating that only expedition members can see the link to the expedition report in the logs, which aligns with the ground truth. However, it lacks the detail that each explorer has a private log with the link, which is a key point in the ground truth answer. The response is directly relevant to the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Bonjour à toutes et à tous, dites moi je ne sais pas si vous aurez la réponse mais une blessure peut-elle être guérie avec le médikit ou bien forcément le plot chirurgical ? Et est ce que si on utilise le plot chirurgical ça guerri la blessure mais aussi les maladies que l'on peut avoir ou bien uniquement la blessure ? (J'imagine que si on utilise le medikit sur une blessure ça gueri aussi les maladies)",
+        "ground_truth": "Une blessure ne peut être guérie que par une chirurgie. Une opération peut être effectuée par un médecin sur une personne allongée. Si la personne est allongée hors de l’infirmerie, le medécin aura besoin du medikit pour débloquer l’action. Ou bien, on peut s'auto opérer avec le plot chirurgical. La chirurgie ne guérit que les blessures. Si maladie il y a durant l'opération, elle peut être guérie par les moyens habituels (soins au medikit ou à l'infirmerie, ou en consommant un médicament guérissant la maladie). ",
+        "rag_response": "Une blessure peut être guérie avec le médikit ou le plot chirurgical. Cependant, le plot chirurgical est nécessaire pour effectuer une chirurgie, qui est souvent requise pour des blessures plus graves. L'utilisation du plot chirurgical ne guérit que la blessure et non les maladies. Le médikit peut être utilisé pour soigner des maladies, mais il ne guérit pas les blessures.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response contains some inaccuracies. It states that a wound can be healed with either a medikit or a surgical bandage, which contradicts the ground truth that specifies a wound can only be healed through surgery. It correctly identifies that the surgical bandage does not heal diseases, but it fails to mention that surgery is necessary for serious wounds and that the medikit can be used for both wounds and diseases. The response is relevant to the question but lacks some critical details and contains inaccuracies.",
+          "overall_score": 3
+        }
+      },
+      {
+        "question": "Bonsoir, petite question combien de spores un seul mush à le droit d'extirper en une journée ?",
+        "ground_truth": "4 + 1 spore par mush vivant qui a Esprit du Mycélium. La recherche “Gaz Antispore” réduit ce nombre de 2.",
+        "rag_response": "Un mush peut s'extirper jusqu'à 4 spores par jour.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response correctly states that a mush can extirpate up to 4 spores per day, which aligns with part of the ground truth. However, it fails to mention the additional spore that can be extirpated if the mush has 'Esprit du Mycélium' and does not address the reduction in spores due to the 'Gaz Antispore' research. Therefore, while the response is relevant and partially correct, it lacks completeness and full accuracy.",
+          "overall_score": 3.33
+        }
+      },
+      {
+        "question": "Bonjour, j'ai une question: est-ce qu'il est normal de pouvoir entrer en Icarus alors qu'une expé à 4 personnes est en cours...?",
+        "ground_truth": "Oui, il est normal de pouvoir rentrer en Baie Icarus alors qu’une expédition à 4 personnes est en cours. On y reste même quand ils reviennent. Par contre, si une expédition est lancée avec plus de 4 personnes en Baie Icarus, les 4 participants seront tirées au sort et les équipiers en trop ne partiront pas.",
+        "rag_response": "Non, il n'est pas normal de pouvoir entrer dans l'Icarus pendant qu'une expédition est en cours. L'Icarus est généralement inaccessible tant que l'expédition n'est pas terminée.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is incorrect as it states that it is not normal to enter Icarus during an ongoing expedition, which contradicts the ground truth that confirms it is normal to do so. The response also fails to mention the details about the maximum number of participants and the selection process for excess members, which are key points in the ground truth. However, the response is relevant to the question asked.",
+          "overall_score": 2.33
+        }
+      },
+      {
+        "question": "petite question sur la liste d'Eleesha, à partir de quand commence le décompte pour la suppression d'un nom ? ça commence dès le reveil ou dès le début effectif de la partie (apparition des mushs) ?",
+        "ground_truth": "Le décompte pour la supression d’un nom de la liste d’Eleesha commence à partir du premier réveillé.",
+        "rag_response": "Le décompte pour la suppression d'un nom sur la liste d'Eleesha commence dès le cycle du premier réveillé.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that the countdown for the deletion of a name starts with the first awakened, which aligns with the ground truth. However, it uses the term 'cycle' instead of 'réveillé', which could lead to slight confusion. The response covers the key point about when the countdown starts but does not explicitly mention 'nom de la liste d’Eleesha', which is a minor omission. The response is relevant and directly addresses the question asked.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "J'ai eu une question pour la prémonition de Chun Cela dit que cela révèle la dernière action de la personne Si Chun utilise plusieurs fois la compétence alors elle voit les X actions ou alors c'est vraiment tout le temps la dernière action comme le dit la description ?",
+        "ground_truth": "La prémonition de Chun révèle toujours la dernière action effectuée.",
+        "rag_response": "La prémonition de Chun révèle uniquement la dernière action de la personne. Si elle utilise la compétence plusieurs fois, elle ne verra toujours que la dernière action effectuée, pas les actions précédentes.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response accurately reflects the ground truth answer, stating that Chun's premonition reveals only the last action performed. It also clarifies that using the ability multiple times does not change this fact, which aligns with the ground truth. The response is complete and directly addresses the question asked.",
+          "overall_score": 5
+        }
+      },
+      {
+        "question": "Questions pour les maladies Quand on soigne quelqu'un d'une maladie, on a un log mais si la maladie part d'elle-même, est ce que cela crée aussi un log ?",
+        "ground_truth": "Si la maladie guérit spontanément, le malade aura un log privé, donc invisible pour les autres contrairement à si la maladie avait été soignée (par un soin ou un médicament).",
+        "rag_response": "Oui, si une maladie guérit d'elle-même, cela crée également un log indiquant que la personne a guéri.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is partially correct in stating that a log is created when a disease heals itself. However, it fails to mention that this log is private and not visible to others, which is a key point in the ground truth. Therefore, while it is relevant and addresses the question, it lacks completeness and some accuracy regarding the nature of the log.",
+          "overall_score": 3.33
+        }
+      },
+      {
+        "question": "A question: when someone has 3 channels on, will I notice it when I check who I can invite into one of my channels?",
+        "ground_truth": "Yes, you will notice it, because you won’t see the player with 3 private channels in the list of the people you can invite into a private channel.",
+        "rag_response": "Yes, if someone has 3 private channels active, you will notice it when you check who you can invite into one of your channels.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate and directly addresses the question, confirming that the user will notice the absence of the player with 3 private channels when checking invitees. However, it lacks the specific detail that the player will not appear in the list of invitees, which is a key point from the ground truth answer. Therefore, while the correctness and relevance are high, the completeness is slightly lower due to this omission.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Question random : Paola peut elle le faire avec gioele ?",
+        "ground_truth": "Non, Paola ne peut pas le faire avec Gioele. En effet, pour pouvoir le faire, il faut que l’un des deux équipiers fleurte avec l’autre. Or Paola et Gioele ne peuvent fleurter entre eux, étant de la même famille. ",
+        "rag_response": "Non, Paola et Gioele ne peuvent pas \"le faire\" ensemble.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly correct in stating that Paola and Gioele cannot do 'it' together, which aligns with the ground truth. However, it lacks the specific reasoning provided in the ground truth about the need for flirting and the familial relationship that prevents it. Therefore, while the answer is relevant and mostly correct, it is incomplete in terms of the reasoning behind the answer.",
+          "overall_score": 3.67
+        }
+      },
+      {
+        "question": "Bonsoir à tous ! Question un peu bête peut-être, mais est-ce que moisification de masse est révélée par les caméras ou les équipiers dans la pièce ? Et est-ce que tous les membres de l'équipage se retrouvent sales même celui qui a initié l'action ?",
+        "ground_truth": "Oui, moisification de masse est une action discrète, elle est donc révelée par les caméras ou les équipiers dans la pièce. Tous les membres d’équipage se retrouveront sales, y compris l’auteur de l’action. Il s’agit d’une action super salissante, donc le tablier intachable ne protège pas de la salissure.",
+        "rag_response": "La moisification de masse est révélée par les caméras et les équipiers présents dans la pièce. Tous les membres de l'équipage se retrouvent sales, y compris celui qui a initié l'action.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response accurately states that moisification de masse is revealed by cameras and crew members, and confirms that all crew members, including the initiator, end up dirty. However, it lacks the additional detail from the ground truth about the action being 'super salissante' and the mention of the 'tablier intachable' not providing protection, which would enhance completeness.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Est-il normal que lorsqu'il y a moisissure de masse, les mushs perdent 2PA aussi?",
+        "ground_truth": "Oui, moisification de masse fait perdre 2PA à tous les membres d’équipage, y compris l’auteur et les autres Mushs.",
+        "rag_response": "Oui, c'est normal. Les mushs peuvent perdre des PA en raison de la moisissure de masse, tout comme les humains.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly correct, stating that mushs can lose PA due to moisissure de masse, which aligns with the ground truth. However, it does not explicitly mention that all crew members, including the author and other mushs, lose 2PA, which is a key point in the ground truth. Therefore, it loses points for completeness. The response is relevant as it directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Question : y a t'il un maximum pour les points de compétences ? Genre, les points tireurs, projets, cuisiniers, jardinnier ... Ou ils peuvent être accumulés à l'infini ?",
+        "ground_truth": "Les points de compétence ont effectivement des limites spécifiques selon chaque domaine. Voici des exemples de plafonds :   - **Tireur** : maximum de 4 points   - **Cuisinier** : maximum de 8 points   - **Botaniste** : maximum de 4 points   - **Pilgred** : maximum de 2 points    Ainsi, il n'est pas possible d'accumuler ces points à l'infini.",
+        "rag_response": "Il n'y a pas de maximum pour les points de compétences dans le jeu. Ils peuvent être accumulés à l'infini, tant que les conditions pour gagner ces points sont remplies.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is incorrect as it states that there is no maximum for skill points, which directly contradicts the ground truth answer that specifies maximum limits for various skills. While the response is relevant to the question asked, it fails to provide accurate and complete information regarding the limits on skill points.",
+          "overall_score": 1.67
+        }
+      },
+      {
+        "question": "une autre question... si un joueur qui a une gastro est converti en mush, est-ce qu'il garde la gastro ? ",
+        "ground_truth": "Un joueur converti au Mush garde la maladie durant le cycle de conversion. La maladie se retrouve soignée au changement de cycle.",
+        "rag_response": "Non, les maladies physiques disparaissent au premier changement de cycle après être devenu Mush.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect regarding the retention of the illness during the conversion cycle. The ground truth states that the player retains the illness during the conversion, which contradicts the AI's claim that it disappears. The response does not cover the key point that the illness is treated at the change of cycle, leading to a low completeness score. However, the response is relevant to the question asked, hence a full score for relevance.",
+          "overall_score": 2.33
+        }
+      },
+      {
+        "question": "Bonjour à tous. Pour le retour sur Sol, est-ce que le filet magnétique rapatrie les patrouilleurs ?",
+        "ground_truth": "Tous les joueurs en vie rentrent sur Sol, quelque soit leur situation.",
+        "rag_response": "Oui, le filet magnétique ramène les patrouilleurs, y compris le Pasiphae, à bord.",
+        "evaluation": {
+          "correctness_score": 2,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response inaccurately states that the magnetic net specifically brings back patrouilleurs and mentions the Pasiphae, which is not part of the ground truth. The ground truth indicates that all players return to Sol regardless of their situation, which the AI response fails to capture. While the response is relevant to the question, it does not provide accurate or complete information.",
+          "overall_score": 3
+        }
+      },
+      {
+        "question": "Hello, petite question, rapport à notre Chun qui est partie en Pasi et ne souhaite pas revenir: peut-on tirer sur le pasi depuis un patrouilleur? Et dans ce cas revient-il en baie une fois à 0 ...?",
+        "ground_truth": "On ne peut pas tirer sur la Pasiphae et il ne rentre pas une fois à 0 armure, mais est détruit. La seule solution pour forcer Chun à atterir est de développer le projet Filet magnétique qui fait atterir automatiquement les patrouilleurs et le Pasiphaé lors d’un voyage du Daedalus.",
+        "rag_response": "Non, on ne peut pas tirer sur le Pasiphae depuis un patrouilleur. Si le Pasiphae est détruit, il ne reviendra pas en baie.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response correctly states that one cannot shoot at the Pasiphae from a patrol ship and that if the Pasiphae is destroyed, it does not return to the bay. However, it fails to mention the need for the magnetic net project to force Chun to land, which is a key point in the ground truth answer. Therefore, while the correctness and relevance are high, the completeness is lacking due to the omission of this important detail.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "question un peu bete mais vu que j'ai pas arreter de missclick avec, si on cache une plante, et ce que son fruit donné sera visible lui ?",
+        "ground_truth": "Les fruits produits par une plante cachée sont visibles par tous.",
+        "rag_response": "Si vous cachez une plante, le fruit qu'elle donne sera visible. Les actions de cacher une plante n'affectent pas la visibilité des fruits produits.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately reflects the ground truth answer, stating that the fruit produced by a hidden plant will still be visible. It also emphasizes that hiding the plant does not affect the visibility of the fruits, which aligns perfectly with the original answer. The response is complete and directly addresses the question asked.",
+          "overall_score": 5
+        }
+      },
+      {
+        "question": "Une caméra pas installé mais sur une personne fonctionne comme si elle était installée??",
+        "ground_truth": "Non, une caméra doit être installée pour révéler des actions.",
+        "rag_response": "Non, une caméra qui n'est pas installée ne fonctionne pas comme si elle était installée. Elle doit être placée dans une pièce pour détecter les actions.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate, stating that a camera that is not installed does not function as if it were installed, which aligns with the ground truth. However, it adds that the camera must be placed in a room to detect actions, which, while relevant, slightly diverges from the original point about installation. This addition is helpful but not strictly necessary for completeness. The response is directly relevant to the question asked.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "est ce qu'une mycoalarme sonne lors de la consomation d'une ration piégée ?",
+        "ground_truth": " Non, la mycoalarme ne sonne pas lors de la consomation d'une ration piégée, mais uniquement lorsqu'un Mush piège la ration.",
+        "rag_response": "Non, une mycoalarme ne sonne pas lors de la consommation d'une ration piégée.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is correct in stating that a mycoalarme does not sound during the consumption of a ration piégée. However, it lacks the additional detail provided in the ground truth answer, which specifies that the mycoalarme only sounds when a Mush traps the ration. This omission affects the completeness score. The response is relevant as it directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Bonsoir, est ce qu'il est possible de perdre son iTrakie dans un incendie ?",
+        "ground_truth": " Non, il n'est pas possible de perdre son iTrakie dans un incendie. L'iTrackie peut se casser dans un incendie, mais il ne peut pas être détruit.",
+        "rag_response": "Je ne sais pas.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI assistant's response 'Je ne sais pas' does not provide any accurate information regarding the question about losing an iTrakie in a fire. It fails to address the possibility of damage or destruction, which is a key point in the ground truth answer. While it is somewhat relevant to the question by indicating uncertainty, it does not provide any useful information.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "est ce que fouiller une pièce déclenche un potentiel piège mush ?",
+        "ground_truth": " Oui, fouiller une pièce déclenche un potentiel piège Mush, ainsi que toute interaction avec un équipement de la pièce.",
+        "rag_response": "Oui, fouiller une pièce déclenche un potentiel piège mush.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate in stating that searching a room triggers a potential Mush trap, which aligns with the ground truth. However, it lacks completeness as it does not mention that any interaction with equipment in the room also triggers the trap, which is a key point in the ground truth answer. The response is relevant as it directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Comment fonctionne l'amélioration pilote des drones ? Plus précisément, est-ce qu'ils redescendent ? Sous qu'elle condition ?",
+        "ground_truth": " Les drones pilotes atterissent si leur patrouilleur est vide ou s'il n'y a plus de hunters.",
+        "rag_response": "L'amélioration \"Pilote\" permet à un drone de tenter d'emprunter un patrouilleur et de détruire tous les hunters avant de se déplacer. Un drone avec cette compétence décolle s'il agit en présence d'un patrouilleur (mais pas du Pasiphae) et qu'il y a des vaisseaux. \n\nIl atterrit s'il n'y a plus de vaisseaux ou de charges. Si le patrouilleur est en vol et que le Daedalus se déplace, le drone et son patrouilleur peuvent être perdus à moins d'avoir le projet \"Filet Magnétique\".",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 3,
+          "relevance_score": 4,
+          "explanation": "The AI Assistant's response contains some accurate information about the pilot improvement for drones, such as the conditions under which they land. However, it introduces additional details that are not present in the ground truth, which may lead to confusion. The mention of the 'Pasiphae' and 'Filet Magnétique' projects, while relevant to the context, diverges from the core question about landing conditions. The response does not explicitly state that drones land when their patrouilleur is empty or when there are no hunters, which is a key point from the ground truth. Therefore, while the response is relevant and contains some correct information, it lacks completeness and precision.",
+          "overall_score": 3.33
+        }
+      },
+      {
+        "question": "Est ce que traître se déclenche si le mush reste bien au chaud parce qu'il a 'oublié' sa combinaison ?",
+        "ground_truth": " Oui, la compétence Traître fonctionne si le Mush est bloqué dans l'Icarus.",
+        "rag_response": "Je ne sais pas.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI Assistant's response 'Je ne sais pas' does not provide any accurate information regarding the question about the Traître skill and its interaction with the Mush character. It fails to confirm or deny the functionality of the Traître skill as described in the ground truth answer. While it is somewhat relevant in acknowledging a lack of knowledge, it does not address the specific question asked.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Curiosité : allergie aux mush fait perdre 4 pv en cas de contamination avec un spore. Mais du coup est ce que ça peut te tuer ? Et si oui c'est quoi l'intitulé de ta mort ?",
+        "ground_truth": " Oui, la perte de PV de l'allergie au Mush peut tuer. La cause de la mort est Blessures...",
+        "rag_response": "Oui, une allergie au mush peut te tuer si tu es contaminé par un spore, car elle fait perdre 4 PV. L'intitulé de ta mort serait lié à cette perte de points de vie, mais le détail exact n'est pas spécifié dans le contexte.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that an allergy to mush can lead to death due to the loss of 4 PV. However, it does not specify that the cause of death is 'Blessures' as mentioned in the ground truth, which is a key detail. The response is relevant and directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Est-ce qu'avec la langue cisaillée on a toujours accès aux canaux privés ?",
+        "ground_truth": " Oui, vous avez toujours accès aux canaux privés avec la langue cisaillée, mais vous ne pourrez pas écrire dedans.",
+        "rag_response": "Non, avec la langue cisaillée, on ne peut pas communiquer sur les canaux privés.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect because it states that one cannot communicate on private channels with a cisaillée tongue, which contradicts the ground truth that states access is still available, but writing is not possible. The response also fails to mention that access is retained, which is a key point. However, it does directly address the question asked, hence the relevance score is high.",
+          "overall_score": 2.33
+        }
+      },
+      {
+        "question": "Est-ce que l'allergie au mush fonctionne à 100 % (si on croise un mush on éternue à coup sûr) ?",
+        "ground_truth": " Non, l'éternuement en présence d'un Mush si on a la maladie Allergie au Mush est aléatoire.",
+        "rag_response": "Non, l'allergie au mush ne provoque pas systématiquement un éternuement. Il y a une forte probabilité d'éternuer, mais ce n'est pas garanti.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that an allergy to mush does not guarantee sneezing, which aligns with the ground truth. However, it introduces the term 'forte probabilité' (strong probability), which could imply a higher likelihood than what is suggested in the ground truth. The response covers the main point that sneezing is not guaranteed, but it could have been clearer about the randomness aspect mentioned in the ground truth. Overall, it is relevant and addresses the question directly.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "est-ce qu'un mush peut éternuer en sa propre présence s'il a une allergie au Mush ?",
+        "ground_truth": " Oui, un Mush peut éternuer en sa propre présence s'il a une allergie au Mush.",
+        "rag_response": "Non, un mush ne peut pas éternuer en sa propre présence, même s'il a une allergie au Mush. L'éternuement se produit uniquement lorsqu'un humain atteint de cette allergie entre dans une pièce où se trouve un mush.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect as it states that a mush cannot sneeze in its own presence, which directly contradicts the ground truth answer. Therefore, it receives a score of 0 for correctness and completeness. However, the response does directly address the question asked, which is why it receives a score of 5 for relevance.",
+          "overall_score": 1.67
+        }
+      },
+      {
+        "question": "Est-ce que plusieurs montures rocheuses sont cummulables entre-elles ?",
+        "ground_truth": " Non, les montures rocheuses ne sont cumulables entre elles. Une monture rocheuse se cumule cependant avec la trotinette anti-gravité.",
+        "rag_response": "Je ne sais pas.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI assistant's response 'Je ne sais pas' does not provide any accurate information regarding the question about the cumulation of montures rocheuses. It fails to address the fact that montures rocheuses are not cumulable with each other and does not mention the exception of the trotinette anti-gravité. While the response is somewhat relevant as it acknowledges a lack of knowledge, it does not contribute any useful information to the question asked.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Question : est ce que s'allonger sur un lit dans une pièce piégée provoque une contamination comme l'usage d'un équipement ?",
+        "ground_truth": " Oui, s'allonger sur un lit dans une pièce piégée provoque une contamination.",
+        "rag_response": "Non, s'allonger sur un lit dans une pièce piégée ne provoque pas de contamination comme l'usage d'un équipement.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is incorrect as it contradicts the ground truth answer, which states that lying on a bed in a trapped room does cause contamination. While the response is relevant to the question, it fails to provide accurate information and does not cover the key point that lying down does lead to contamination.",
+          "overall_score": 1.67
+        }
+      },
+      {
+        "question": "Bonjour, lorsqu'un Mush active un piège, est-ce que c'est notifié dans le canal Mush ? Style 'Machin a activé son propre piège, le spore est perdu' ?",
+        "ground_truth": " Non, si un Mush déclenche un piège d'étagère, il n'y a pas de message dans le canal Mush.",
+        "rag_response": "Non, l'activation d'un piège par un Mush n'est pas notifiée dans le canal Mush.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate, stating that the activation of a trap by a Mush is not notified in the Mush channel, which aligns with the ground truth. However, it lacks the specific detail about the type of trap (étagère) mentioned in the ground truth, which is a minor omission. The response is directly relevant to the question asked.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "On est bien d'accord qu'un mush malade n'a pas de symptômes ?",
+        "ground_truth": " Non, un Mush subit bien les symptômes de ses maladies. Bien que les Mushs ne peuvent pas tomber malade, s'ils avaient une maladie avant d'être converti au Mush, ils subissent bien les symptômes de cette dernière.",
+        "rag_response": "Oui, un mush ne montre pas de symptômes de maladie. S'il était malade avant de devenir mush, il peut garder la maladie, mais il ne développera pas de nouveaux symptômes.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is partially correct but contains inaccuracies. It states that a mush does not show symptoms of illness, which contradicts the ground truth that a mush can exhibit symptoms if it had a disease before conversion. The response also mentions that a mush can retain a disease but will not develop new symptoms, which is misleading as it implies that symptoms are entirely absent. The response is relevant to the question but lacks the nuance and detail present in the ground truth.",
+          "overall_score": 3
+        }
+      },
+      {
+        "question": "Dites, est ce qu'il y a des exceptions aux pertes de moral en cas de décès ? Par ce que j'ai l'impression que ça fait plusieurs parties que je ne perd pas de moral quand des inactifs meurent de dépression...? (évidemment, je ne parle pas du moral des mushs)",
+        "ground_truth": " Oui, il existe des exceptions aux pertes de moral en cas de décès : les morts par dépression fatale ou par quarantaine ne retirent pas de moral.",
+        "rag_response": "Oui, il y a des exceptions aux pertes de moral en cas de décès. Les morts par dépression fatale et mise en quarantaine ne font pas perdre de moral aux humains. Si les inactifs meurent de dépression, cela ne devrait pas affecter votre moral.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately reflects the ground truth answer, stating that there are exceptions to moral loss in cases of death, specifically mentioning deaths by fatal depression and quarantine. It also clarifies that the deaths of inactive characters due to depression do not affect the player's moral, which aligns with the user's concern. Therefore, all key points are covered, and the response is directly relevant to the question asked.",
+          "overall_score": 5
+        }
+      }
+    ]
   },
   {
-    "question": "uestion : l'echolocateur augmente il les chances que d'autres cases (comme les grottes et les montagnes) donnent de l'hydrocarbure, ou augmente il seulement les chances de visiter une case hydrocarbure ?",
-    "ground_truth": "L’écholocateur n’augmente que les probabilités de visiter une section “Hydrocarbure” et non pas les chances de visiter des sections pouvant donner du fuel.",
-    "rag_response": "L'écholocateur augmente seulement les chances de tomber sur la case HydroCarbure si la planète en a une. Cela n'augmente pas les chances que d'autres cases, comme les grottes et les montagnes, donnent de l'hydrocarbure.",
-    "evaluation": {
-      "correctness_score": 5,
-      "completeness_score": 4,
-      "relevance_score": 5,
-      "explanation": "The AI assistant's response accurately states that the echolocator only increases the chances of encountering an 'HydroCarbure' case and does not affect the chances of other cases like caves and mountains yielding hydrocarbons. However, it could have explicitly stated that it does not increase the chances of visiting sections that can yield fuel, which is a key point in the ground truth answer. Overall, the response is relevant and correct, but slightly less complete.",
-      "overall_score": 4.67
-    }
+    "evaluation_id": "bb384d9c-b4d8-42bd-889e-3538e7320ece",
+    "timestamp": "2024-11-24T16:31:13.363082",
+    "dataset_name": "test_set_v2.csv",
+    "rag_params": {
+      "top_k": 10,
+      "model": "gpt-4o-mini",
+      "temperature": 0.0,
+      "prompt_version": "V2"
+    },
+    "scores": {
+      "correctness": 2.1142857142857143,
+      "completeness": 1.7142857142857142,
+      "relevance": 3.4571428571428573,
+      "overall": 2.380571428571429
+    },
+    "results": [
+      {
+        "question": "Quand on prend un objet caché. Tout le monde voit le méssage non ?",
+        "ground_truth": "Oui, prendre un objet caché laisse un log public : le même que si l'objet n'était pas caché.",
+        "rag_response": "Non, si tu prends un objet caché, cela ne sera pas visible par les autres.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is incorrect as it contradicts the ground truth answer. It states that taking a hidden object will not be visible to others, which is false. The completeness score is low because it fails to mention the logging aspect of taking a hidden object, which is a key point in the ground truth. However, the response is relevant to the question asked, hence the relevance score is high.",
+          "overall_score": 2
+        }
+      },
+      {
+        "question": "Coucou, me revoilà avec une question, j'ai lu la liste de la tabulatrice et je m'attendais pas a ce qu'elle soit présentée comme ca, elle ne lave personne de tout soupcons, es ce que c'était comme ca il y a 10 ans ?",
+        "ground_truth": "Oui, la “liste de la tabulatrice” (qui est en réalité la “liste d’Eleesha) ne lave personne de tout soupçon. Il s’agit d’une liste de noms contenant au moins un Mush alpha. La liste commence avec 8 noms lors du réveil du premier équipier et perd un nom toutes les 24 heures. Vous confondez sans doute avec la liste de Finola qui elle peut réveler “l’état négatif” de certains équipiers, signifiant qu’ils ne sont pas Mushs alphas.",
+        "rag_response": "Je ne sais pas basé sur mes connaissances actuelles.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI Assistant's response does not provide any accurate information regarding the 'liste de la tabulatrice' or its historical context. It fails to address the specifics of the question and does not mention any of the key points from the ground truth answer. The only relevant aspect is that it acknowledges a lack of knowledge, but this does not fulfill the user's inquiry.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Désolé si c'est une question bête mais combien coûte de PA de bidouiller ? Un site dit 1 et un autre dit 2",
+        "ground_truth": "Bidouiller coûte 2 PA.",
+        "rag_response": "Le coût pour bidouiller est de 1 PA par essai.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect regarding the cost of bidouiller, stating it costs 1 PA instead of the correct 2 PA. While it is relevant to the question, it fails to provide the accurate information needed. The completeness score is low because it does not acknowledge the discrepancy between the two sources mentioned in the question.",
+          "overall_score": 2.67
+        }
+      },
+      {
+        "question": "Question : l'echolocateur augmente il les chances que d'autres cases (comme les grottes et les montagnes) donnent de l'hydrocarbure, ou augmente il seulement les chances de visiter une case hydrocarbure ?",
+        "ground_truth": "L’écholocateur n’augmente que les probabilités de visiter une section “Hydrocarbure” et non pas les chances de visiter des sections pouvant donner du fuel.",
+        "rag_response": "L'écholocateur augmente seulement les chances de tomber sur la case HydroCarbure si la planète en a une. Cela n'augmente pas les chances pour d'autres événements comme les grottes et les montagnes.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately states that the echolocator only increases the chances of encountering an 'HydroCarbure' case and does not affect the chances of encountering other types of cases like caves and mountains. However, it could have explicitly mentioned that it does not increase the chances of visiting sections that can yield fuel, which is a key point in the ground truth answer. Overall, the response is relevant and correct, but slightly less complete.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Autre question : est ce que tout le monde devrait voir le lien du rapport d'expédition dans les logs ou seulement les membres de l'expédition ?",
+        "ground_truth": "Le lien du rapport d’expédition dans les logs n’est visible que pour les membres de l’expédition. Chaque explorateur aura un log privé avec le lien du rapport.",
+        "rag_response": "Le lien du rapport d'expédition est visible uniquement par les membres de l'expédition.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is correct in stating that the link to the expedition report is only visible to expedition members, which aligns with the ground truth. However, it lacks the detail that each explorer has a private log containing the link, which is an important aspect of the ground truth answer. The response is relevant as it directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Bonjour à toutes et à tous, dites moi je ne sais pas si vous aurez la réponse mais une blessure peut-elle être guérie avec le médikit ou bien forcément le plot chirurgical ? Et est ce que si on utilise le plot chirurgical ça guerri la blessure mais aussi les maladies que l'on peut avoir ou bien uniquement la blessure ? (J'imagine que si on utilise le medikit sur une blessure ça gueri aussi les maladies)",
+        "ground_truth": "Une blessure ne peut être guérie que par une chirurgie. Une opération peut être effectuée par un médecin sur une personne allongée. Si la personne est allongée hors de l’infirmerie, le medécin aura besoin du medikit pour débloquer l’action. Ou bien, on peut s'auto opérer avec le plot chirurgical. La chirurgie ne guérit que les blessures. Si maladie il y a durant l'opération, elle peut être guérie par les moyens habituels (soins au medikit ou à l'infirmerie, ou en consommant un médicament guérissant la maladie). ",
+        "rag_response": "Une blessure peut être guérie avec le médikit ou en utilisant le plot chirurgical. Cependant, le plot chirurgical est spécifiquement utilisé pour les opérations chirurgicales, tandis que le médikit peut être utilisé pour soigner des blessures et des maladies. Si vous utilisez le plot chirurgical, cela ne guérira que la blessure et non les maladies. Pour guérir une maladie, il faut utiliser un médicament ou un soin approprié.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response contains some inaccuracies regarding the use of the médikit and plot chirurgical. It states that a wound can be healed with either the médikit or the plot chirurgical, which contradicts the ground truth that specifies a wound can only be healed through surgery. Additionally, it correctly mentions that the plot chirurgical only heals wounds and not diseases, but it fails to clarify that the médikit can also be used for both wounds and diseases. The response is relevant to the question but lacks some critical details and contains inaccuracies.",
+          "overall_score": 3
+        }
+      },
+      {
+        "question": "Bonsoir, petite question combien de spores un seul mush à le droit d'extirper en une journée ?",
+        "ground_truth": "4 + 1 spore par mush vivant qui a Esprit du Mycélium. La recherche “Gaz Antispore” réduit ce nombre de 2.",
+        "rag_response": "Un mush peut s'extirper jusqu'à 4 spores par jour.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response correctly states that a mush can extirpate up to 4 spores per day, which aligns with part of the ground truth. However, it fails to mention the additional spore that can be extirpated if the mush has 'Esprit du Mycélium' and does not address the reduction in spores due to the 'Gaz Antispore' research. Therefore, while the response is relevant and partially correct, it lacks completeness and full accuracy.",
+          "overall_score": 3.33
+        }
+      },
+      {
+        "question": "Bonjour, j'ai une question: est-ce qu'il est normal de pouvoir entrer en Icarus alors qu'une expé à 4 personnes est en cours...?",
+        "ground_truth": "Oui, il est normal de pouvoir rentrer en Baie Icarus alors qu’une expédition à 4 personnes est en cours. On y reste même quand ils reviennent. Par contre, si une expédition est lancée avec plus de 4 personnes en Baie Icarus, les 4 participants seront tirées au sort et les équipiers en trop ne partiront pas.",
+        "rag_response": "Je ne sais pas basé sur mes connaissances actuelles.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI Assistant's response does not provide any accurate information regarding the question about entering Baie Icarus during an ongoing expedition. It fails to confirm or deny the normalcy of the situation, which is the crux of the question. Additionally, it does not address any of the key points from the ground truth answer. The only relevance is that it acknowledges a lack of knowledge, but this does not help the user. Therefore, the relevance score is low.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "petite question sur la liste d'Eleesha, à partir de quand commence le décompte pour la suppression d'un nom ? ça commence dès le reveil ou dès le début effectif de la partie (apparition des mushs) ?",
+        "ground_truth": "Le décompte pour la supression d’un nom de la liste d’Eleesha commence à partir du premier réveillé.",
+        "rag_response": "Le décompte pour la suppression d'un nom sur la liste d'Eleesha commence dès le cycle du premier réveillé.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that the countdown for the deletion of a name starts with the first awakened, but it uses the term 'cycle' instead of 'réveillé', which could lead to slight confusion. It covers the key point of when the countdown starts, but the wording is not identical to the ground truth. The response is relevant and directly addresses the question asked.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "J'ai eu une question pour la prémonition de Chun Cela dit que cela révèle la dernière action de la personne Si Chun utilise plusieurs fois la compétence alors elle voit les X actions ou alors c'est vraiment tout le temps la dernière action comme le dit la description ?",
+        "ground_truth": "La prémonition de Chun révèle toujours la dernière action effectuée.",
+        "rag_response": "Je ne sais pas basé sur mes connaissances actuelles.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI assistant's response does not provide any accurate information regarding the question about Chun's premonition ability. It fails to confirm that the premonition reveals the last action, which is the key point of the ground truth. The response is minimally relevant as it acknowledges a lack of knowledge but does not address the specific question asked.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Questions pour les maladies Quand on soigne quelqu'un d'une maladie, on a un log mais si la maladie part d'elle-même, est ce que cela crée aussi un log ?",
+        "ground_truth": "Si la maladie guérit spontanément, le malade aura un log privé, donc invisible pour les autres contrairement à si la maladie avait été soignée (par un soin ou un médicament).",
+        "rag_response": "Si une maladie guérit d'elle-même, cela peut également créer un log privé indiquant que la maladie a disparu. Cependant, les détails exacts peuvent varier selon la maladie.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that a log may be created if a disease heals itself, which aligns with the ground truth. However, it lacks the specific detail that the log is private and invisible to others, which is a key point in the ground truth. The response is relevant to the question asked, addressing the concept of logging in the context of spontaneous healing.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "A question: when someone has 3 channels on, will I notice it when I check who I can invite into one of my channels?",
+        "ground_truth": "Yes, you will notice it, because you won’t see the player with 3 private channels in the list of the people you can invite into a private channel.",
+        "rag_response": "I don't know based on my current knowledge.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI assistant's response does not provide any accurate information regarding the question. It fails to confirm or deny the situation described in the ground truth answer. While it is somewhat relevant in that it acknowledges a lack of knowledge, it does not address the specific question about noticing a player with 3 private channels. Therefore, it receives a low score for correctness and completeness, and a minimal score for relevance.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Question random : Paola peut elle le faire avec gioele ?",
+        "ground_truth": "Non, Paola ne peut pas le faire avec Gioele. En effet, pour pouvoir le faire, il faut que l’un des deux équipiers fleurte avec l’autre. Or Paola et Gioele ne peuvent fleurter entre eux, étant de la même famille. ",
+        "rag_response": "Non, Gioele et Paola ne peuvent pas \"le faire\" ensemble.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly correct as it states that Paola and Gioele cannot do 'it' together, which aligns with the ground truth. However, it lacks the specific reasoning provided in the ground truth about the requirement for flirting and the familial relationship between Paola and Gioele. Therefore, while the answer is relevant and mostly correct, it is incomplete in terms of the reasoning and context.",
+          "overall_score": 3.67
+        }
+      },
+      {
+        "question": "Bonsoir à tous ! Question un peu bête peut-être, mais est-ce que moisification de masse est révélée par les caméras ou les équipiers dans la pièce ? Et est-ce que tous les membres de l'équipage se retrouvent sales même celui qui a initié l'action ?",
+        "ground_truth": "Oui, moisification de masse est une action discrète, elle est donc révelée par les caméras ou les équipiers dans la pièce. Tous les membres d’équipage se retrouveront sales, y compris l’auteur de l’action. Il s’agit d’une action super salissante, donc le tablier intachable ne protège pas de la salissure.",
+        "rag_response": "Je ne sais pas basé sur mes connaissances actuelles.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI Assistant's response does not provide any accurate information regarding the question about 'moisification de masse'. It fails to confirm whether it is revealed by cameras or crew members, and it does not address whether all crew members get dirty, including the initiator of the action. The response is largely irrelevant as it simply states a lack of knowledge without engaging with the specifics of the question.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Est-il normal que lorsqu'il y a moisissure de masse, les mushs perdent 2PA aussi?",
+        "ground_truth": "Oui, moisification de masse fait perdre 2PA à tous les membres d’équipage, y compris l’auteur et les autres Mushs.",
+        "rag_response": "Je ne sais pas basé sur mes connaissances actuelles.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI assistant's response does not provide any accurate information regarding the question about mass mold and the loss of 2PA. It fails to confirm or deny the claim made in the ground truth answer, which states that mass mold causes all crew members, including Mushs, to lose 2PA. The response is minimally relevant as it acknowledges a lack of knowledge but does not address the specific question asked.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Question : y a t'il un maximum pour les points de compétences ? Genre, les points tireurs, projets, cuisiniers, jardinnier ... Ou ils peuvent être accumulés à l'infini ?",
+        "ground_truth": "Les points de compétence ont effectivement des limites spécifiques selon chaque domaine. Voici des exemples de plafonds :   - **Tireur** : maximum de 4 points   - **Cuisinier** : maximum de 8 points   - **Botaniste** : maximum de 4 points   - **Pilgred** : maximum de 2 points    Ainsi, il n'est pas possible d'accumuler ces points à l'infini.",
+        "rag_response": "Je ne sais pas basé sur mes connaissances actuelles.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI Assistant's response does not provide any accurate information regarding the limits of skill points, which is a critical aspect of the question. It fails to mention any specific limits or details that are present in the ground truth answer. While it acknowledges a lack of knowledge, it does not address the question directly, making it minimally relevant.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "une autre question... si un joueur qui a une gastro est converti en mush, est-ce qu'il garde la gastro ? ",
+        "ground_truth": "Un joueur converti au Mush garde la maladie durant le cycle de conversion. La maladie se retrouve soignée au changement de cycle.",
+        "rag_response": "Non, les maladies physiques disparaissent au premier changement de cycle après être devenu Mush.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect regarding the retention of the illness during the conversion cycle. The ground truth states that the player retains the illness during the conversion, which contradicts the AI's claim that it disappears. The response does not cover the key point that the illness is treated at the change of cycle, leading to a low completeness score. However, the response is relevant to the question asked, hence a full score for relevance.",
+          "overall_score": 2.33
+        }
+      },
+      {
+        "question": "Bonjour à tous. Pour le retour sur Sol, est-ce que le filet magnétique rapatrie les patrouilleurs ?",
+        "ground_truth": "Tous les joueurs en vie rentrent sur Sol, quelque soit leur situation.",
+        "rag_response": "Oui, le filet magnétique ramène les patrouilleurs.",
+        "evaluation": {
+          "correctness_score": 2,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is partially correct in that it states the magnetic net brings back patrollers, but it fails to capture the full scope of the ground truth answer, which states that all players alive return to Sol regardless of their situation. Therefore, it lacks accuracy and completeness. However, it is relevant to the question asked.",
+          "overall_score": 3
+        }
+      },
+      {
+        "question": "Hello, petite question, rapport à notre Chun qui est partie en Pasi et ne souhaite pas revenir: peut-on tirer sur le pasi depuis un patrouilleur? Et dans ce cas revient-il en baie une fois à 0 ...?",
+        "ground_truth": "On ne peut pas tirer sur la Pasiphae et il ne rentre pas une fois à 0 armure, mais est détruit. La seule solution pour forcer Chun à atterir est de développer le projet Filet magnétique qui fait atterir automatiquement les patrouilleurs et le Pasiphaé lors d’un voyage du Daedalus.",
+        "rag_response": "Je ne sais pas basé sur mes connaissances actuelles.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI Assistant's response does not provide any accurate information regarding the question about the Pasiphae and the actions that can be taken. It fails to address the specifics of the question, such as the inability to shoot at the Pasiphae and the consequences of its armor reaching zero. While it is somewhat relevant in acknowledging a lack of knowledge, it does not attempt to answer the question at all.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "question un peu bete mais vu que j'ai pas arreter de missclick avec, si on cache une plante, et ce que son fruit donné sera visible lui ?",
+        "ground_truth": "Les fruits produits par une plante cachée sont visibles par tous.",
+        "rag_response": "Je ne sais pas basé sur mes connaissances actuelles.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 2,
+          "explanation": "The AI assistant's response does not provide any accurate information regarding the visibility of the fruit produced by a hidden plant, which is the main point of the question. It also fails to address the question directly, only stating uncertainty. While it is somewhat relevant to the question, it does not answer it, leading to a low relevance score.",
+          "overall_score": 0.67
+        }
+      },
+      {
+        "question": "Une caméra pas installé mais sur une personne fonctionne comme si elle était installée??",
+        "ground_truth": "Non, une caméra doit être installée pour révéler des actions.",
+        "rag_response": "Non, une caméra qui n'est pas installée ne fonctionne pas comme si elle était installée.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate, stating that a camera that is not installed does not function as if it were installed, which aligns with the ground truth. However, it lacks the explicit mention of the need for installation to reveal actions, which is a key point in the ground truth answer. The response is relevant and directly addresses the question asked.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "est ce qu'une mycoalarme sonne lors de la consomation d'une ration piégée ?",
+        "ground_truth": " Non, la mycoalarme ne sonne pas lors de la consomation d'une ration piégée, mais uniquement lorsqu'un Mush piège la ration.",
+        "rag_response": "Non, une mycoalarme ne sonne pas lors de la consommation d'une ration piégée.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is correct in stating that a mycoalarme does not sound during the consumption of a ration piégée. However, it lacks completeness as it does not mention that the mycoalarme only sounds when a Mush traps the ration, which is a key point from the ground truth answer. The response is relevant as it directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Bonsoir, est ce qu'il est possible de perdre son iTrakie dans un incendie ?",
+        "ground_truth": " Non, il n'est pas possible de perdre son iTrakie dans un incendie. L'iTrackie peut se casser dans un incendie, mais il ne peut pas être détruit.",
+        "rag_response": "Je ne sais pas basé sur mes connaissances actuelles.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 2,
+          "explanation": "The AI assistant's response does not provide any accurate information regarding the possibility of losing an iTrakie in a fire. It fails to address the specific details mentioned in the ground truth answer, such as the fact that an iTrakie can break but not be destroyed. While the response is somewhat relevant to the question, it ultimately does not answer it, leading to low scores in correctness and completeness.",
+          "overall_score": 1.33
+        }
+      },
+      {
+        "question": "est ce que fouiller une pièce déclenche un potentiel piège mush ?",
+        "ground_truth": " Oui, fouiller une pièce déclenche un potentiel piège Mush, ainsi que toute interaction avec un équipement de la pièce.",
+        "rag_response": "Oui, fouiller une pièce déclenche un potentiel piège mush.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate in stating that searching a room triggers a potential Mush trap, which aligns with the ground truth. However, it lacks completeness as it does not mention that any interaction with equipment in the room also triggers the trap, which is a key point in the ground truth answer. The response is relevant as it directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Comment fonctionne l'amélioration pilote des drones ? Plus précisément, est-ce qu'ils redescendent ? Sous qu'elle condition ?",
+        "ground_truth": " Les drones pilotes atterissent si leur patrouilleur n'a plus de charges ou s'il n'y a plus de hunters.",
+        "rag_response": "L'amélioration pilote des drones leur permet de tenter d'emprunter un patrouilleur et de détruire tous les hunters avant de se déplacer. Ils atterrissent s'ils n'y a plus de vaisseaux ou de charges. Cependant, si le drone agit en patrouilleur (qu'il ait décollé lui-même ou qu'on l'embarque), il atterrit uniquement s'il n'y a plus de vaisseaux ou de charges.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, but it introduces some additional details about the drone's actions that are not present in the ground truth answer. Specifically, the mention of 'tenter d'emprunter un patrouilleur' and 'détruire tous les hunters' adds complexity that may not be necessary for the question. However, it correctly states the conditions under which drones land, which aligns with the ground truth. The response is relevant and directly addresses the question asked.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "Est ce que traître se déclenche si le mush reste bien au chaud parce qu'il a 'oublié' sa combinaison ?",
+        "ground_truth": " Oui, la compétence Traître fonctionne si le Mush est bloqué dans l'Icarus.",
+        "rag_response": "Je ne sais pas basé sur mes connaissances actuelles.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI Assistant's response does not provide any accurate information regarding the question about the Traître skill and the Mush's situation. It fails to confirm or deny the functionality of the Traître skill as stated in the ground truth. The response is minimally relevant as it acknowledges a lack of knowledge but does not address the specific question asked.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Curiosité : allergie aux mush fait perdre 4 pv en cas de contamination avec un spore. Mais du coup est ce que ça peut te tuer ? Et si oui c'est quoi l'intitulé de ta mort ?",
+        "ground_truth": " Oui, la perte de PV de l'allergie au Mush peut tuer. La cause de la mort est Blessures...",
+        "rag_response": "Oui, une allergie au mush peut te tuer si tu es contaminé par un spore, car elle fait perdre 4 PV. L'intitulé de ta mort en cas de décès dû à cette allergie n'est pas précisé dans le contexte.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that an allergy to mush can lead to death due to the loss of PV. However, it does not specify the cause of death as 'Blessures' as mentioned in the ground truth, which affects the completeness score. The response is relevant and directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Est-ce qu'avec la langue cisaillée on a toujours accès aux canaux privés ?",
+        "ground_truth": " Oui, vous avez toujours accès aux canaux privés avec la langue cisaillée, mais vous ne pourrez pas écrire dedans.",
+        "rag_response": "Je ne sais pas basé sur mes connaissances actuelles.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI assistant's response does not provide any accurate information regarding access to private channels with a cisaillée tongue. It fails to confirm or deny the access and does not mention the inability to write in those channels, which is a key point from the ground truth. The response is somewhat relevant as it acknowledges a lack of knowledge, but it does not address the question directly.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Est-ce que l'allergie au mush fonctionne à 100 % (si on croise un mush on éternue à coup sûr) ?",
+        "ground_truth": " Non, l'éternuement en présence d'un Mush si on a la maladie Allergie au Mush est aléatoire.",
+        "rag_response": "Non, l'allergie au mush n'est pas systématique. Il y a une forte probabilité d'éternuer en croisant un mush, mais ce n'est pas garanti.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that the allergy to mush is not systematic and that there is a strong probability of sneezing, which aligns with the ground truth. However, it does not explicitly mention that sneezing is random, which is a key point in the ground truth. Therefore, it loses a point for correctness and completeness.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "est-ce qu'un mush peut éternuer en sa propre présence s'il a une allergie au Mush ?",
+        "ground_truth": " Oui, un Mush peut éternuer en sa propre présence s'il a une allergie au Mush.",
+        "rag_response": "Je ne sais pas basé sur mes connaissances actuelles.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 2,
+          "explanation": "The AI assistant's response does not provide any accurate information regarding the question. It fails to confirm or deny the possibility of a Mush sneezing in its own presence due to an allergy, which is the crux of the question. While it is somewhat relevant in that it acknowledges uncertainty, it does not address the question directly or provide any useful information.",
+          "overall_score": 0.67
+        }
+      },
+      {
+        "question": "Est-ce que plusieurs montures rocheuses sont cummulables entre-elles ?",
+        "ground_truth": " Non, les montures rocheuses ne sont cumulables entre elles. Une monture rocheuse se cumule cependant avec la trotinette anti-gravité.",
+        "rag_response": "I don't know based on my current knowledge.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 3,
+          "explanation": "The AI assistant's response does not provide any accurate information regarding the question about the cumulation of montures rocheuses. It fails to mention that they are not cumulable with each other and does not address the exception regarding the trotinette anti-gravité. However, the response is somewhat relevant as it acknowledges a lack of knowledge about the topic, which is a direct response to the question asked.",
+          "overall_score": 1.67
+        }
+      },
+      {
+        "question": "Question : est ce que s'allonger sur un lit dans une pièce piégée provoque une contamination comme l'usage d'un équipement ?",
+        "ground_truth": " Oui, s'allonger sur un lit dans une pièce piégée provoque une contamination.",
+        "rag_response": "I don't know based on my current knowledge.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 2,
+          "explanation": "The AI assistant's response does not provide any accurate information regarding the question. It fails to confirm or deny the claim about contamination, which is the crux of the question. Therefore, it scores 0 for correctness and completeness. The relevance score is slightly higher because it acknowledges the question but ultimately does not provide a useful answer.",
+          "overall_score": 0.67
+        }
+      },
+      {
+        "question": "Bonjour, lorsqu'un Mush active un piège, est-ce que c'est notifié dans le canal Mush ? Style 'Machin a activé son propre piège, le spore est perdu' ?",
+        "ground_truth": " Non, si un Mush déclenche un piège dans une pièce, il n'y a pas de message dans le canal Mush.",
+        "rag_response": "Non, l'activation d'un piège par un Mush n'est pas notifiée dans le canal Mush.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate and directly states that the activation of a trap by a Mush is not notified in the Mush channel, which aligns perfectly with the ground truth. However, it does not mention the specific detail about the message regarding the spore being lost, which is a minor point of completeness. Overall, the response is relevant and correct.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "On est bien d'accord qu'un mush malade n'a pas de symptômes ?",
+        "ground_truth": " Non, un Mush subit bien les symptômes de ses maladies. Bien que les Mushs ne peuvent pas tomber malade, s'ils avaient une maladie avant d'être converti au Mush, ils subissent bien les symptômes de cette dernière.",
+        "rag_response": "Oui, un Mush ne tombe jamais malade et n'a donc pas de symptômes. Cependant, s'il était malade avant de devenir Mush, il peut conserver cette maladie.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response contains some accurate information, stating that a Mush does not get sick and does not have symptoms. However, it inaccurately implies that a Mush cannot exhibit symptoms at all, which contradicts the ground truth that states a Mush can show symptoms if it had a disease before becoming a Mush. The response does mention that a Mush can retain a disease from before its conversion, which is a relevant point but does not fully capture the nuances of the ground truth. Therefore, while the response is relevant, it lacks completeness and correctness.",
+          "overall_score": 3.67
+        }
+      },
+      {
+        "question": "Dites, est ce qu'il y a des exceptions aux pertes de moral en cas de décès ? Par ce que j'ai l'impression que ça fait plusieurs parties que je ne perd pas de moral quand des inactifs meurent de dépression...? (évidemment, je ne parle pas du moral des mushs)",
+        "ground_truth": " Oui, il existe des exceptions aux pertes de moral en cas de décès : les morts par dépression fatale ou par quarantaine ne retirent pas de moral.",
+        "rag_response": "Oui, il y a des exceptions aux pertes de moral en cas de décès. Les morts par dépression fatale et mise en quarantaine par Néron ne font pas perdre de moral.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate and correctly identifies the exceptions to moral loss in case of death, specifically mentioning deaths by fatal depression and quarantine. However, it adds 'par Néron' which is not present in the ground truth answer and could be seen as unnecessary detail. The response is relevant and directly addresses the question asked.",
+          "overall_score": 4.67
+        }
+      }
+    ]
   },
   {
-    "question": "Autre question : est ce que tout le monde devrait voir le lien du rapport d'expédition dans les logs ou seulement les membres de l'expédition ?",
-    "ground_truth": "Le lien du rapport d’expédition dans les logs n’est visible que pour les membres de l’expédition. Chaque explorateur aura un log privé avec le lien du rapport.",
-    "rag_response": "Seuls les membres de l'expédition devraient voir le lien du rapport d'expédition dans les logs.",
-    "evaluation": {
-      "correctness_score": 5,
-      "completeness_score": 3,
-      "relevance_score": 5,
-      "explanation": "The AI Assistant's response is correct in stating that only members of the expedition should see the link to the report in the logs. However, it lacks completeness as it does not mention that each explorer has a private log with the link to the report, which is a key detail from the ground truth. The response is relevant as it directly addresses the question asked.",
-      "overall_score": 4
-    }
-  },
-  {
-    "question": "Bonjour à toutes et à tous, dites moi je ne sais pas si vous aurez la réponse mais une blessure peut-elle être guérie avec le médikit ou bien forcément le plot chirurgical ? Et est ce que si on utilise le plot chirurgical ça guerri la blessure mais aussi les maladies que l'on peut avoir ou bien uniquement la blessure ? (J'imagine que si on utilise le medikit sur une blessure ça gueri aussi les maladies)",
-    "ground_truth": "Une blessure ne peut être guérie que par une chirurgie. Une opération peut être effectuée par un médecin sur une personne allongée. Si la personne est allongée hors de l’infirmerie, le medécin aura besoin du medikit pour débloquer l’action. Ou bien, on peut s'auto opérer avec le plot chirurgical. La chirurgie ne guérit que les blessures. Si maladie il y a durant l'opération, elle peut être guérie par les moyens habituels (soins au medikit ou à l'infirmerie, ou en consommant un médicament guérissant la maladie). ",
-    "rag_response": "Bonjour ! Une blessure peut être guérie avec le médikit, mais pour certaines blessures, il est préférable d'utiliser le plot chirurgical à l'infirmerie. L'utilisation du plot chirurgical ne guérit que la blessure et non les maladies. Le médikit peut aider à récupérer des points de vie, mais il ne guérit pas les maladies.",
-    "evaluation": {
-      "correctness_score": 3,
-      "completeness_score": 3,
-      "relevance_score": 5,
-      "explanation": "The AI Assistant's response contains some accurate information, such as the fact that a plot chirurgical is preferable for certain injuries and that it does not heal diseases. However, it inaccurately states that a wound can be healed with a medikit, which contradicts the ground truth that specifies only surgical means can heal wounds. Additionally, it does not mention the need for a doctor to perform surgery or the specifics about self-surgery. The response is relevant to the question asked, but it lacks some critical details and contains inaccuracies.",
-      "overall_score": 3.67
-    }
-  },
-  {
-    "question": "Bonsoir, petite question combien de spores un seul mush à le droit d'extirper en une journée ?",
-    "ground_truth": "4 + 1 spore par mush vivant qui a Esprit du Mycélium. La recherche “Gaz Antispore” réduit ce nombre de 2.",
-    "rag_response": "Un mush peut extirper jusqu'à 2 spores par jour.",
-    "evaluation": {
-      "correctness_score": 1,
-      "completeness_score": 1,
-      "relevance_score": 5,
-      "explanation": "The AI assistant's response is incorrect as it states that a mush can extirper up to 2 spores per day, while the ground truth indicates that it can extirper 4 + 1 spore if it has 'Esprit du Mycélium', and that the 'Gaz Antispore' research reduces this number by 2. The response also fails to mention the additional spore from 'Esprit du Mycélium' and the effect of 'Gaz Antispore', which are key points in the ground truth. However, the response is relevant to the question asked.",
-      "overall_score": 2
-    }
-  },
-  {
-    "question": "Bonjour, j'ai une question: est-ce qu'il est normal de pouvoir entrer en Icarus alors qu'une expé à 4 personnes est en cours...?",
-    "ground_truth": "Oui, il est normal de pouvoir rentrer en Baie Icarus alors qu’une expédition à 4 personnes est en cours. On y reste même quand ils reviennent. Par contre, si une expédition est lancée avec plus de 4 personnes en Baie Icarus, les 4 participants seront tirées au sort et les équipiers en trop ne partiront pas.",
-    "rag_response": "Non, il n'est pas normal de pouvoir entrer dans l'Icarus pendant qu'une expédition à 4 personnes est en cours. Cela pourrait indiquer un bug dans le jeu.",
-    "evaluation": {
-      "correctness_score": 1,
-      "completeness_score": 1,
-      "relevance_score": 5,
-      "explanation": "The AI Assistant's response is incorrect as it states that it is not normal to enter Icarus during an ongoing expedition, which contradicts the ground truth that confirms it is normal. The response also fails to mention the details about the maximum number of participants and the selection process for excess players, which are key points in the ground truth. However, the response is relevant to the question asked, hence it scores a 5 in relevance.",
-      "overall_score": 2.33
-    }
-  },
-  {
-    "question": "petite question sur la liste d'Eleesha, à partir de quand commence le décompte pour la suppression d'un nom ? ça commence dès le reveil ou dès le début effectif de la partie (apparition des mushs) ?",
-    "ground_truth": "Le décompte pour la supression d’un nom de la liste d’Eleesha commence à partir du premier réveillé.",
-    "rag_response": "Le décompte pour la suppression d'un nom sur la liste d'Eleesha commence au cycle du premier réveillé.",
-    "evaluation": {
-      "correctness_score": 4,
-      "completeness_score": 4,
-      "relevance_score": 5,
-      "explanation": "The AI assistant's response is mostly accurate, stating that the countdown for the deletion of a name starts at the cycle of the first awakened, which is similar to the ground truth that specifies it starts at the first awakened. However, the term 'cycle' could introduce slight ambiguity compared to the ground truth's phrasing. The response covers the key point but could be clearer. It directly addresses the question asked, hence the high relevance score.",
-      "overall_score": 4.33
-    }
-  },
-  {
-    "question": "J'ai eu une question pour la prémonition de Chun Cela dit que cela révèle la dernière action de la personne Si Chun utilise plusieurs fois la compétence alors elle voit les X actions ou alors c'est vraiment tout le temps la dernière action comme le dit la description ?",
-    "ground_truth": "La prémonition de Chun révèle toujours la dernière action effectuée.",
-    "rag_response": "La prémonition de Chun révèle uniquement la dernière action de la personne. Si elle utilise la compétence plusieurs fois, elle ne verra toujours que la dernière action effectuée, pas les actions précédentes.",
-    "evaluation": {
-      "correctness_score": 5,
-      "completeness_score": 5,
-      "relevance_score": 5,
-      "explanation": "The AI Assistant's response accurately reflects the ground truth answer, stating that Chun's premonition reveals only the last action performed. It also clarifies that using the ability multiple times does not change this fact, which adds to the completeness of the answer. The response is directly relevant to the question asked.",
-      "overall_score": 5
-    }
-  },
-  {
-    "question": "Questions pour les maladies Quand on soigne quelqu'un d'une maladie, on a un log mais si la maladie part d'elle-même, est ce que cela crée aussi un log ?",
-    "ground_truth": "Si la maladie guérit spontanément, le malade aura un log privé, donc invisible pour les autres contrairement à si la maladie avait été soignée (par un soin ou un médicament).",
-    "rag_response": "Non, si la maladie part d'elle-même, cela ne crée pas de log. Les logs sont générés uniquement lorsque quelqu'un est soigné d'une maladie.",
-    "evaluation": {
-      "correctness_score": 2,
-      "completeness_score": 2,
-      "relevance_score": 5,
-      "explanation": "The AI assistant's response incorrectly states that no log is created when a disease resolves spontaneously, which contradicts the ground truth that mentions a private log exists for the patient. While the response is relevant to the question, it fails to accurately reflect the nuances of the ground truth and misses the point about the existence of a private log. Therefore, it scores low on correctness and completeness.",
-      "overall_score": 3
-    }
-  },
-  {
-    "question": "question, les annonces de mort des membres de l'équipage ne peuvent pas être désactivées sur le terminal BIOS pour le moment, oui? On a un mort, mais sans annonce... ",
-    "ground_truth": "Si les annonces de mort n’ont pas été désactivés à l’aide du terminal BIOS et qu’une mort n’a pas été annoncée, cela signifie que la mort a eu lieu dans une pièce avec les logs effacés par un Mush avec la compétence “Dialoguiste”.",
-    "rag_response": "Oui, les annonces de mort des membres de l'équipage peuvent être désactivées sur le terminal BIOS. Si NERON n'a pas signalé la mort, cela signifie que l'annonce a été désactivée.",
-    "evaluation": {
-      "correctness_score": 1,
-      "completeness_score": 1,
-      "relevance_score": 3,
-      "explanation": "The AI assistant's response is incorrect as it states that the announcements can be disabled, which contradicts the ground truth. It also fails to mention the specific scenario of a death occurring in a room with logs erased by a character with the 'Dialoguiste' skill, which is a key point in the ground truth. While it does address the question, the inaccuracies and omissions significantly impact the overall quality.",
-      "overall_score": 1.67
-    }
-  },
-  {
-    "question": "A question: when someone has 3 channels on, will I notice it when I check who I can invite into one of my channels?",
-    "ground_truth": "No, the player won’t notice that you try to invite them into a privatge channel.",
-    "rag_response": "Yes, if someone has 3 private channels active, you will notice it when you check who you can invite into one of your channels.",
-    "evaluation": {
-      "correctness_score": 0,
-      "completeness_score": 0,
-      "relevance_score": 5,
-      "explanation": "The AI Assistant's response is incorrect as it contradicts the ground truth answer. The ground truth states that the player won't notice the invitation attempt, while the AI claims that they will notice it. The response does not cover the key point from the ground truth, which is the lack of awareness of the player regarding the invitation. However, it is relevant to the question asked, as it addresses the situation of inviting someone into a channel. Therefore, the relevance score is the only point where it scores positively.",
-      "overall_score": 1.67
-    }
-  },
-  {
-    "question": "Question random : Paola peut elle \"le faire\" avec gioele ?",
-    "ground_truth": "Non, Paola ne peut pas le faire avec Gioele. En effet, pour pouvoir le faire, il faut que l’un des deux équipiers fleurte avec l’autre. Or Paola et Gioele ne peuvent fleurter entre eux, étant de la même famille. ",
-    "rag_response": "Non, Paola et Gioele ne peuvent pas \"le faire\" ensemble.",
-    "evaluation": {
-      "correctness_score": 4,
-      "completeness_score": 2,
-      "relevance_score": 5,
-      "explanation": "The AI assistant's response is mostly correct as it states that Paola and Gioele cannot 'le faire' together, which aligns with the ground truth. However, it lacks the explanation that they cannot flirt because they are family, which is a crucial part of the ground truth. The response is relevant to the question asked.",
-      "overall_score": 3.67
-    }
-  },
-  {
-    "question": "Bonsoir à tous ! Question un peu bête peut-être, mais est-ce que \"moisification de masse\" est révélée par les caméras ou les équipiers dans la pièce ? Et est-ce que tous les membres de l'équipage se retrouvent sales même celui qui a initié l'action ?",
-    "ground_truth": "Oui, moisification de masse est une action discrète, elle est donc révelée par les caméras ou les équipiers dans la pièce. Tous les membres d’équipage se retrouveront sale, y compris l’auteur de l’action. Il s’agit d’une action super salissante, donc le tablier intachable ne protège pas de la salissure.",
-    "rag_response": "La \"moisification de masse\" n'est pas révélée par les caméras ni par les équipiers dans la pièce. En ce qui concerne la saleté, tous les membres de l'équipage se retrouvent effectivement sales, y compris celui qui a initié l'action.",
-    "evaluation": {
-      "correctness_score": 1,
-      "completeness_score": 2,
-      "relevance_score": 5,
-      "explanation": "The AI assistant's response contains a major inaccuracy regarding the revelation of 'moisification de masse', stating that it is not revealed by cameras or crew members, which contradicts the ground truth. While it correctly states that all crew members, including the initiator, end up dirty, it fails to mention the extent of the messiness and the ineffectiveness of the 'tablier intachable'. Therefore, it lacks completeness. The response is relevant to the question asked.",
-      "overall_score": 2.67
-    }
-  },
-  {
-    "question": "Est-il normal que lorsqu'il y a moisissure de masse, les mushs perdent 2PA aussi?",
-    "ground_truth": "Oui, moisification de masse fait perdre 2PA à tous les membres d’équipage, y compris l’auteur et les autres Mushs.",
-    "rag_response": "Je ne sais pas.",
-    "evaluation": {
-      "correctness_score": 0,
-      "completeness_score": 0,
-      "relevance_score": 1,
-      "explanation": "The AI assistant's response 'Je ne sais pas' does not provide any accurate information regarding the question about mass mold and the loss of 2PA. It fails to confirm or deny the claim made in the ground truth answer, resulting in a score of 0 for correctness and completeness. The response is minimally relevant as it acknowledges a lack of knowledge, but it does not address the specific question asked.",
-      "overall_score": 0.33
-    }
-  },
-  {
-    "question": "Question : y a t'il un maximum pour les points de compétences ? Genre, les points tireurs, projets, cuisiniers, jardinnier ... Ou ils peuvent être accumulés à l'infini ?",
-    "ground_truth": "Les points de compétence ont effectivement des limites spécifiques selon chaque domaine. Voici les plafonds :   - **Tireur** : maximum de 4 points   - **Cuisinier** : maximum de 8 points   - **Botaniste** : maximum de 4 points   - **Concepteur** : maximum de 4 points   - **Pilgred** : maximum de 2 points   - **Informatique** : maximum de 4 points  - **Technicien** : maximum de 2 points - **Soin** : maximum de 2 points  Ainsi, il n'est pas possible d'accumuler ces points à l'infini.",
-    "rag_response": "Il y a un maximum pour les points de compétences. Les compétences qui font gagner des points se cumulent sur deux jours maximum, par exemple, 4 points de jardinage, 8 points de cuisine, etc.",
-    "evaluation": {
-      "correctness_score": 2,
-      "completeness_score": 2,
-      "relevance_score": 4,
-      "explanation": "The AI assistant's response correctly states that there is a maximum for skill points, which is relevant to the question. However, it fails to provide the specific limits for each skill as outlined in the ground truth, leading to inaccuracies and incompleteness. The mention of 'two days maximum' is not part of the ground truth and adds confusion.",
-      "overall_score": 2.67
-    }
-  },
-  {
-    "question": "une autre question... si un joueur qui a une gastro est converti en mush, est-ce qu'il garde la gastro ? ",
-    "ground_truth": "Un joueur converti au Mush garde la maladie durant le cycle de conversion. La maladie se retrouve soignée au changement de cycle.",
-    "rag_response": "Non, un mush ne peut pas attraper de maladies physiques après sa conversion. Cependant, s'il avait une maladie avant de devenir mush, il la garde.",
-    "evaluation": {
-      "correctness_score": 3,
-      "completeness_score": 2,
-      "relevance_score": 5,
-      "explanation": "The AI assistant's response is partially correct as it states that a mush retains any diseases they had before conversion, which aligns with the ground truth. However, it inaccurately suggests that a mush cannot catch new diseases, which contradicts the ground truth that states the disease is treated at the end of the conversion cycle. The response lacks the detail about the disease being cured at the change of cycle, which is a key point in the ground truth. The response is relevant to the question asked.",
-      "overall_score": 3.33
-    }
-  },
-  {
-    "question": "Bonjour à tous. Pour le retour sur Sol, est-ce que le filet magnétique rapatrie les patrouilleurs ?",
-    "ground_truth": "Tous les joueurs en vie rentrent sur Sol, quelque soit leur situation.",
-    "rag_response": "Oui, le filet magnétique ramène les patrouilleurs au vaisseau.",
-    "evaluation": {
-      "correctness_score": 2,
-      "completeness_score": 2,
-      "relevance_score": 5,
-      "explanation": "The AI assistant's response is partially correct in that it states the magnetic net brings back patrollers, but it inaccurately implies that only patrollers are affected, whereas the ground truth specifies that all players alive return to Sol regardless of their situation. This omission leads to a lower completeness score. The response is relevant as it addresses the question directly.",
-      "overall_score": 3
-    }
-  },
-  {
-    "question": "Hello, petite question, rapport à notre Chun qui est partie en Pasi et ne souhaite pas revenir: peut-on tirer sur le pasi depuis un patrouilleur? Et dans ce cas revient-il en baie une fois à 0 ...?",
-    "ground_truth": "On ne peut pas tirer sur la Pasiphae et il ne rentre pas une fois à 0 armure, mais est détruit. La seule solution pour forcer Chun à atterir est de développer le projet Filet magnétique qui fait atterir automatiquement les patrouilleurs et le Pasiphaé lors d’un voyage du Daedalus.",
-    "rag_response": "Non, on ne peut pas tirer sur le Pasiphae depuis un patrouilleur. Si le Pasiphae est à 0, il ne reviendra pas automatiquement en baie. Il faut que le pilote ou un drone à l'intérieur effectue les réparations nécessaires.",
-    "evaluation": {
-      "correctness_score": 5,
-      "completeness_score": 3,
-      "relevance_score": 5,
-      "explanation": "The AI assistant's response correctly states that one cannot shoot at the Pasiphae from a patrol ship and accurately mentions that it does not return automatically when at 0 armor. However, it fails to mention that the Pasiphae is destroyed at 0 armor, which is a critical point from the ground truth. The additional information about needing a pilot or drone for repairs is not relevant to the original question, which focuses on the shooting and returning mechanics.",
-      "overall_score": 4
-    }
-  },
-  {
-    "question": "question un peu bete mais vu que j'ai pas arreter de missclick avec, si on cache une plante, et ce que son fruit donné sera visible lui ?",
-    "ground_truth": "Les fruits produits par une plante cachée sont visibles par tous.",
-    "rag_response": "Si une plante est cachée, son fruit ne sera pas visible non plus. Les fruits ne peuvent être vus que si la plante est accessible.",
-    "evaluation": {
-      "correctness_score": 1,
-      "completeness_score": 1,
-      "relevance_score": 5,
-      "explanation": "The AI assistant's response is incorrect as it states that if a plant is hidden, its fruit will not be visible, which contradicts the ground truth answer that states the fruits are visible regardless of the plant's visibility. The response does not cover the key point that the fruits produced by a hidden plant are still visible. However, the response is relevant to the question asked, hence it receives a score of 5 for relevance.",
-      "overall_score": 2.33
-    }
-  },
-  {
-    "question": "Une caméra pas installé mais sur une personne fonctionne comme si elle était installée??",
-    "ground_truth": "Non, une caméra doit être installée pour révéler des actions.",
-    "rag_response": "Non, une caméra qui n'est pas installée ne fonctionne pas comme si elle l'était. Elle doit être installée pour détecter les actions dans la pièce.",
-    "evaluation": {
-      "correctness_score": 5,
-      "completeness_score": 5,
-      "relevance_score": 5,
-      "explanation": "The AI assistant's response accurately reflects the ground truth answer, stating that a camera must be installed to function properly. It also emphasizes the necessity of installation for detecting actions, which aligns with the key point of the ground truth. The response is directly relevant to the question asked.",
-      "overall_score": 5
-    }
+    "evaluation_id": "a467539d-cdb0-45a8-86bb-31971161b6b5",
+    "timestamp": "2024-11-24T16:54:53.801724",
+    "dataset_name": "test_set_v2.csv",
+    "rag_params": {
+      "top_k": 3,
+      "model": "gpt-4o-mini",
+      "temperature": 0.0,
+      "prompt_version": "V3"
+    },
+    "scores": {
+      "correctness": 3.2,
+      "completeness": 2.7714285714285714,
+      "relevance": 4.628571428571429,
+      "overall": 3.4948571428571427
+    },
+    "results": [
+      {
+        "question": "Quand on prend un objet caché. Tout le monde voit le méssage non ?",
+        "ground_truth": "Oui, prendre un objet caché laisse un log public : le même que si l'objet n'était pas caché.",
+        "rag_response": "Non, lorsque vous prenez un objet caché, cela n'est pas visible par tout le monde. L'action de prendre un objet est publique, mais si l'objet était caché, le fait de le découvrir ne sera pas notifié à tous. Seul le joueur qui a trouvé l'objet verra le message.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect because it states that taking a hidden object is not visible to everyone, which contradicts the ground truth that indicates a public log is created regardless of the object's hidden status. The response also fails to mention that the log is the same as if the object were not hidden, which is a key point from the ground truth. However, the response is relevant to the question asked, hence it receives a full score for relevance.",
+          "overall_score": 2.33
+        }
+      },
+      {
+        "question": "Coucou, me revoilà avec une question, j'ai lu la liste de la tabulatrice et je m'attendais pas a ce qu'elle soit présentée comme ca, elle ne lave personne de tout soupcons, es ce que c'était comme ca il y a 10 ans ?",
+        "ground_truth": "Oui, la “liste de la tabulatrice” (qui est en réalité la “liste d’Eleesha) ne lave personne de tout soupçon. Il s’agit d’une liste de noms contenant au moins un Mush alpha. La liste commence avec 8 noms lors du réveil du premier équipier et perd un nom toutes les 24 heures. Vous confondez sans doute avec la liste de Finola qui elle peut réveler “l’état négatif” de certains équipiers, signifiant qu’ils ne sont pas Mushs alphas.",
+        "rag_response": "Je ne sais pas.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI assistant's response 'Je ne sais pas' does not provide any accurate information regarding the question about the 'liste de la tabulatrice' and its historical context. It fails to address the key points mentioned in the ground truth answer, such as the nature of the list and its implications. While it is somewhat relevant in acknowledging a lack of knowledge, it does not engage with the specifics of the question.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Désolé si c'est une question bête mais combien coûte de PA de bidouiller ? Un site dit 1 et un autre dit 2",
+        "ground_truth": "Bidouiller coûte 2 PA.",
+        "rag_response": "Dans le jeu eMush, l'action de bidouiller coûte 2 PA.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately states that bidouiller costs 2 PA, which matches the ground truth. It also provides additional context by mentioning the game eMush, which is relevant to the question. The response fully addresses the inquiry without omitting any key points.",
+          "overall_score": 5
+        }
+      },
+      {
+        "question": "Question : l'echolocateur augmente il les chances que d'autres cases (comme les grottes et les montagnes) donnent de l'hydrocarbure, ou augmente il seulement les chances de visiter une case hydrocarbure ?",
+        "ground_truth": "L’écholocateur n’augmente que les probabilités de visiter une section “Hydrocarbure” et non pas les chances de visiter des sections pouvant donner du fuel.",
+        "rag_response": "L'écholocateur augmente uniquement les chances de visiter une case \"hydrocarbure\" si elle est présente sur la planète. Il ne modifie pas les chances que d'autres cases, comme les grottes ou les montagnes, donnent de l'hydrocarbure.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately reflects the information provided in the ground truth answer. It correctly states that the echolocator only increases the chances of visiting a hydrocarbon section and does not affect the chances of other sections like caves or mountains yielding hydrocarbons. Additionally, it covers all key points from the ground truth without omitting any critical information. The response is directly relevant to the question asked.",
+          "overall_score": 5
+        }
+      },
+      {
+        "question": "Autre question : est ce que tout le monde devrait voir le lien du rapport d'expédition dans les logs ou seulement les membres de l'expédition ?",
+        "ground_truth": "Le lien du rapport d’expédition dans les logs n’est visible que pour les membres de l’expédition. Chaque explorateur aura un log privé avec le lien du rapport.",
+        "rag_response": "Seuls les membres de l'expédition peuvent voir le lien du rapport d'expédition dans les logs. Après l'expédition, le rapport devient consultable par tout l'équipage, mais initialement, il est accessible uniquement aux participants.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that only expedition members can see the link initially, which aligns with the ground truth. However, it introduces the idea that the report becomes accessible to the entire crew after the expedition, which is not mentioned in the ground truth and could lead to confusion. The response does not fully capture the detail that each explorer has a private log with the link, which is a key point in the ground truth. The response is relevant as it directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Bonjour à toutes et à tous, dites moi je ne sais pas si vous aurez la réponse mais une blessure peut-elle être guérie avec le médikit ou bien forcément le plot chirurgical ? Et est ce que si on utilise le plot chirurgical ça guerri la blessure mais aussi les maladies que l'on peut avoir ou bien uniquement la blessure ? (J'imagine que si on utilise le medikit sur une blessure ça gueri aussi les maladies)",
+        "ground_truth": "Une blessure ne peut être guérie que par une chirurgie. Une opération peut être effectuée par un médecin sur une personne allongée. Si la personne est allongée hors de l’infirmerie, le medécin aura besoin du medikit pour débloquer l’action. Ou bien, on peut s'auto opérer avec le plot chirurgical. La chirurgie ne guérit que les blessures. Si maladie il y a durant l'opération, elle peut être guérie par les moyens habituels (soins au medikit ou à l'infirmerie, ou en consommant un médicament guérissant la maladie). ",
+        "rag_response": "Bonjour ! Pour guérir une blessure, vous pouvez utiliser soit le médikit, soit le plot chirurgical. Le médikit permet de soigner 3 points de vie et peut également guérir des maladies, mais il ne peut pas aider avec des troubles ou des blessures. En revanche, le plot chirurgical permet de réaliser une chirurgie auto pour réparer une blessure, mais il ne guérit que la blessure et pas les maladies. Donc, si vous utilisez le médikit, cela peut guérir à la fois la blessure et les maladies, tandis que le plot chirurgical ne s'occupe que des blessures.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response contains some inaccuracies regarding the use of the médikit and the plot chirurgical. It states that the médikit can heal both injuries and diseases, which is partially correct, but it fails to mention that the plot chirurgical is specifically for injuries and does not address diseases. Additionally, it does not clarify that surgery can only be performed on a person lying down, which is a key point from the ground truth. However, the response is relevant to the question asked.",
+          "overall_score": 3
+        }
+      },
+      {
+        "question": "Bonsoir, petite question combien de spores un seul mush à le droit d'extirper en une journée ?",
+        "ground_truth": "4 + 1 spore par mush vivant qui a Esprit du Mycélium. La recherche “Gaz Antispore” réduit ce nombre de 2.",
+        "rag_response": "Un mush peut extirper un maximum de 4 spores par jour, mais ce nombre peut être réduit à 2 par le gaz Antispore.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that a mush can extirper a maximum of 4 spores per day, which aligns with the ground truth. However, it fails to mention the additional spore that can be extirpated if the mush has 'Esprit du Mycélium', which is a key point in the ground truth. The mention of the 'Gaz Antispore' reducing the number of spores to 2 is correct but incomplete without the context of the additional spore. The response is relevant as it directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Bonjour, j'ai une question: est-ce qu'il est normal de pouvoir entrer en Icarus alors qu'une expé à 4 personnes est en cours...?",
+        "ground_truth": "Oui, il est normal de pouvoir rentrer en Baie Icarus alors qu’une expédition à 4 personnes est en cours. On y reste même quand ils reviennent. Par contre, si une expédition est lancée avec plus de 4 personnes en Baie Icarus, les 4 participants seront tirées au sort et les équipiers en trop ne partiront pas.",
+        "rag_response": "Oui, il est possible d'entrer dans la Baie Icarus même si une expédition est en cours. Cela peut entraîner plus de personnes dans la baie lorsque l'expédition se termine, mais il est important de noter que si le nombre de personnes dépasse la capacité de l'Icarus, le jeu choisira aléatoirement qui sera envoyé sur la planète lors d'une prochaine expédition.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that it is possible to enter Baie Icarus during an ongoing expedition. However, it lacks the detail that participants in an expedition exceeding 4 people will be drawn randomly, which is a key point in the ground truth. The response is relevant to the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "petite question sur la liste d'Eleesha, à partir de quand commence le décompte pour la suppression d'un nom ? ça commence dès le reveil ou dès le début effectif de la partie (apparition des mushs) ?",
+        "ground_truth": "Le décompte pour la supression d’un nom de la liste d’Eleesha commence à partir du premier réveillé.",
+        "rag_response": "Le décompte pour la suppression d'un nom sur la liste d'Eleesha commence dès le cycle du premier réveillé, pas dès le début effectif de la partie.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that the countdown begins with the first awakened player, which aligns with the ground truth. However, the phrase 'dès le cycle du premier réveillé' could be interpreted as slightly different from 'à partir du premier réveillé', which may introduce a minor ambiguity. The response covers the key points and directly addresses the question, but the slight difference in wording affects the correctness score. Overall, it is a strong response.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "J'ai eu une question pour la prémonition de Chun Cela dit que cela révèle la dernière action de la personne Si Chun utilise plusieurs fois la compétence alors elle voit les X actions ou alors c'est vraiment tout le temps la dernière action comme le dit la description ?",
+        "ground_truth": "La prémonition de Chun révèle toujours la dernière action effectuée.",
+        "rag_response": "La compétence \"Prémonition\" de Chun ne révèle que la dernière action d'un équipier, et non plusieurs actions. Chaque utilisation de la compétence permet de voir uniquement la dernière action effectuée par la personne ciblée.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response accurately states that Chun's premonition reveals only the last action performed by the targeted teammate, which aligns perfectly with the ground truth answer. It also clarifies that multiple uses of the ability do not reveal multiple actions, but rather just the most recent one, which adds to the completeness of the answer. The response is directly relevant to the question asked.",
+          "overall_score": 5
+        }
+      },
+      {
+        "question": "Questions pour les maladies Quand on soigne quelqu'un d'une maladie, on a un log mais si la maladie part d'elle-même, est ce que cela crée aussi un log ?",
+        "ground_truth": "Si la maladie guérit spontanément, le malade aura un log privé, donc invisible pour les autres contrairement à si la maladie avait été soignée (par un soin ou un médicament).",
+        "rag_response": "Oui, si une maladie guérit d'elle-même, cela crée également un log indiquant que la personne a guéri de la maladie.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is partially correct in stating that a log is created when a disease heals itself. However, it fails to mention that this log is private and not visible to others, which is a crucial detail from the ground truth. The response is relevant to the question asked, but it lacks completeness in addressing all key points.",
+          "overall_score": 3.33
+        }
+      },
+      {
+        "question": "A question: when someone has 3 channels on, will I notice it when I check who I can invite into one of my channels?",
+        "ground_truth": "Yes, you will notice it, because you won’t see the player with 3 private channels in the list of the people you can invite into a private channel.",
+        "rag_response": "Yes, if someone has 3 private channels open, you will not be able to invite them into your channel. They will not appear as available for invitation.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate, stating that a player with 3 private channels will not be available for invitation, which aligns with the ground truth. However, it slightly lacks the explicit mention that the player will not appear in the list of people you can invite, which is a key point in the ground truth. Overall, it directly addresses the question asked.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Question random : Paola peut elle le faire avec gioele ?",
+        "ground_truth": "Non, Paola ne peut pas le faire avec Gioele. En effet, pour pouvoir le faire, il faut que l’un des deux équipiers fleurte avec l’autre. Or Paola et Gioele ne peuvent fleurter entre eux, étant de la même famille. ",
+        "rag_response": "Non, Paola et Gioele ne peuvent pas \"le faire\" ensemble.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly correct as it states that Paola and Gioele cannot do 'it' together, which aligns with the ground truth. However, it lacks the specific reasoning provided in the ground truth about the need for flirting and the familial relationship that prevents it. Therefore, while the answer is relevant and mostly correct, it is incomplete in terms of the reasoning and context.",
+          "overall_score": 3.67
+        }
+      },
+      {
+        "question": "Bonsoir à tous ! Question un peu bête peut-être, mais est-ce que moisification de masse est révélée par les caméras ou les équipiers dans la pièce ? Et est-ce que tous les membres de l'équipage se retrouvent sales même celui qui a initié l'action ?",
+        "ground_truth": "Oui, moisification de masse est une action discrète, elle est donc révelée par les caméras ou les équipiers dans la pièce. Tous les membres d’équipage se retrouveront sales, y compris l’auteur de l’action. Il s’agit d’une action super salissante, donc le tablier intachable ne protège pas de la salissure.",
+        "rag_response": "La Moisification de masse est une action super salissante qui salit toujours tous les membres de l'équipage, y compris celui qui a initié l'action. Cependant, elle n'est pas spécifiquement mentionnée comme étant révélée par les caméras ou les équipiers dans la pièce. En général, les actions super salissantes ne sont pas visibles dans les logs, mais les conséquences (comme le statut \"sale\") peuvent être observées par les autres membres de l'équipage.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that moisification de masse is a super salissante action that affects all crew members, including the initiator. However, it fails to explicitly confirm that this action is revealed by cameras or crew members, which is a key point in the ground truth. The response is relevant to the question asked, addressing both aspects of the inquiry, but it lacks completeness due to the omission of the visibility aspect.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Est-il normal que lorsqu'il y a moisissure de masse, les mushs perdent 2PA aussi?",
+        "ground_truth": "Oui, moisification de masse fait perdre 2PA à tous les membres d’équipage, y compris l’auteur et les autres Mushs.",
+        "rag_response": "Oui, lors de l'utilisation de la compétence \"Moisissure de masse\", tous les membres de l'équipage, y compris les mushs, perdent 2 PA.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate and correctly states that all crew members, including the mushs, lose 2 PA when the 'Moisissure de masse' skill is used. However, it does not explicitly mention that this applies to the author as well, which is a key point in the ground truth answer. The response is relevant and directly addresses the question asked.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "Question : y a t'il un maximum pour les points de compétences ? Genre, les points tireurs, projets, cuisiniers, jardinnier ... Ou ils peuvent être accumulés à l'infini ?",
+        "ground_truth": "Les points de compétence ont effectivement des limites spécifiques selon chaque domaine. Voici des exemples de plafonds :   - **Tireur** : maximum de 4 points   - **Cuisinier** : maximum de 8 points   - **Botaniste** : maximum de 4 points   - **Pilgred** : maximum de 2 points    Ainsi, il n'est pas possible d'accumuler ces points à l'infini.",
+        "rag_response": "Oui, il y a un maximum pour les points de compétences. Chaque type de point de compétence a un maximum qui est généralement le double de la quantité quotidienne que vous pouvez gagner. Par exemple, si vous gagnez 4 points de cuisine par jour, le maximum que vous pouvez accumuler est de 8 points de cuisine.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response correctly states that there is a maximum for skill points, which is relevant to the question. However, it inaccurately describes the maximum as being generally double the daily amount earned, which is not supported by the ground truth. Additionally, it fails to provide specific maximums for each skill type, which is a key point in the ground truth answer. Therefore, while it is relevant, it lacks accuracy and completeness.",
+          "overall_score": 3.33
+        }
+      },
+      {
+        "question": "une autre question... si un joueur qui a une gastro est converti en mush, est-ce qu'il garde la gastro ? ",
+        "ground_truth": "Un joueur converti au Mush garde la maladie durant le cycle de conversion. La maladie se retrouve soignée au changement de cycle.",
+        "rag_response": "Oui, un humain converti en mush tout en étant malade, comme avec une gastro, garde sa maladie.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that a human converted to mush while being sick retains the illness. However, it lacks the detail that the illness is cured at the end of the conversion cycle, which is a key point in the ground truth. Therefore, while it is relevant and mostly correct, it is not fully complete.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Bonjour à tous. Pour le retour sur Sol, est-ce que le filet magnétique rapatrie les patrouilleurs ?",
+        "ground_truth": "Tous les joueurs en vie rentrent sur Sol, quelque soit leur situation.",
+        "rag_response": "Oui, le filet magnétique est censé récupérer les patrouilleurs, comme le Pasiphae.",
+        "evaluation": {
+          "correctness_score": 2,
+          "completeness_score": 2,
+          "relevance_score": 4,
+          "explanation": "The AI assistant's response inaccurately states that the magnetic net is supposed to recover patrollers, which is not aligned with the ground truth that states all living players return to Sol regardless of their situation. The response also fails to mention that it applies to all players, not just patrollers. However, it does address the question about the magnetic net, which gives it a higher relevance score.",
+          "overall_score": 2.67
+        }
+      },
+      {
+        "question": "Hello, petite question, rapport à notre Chun qui est partie en Pasi et ne souhaite pas revenir: peut-on tirer sur le pasi depuis un patrouilleur? Et dans ce cas revient-il en baie une fois à 0 ...?",
+        "ground_truth": "On ne peut pas tirer sur la Pasiphae et il ne rentre pas une fois à 0 armure, mais est détruit. La seule solution pour forcer Chun à atterir est de développer le projet Filet magnétique qui fait atterir automatiquement les patrouilleurs et le Pasiphaé lors d’un voyage du Daedalus.",
+        "rag_response": "Non, on ne peut pas tirer sur le Pasiphae depuis un patrouilleur. Si le Pasiphae est endommagé et atteint 0, il ne reviendra pas en baie, et le pilote devra être récupéré par un autre vaisseau.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that one cannot shoot at the Pasiphae from a patrol ship and that it does not return to the bay when it reaches 0 armor. However, it inaccurately states that the pilot must be recovered by another ship, which is not mentioned in the ground truth. The response lacks the detail about the magnetic net project that is the only solution to force Chun to land, which is a key point in the ground truth. Overall, it is relevant and addresses the question directly.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "question un peu bete mais vu que j'ai pas arreter de missclick avec, si on cache une plante, et ce que son fruit donné sera visible lui ?",
+        "ground_truth": "Les fruits produits par une plante cachée sont visibles par tous.",
+        "rag_response": "Non, si une plante est cachée, son fruit ne sera pas visible non plus. Les plantes produisent des fruits même lorsqu'elles sont cachées, mais ces fruits ne seront pas accessibles ou visibles tant que la plante reste dissimulée.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect because it states that the fruit will not be visible if the plant is hidden, which contradicts the ground truth answer that states the fruits are visible to all. The completeness score is low because it does not accurately reflect the key point that the fruits are visible regardless of the plant's visibility. However, the response is relevant to the question asked, hence it receives a full score for relevance.",
+          "overall_score": 2.67
+        }
+      },
+      {
+        "question": "Une caméra pas installé mais sur une personne fonctionne comme si elle était installée??",
+        "ground_truth": "Non, une caméra doit être installée pour révéler des actions.",
+        "rag_response": "Non, une caméra qui n'est pas installée ne fonctionne pas comme si elle était installée. Elle doit être installée dans une pièce pour révéler les actions secrètes et furtives. Si elle est dans l'inventaire d'un joueur, elle ne fournit pas de surveillance.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately states that a camera not installed does not function as if it were installed, aligning with the ground truth. However, it adds extra information about the camera needing to be in a room for surveillance, which, while relevant, slightly diverges from the core point of the ground truth. It does not explicitly mention that the camera must be installed to reveal actions, which is a key point in the ground truth. Therefore, it loses a point in completeness. The response is directly relevant to the question asked.",
+          "overall_score": 4.67
+        }
+      },
+      {
+        "question": "est ce qu'une mycoalarme sonne lors de la consomation d'une ration piégée ?",
+        "ground_truth": " Non, la mycoalarme ne sonne pas lors de la consomation d'une ration piégée, mais uniquement lorsqu'un Mush piège la ration.",
+        "rag_response": "Non, une myco-alarme ne sonne pas lors de la consommation d'une ration piégée.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI Assistant's response is correct in stating that a myco-alarme does not sound during the consumption of a ration piégée. However, it fails to mention that the myco-alarme only sounds when a Mush traps the ration, which is a key point from the ground truth answer. The response is relevant and directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Bonsoir, est ce qu'il est possible de perdre son iTrakie dans un incendie ?",
+        "ground_truth": " Non, il n'est pas possible de perdre son iTrakie dans un incendie. L'iTrackie peut se casser dans un incendie, mais il ne peut pas être détruit.",
+        "rag_response": "Oui, l'iTrakie peut devenir cassé s'il est exposé à un incendie.",
+        "evaluation": {
+          "correctness_score": 2,
+          "completeness_score": 2,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is partially correct in stating that the iTrakie can become broken if exposed to fire, but it fails to address the key point from the ground truth that it cannot be destroyed in a fire. Therefore, the correctness score is low. The response also does not fully cover the completeness aspect since it omits the information about the iTrakie not being able to be destroyed. However, it is relevant to the question asked, which is why the relevance score is high.",
+          "overall_score": 3
+        }
+      },
+      {
+        "question": "est ce que fouiller une pièce déclenche un potentiel piège mush ?",
+        "ground_truth": " Oui, fouiller une pièce déclenche un potentiel piège Mush, ainsi que toute interaction avec un équipement de la pièce.",
+        "rag_response": "Oui, fouiller une pièce déclenche un potentiel piège mush.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is accurate in stating that searching a room triggers a potential Mush trap, which aligns with the ground truth. However, it lacks completeness as it does not mention that any interaction with equipment in the room also triggers the trap, which is a key point in the ground truth answer. The response is relevant as it directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Comment fonctionne l'amélioration pilote des drones ? Plus précisément, est-ce qu'ils redescendent ? Sous qu'elle condition ?",
+        "ground_truth": " Les drones pilotes atterissent si leur patrouilleur n'a plus de charges ou s'il n'y a plus de hunters.",
+        "rag_response": "L'amélioration \"Pilote\" permet aux drones de tenter d'emprunter un patrouilleur et de tirer sur les hunters. Si un drone agit en patrouilleur, il atterrit s'il n'y a plus de vaisseaux ou de charges. \n\nCependant, si le patrouilleur est le Pasiphae, les objets rapatriés ne sont pas déchargés et s'accumuleront avec les prochains rapatriements. \n\nEn résumé, les drones redescendent lorsqu'ils n'ont plus de vaisseaux ou de charges à gérer, sauf dans le cas spécifique du Pasiphae.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, but it introduces the concept of the Pasiphae, which is not mentioned in the ground truth answer. This additional detail could be seen as relevant but also slightly detracts from the focus on the conditions under which drones land. The core information about drones landing when there are no vessels or charges is correct, but the mention of the Pasiphae could confuse the reader. Overall, it addresses the question well but with slight inaccuracies in the context of the ground truth.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "Est ce que traître se déclenche si le mush reste bien au chaud parce qu'il a 'oublié' sa combinaison ?",
+        "ground_truth": " Oui, la compétence Traître fonctionne si le Mush est bloqué dans l'Icarus.",
+        "rag_response": "Oui, la compétence \"Traître\" fonctionne même si le mush reste sur le vaisseau sans combinaison, car c'est une compétence passive. Les effets de cette compétence s'appliquent à toutes les expéditions auxquelles le mush participe, peu importe sa situation.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 4,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that the 'Traître' skill works even if the mush is on the ship without a suit, which aligns with the ground truth. However, it introduces the concept of the skill being passive and applicable to all expeditions, which is not mentioned in the ground truth. This additional information is somewhat relevant but not necessary for the answer, leading to a slight deduction in correctness. The response is complete in addressing the main point but adds extra details that could be seen as unnecessary.",
+          "overall_score": 4.33
+        }
+      },
+      {
+        "question": "Curiosité : allergie aux mush fait perdre 4 pv en cas de contamination avec un spore. Mais du coup est ce que ça peut te tuer ? Et si oui c'est quoi l'intitulé de ta mort ?",
+        "ground_truth": " Oui, la perte de PV de l'allergie au Mush peut tuer. La cause de la mort est Blessures...",
+        "rag_response": "Oui, une allergie au mush peut potentiellement tuer un personnage si la perte de points de vie (PV) atteint 0. Dans ce cas, l'intitulé de la mort serait lié à la perte de PV due à l'allergie, mais le texte exact n'est pas spécifié dans les sources.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that an allergy to mush can potentially kill a character if their PV reaches 0. However, it does not explicitly mention that the cause of death is 'Blessures,' which is a key detail from the ground truth. The response is relevant and directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "Est-ce qu'avec la langue cisaillée on a toujours accès aux canaux privés ?",
+        "ground_truth": " Oui, vous avez toujours accès aux canaux privés avec la langue cisaillée, mais vous ne pourrez pas écrire dedans.",
+        "rag_response": "Non, avec la langue cisaillée, l'accès aux canaux privés est également restreint.",
+        "evaluation": {
+          "correctness_score": 1,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect because it states that access to private channels is restricted with a cisaillée tongue, which contradicts the ground truth answer that confirms access is still available, albeit with limitations on writing. The response also fails to mention that users can still access the channels, which is a key point from the ground truth. However, the response is relevant to the question asked.",
+          "overall_score": 2.33
+        }
+      },
+      {
+        "question": "Est-ce que l'allergie au mush fonctionne à 100 % (si on croise un mush on éternue à coup sûr) ?",
+        "ground_truth": " Non, l'éternuement en présence d'un Mush si on a la maladie Allergie au Mush est aléatoire.",
+        "rag_response": "Oui, l'allergie au mush fonctionne à 100 %. Si une personne atteinte de cette allergie croise un mush, elle perd 2 PV et le mot \"Atchoum\" apparaît dans le registre.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 1,
+          "relevance_score": 3,
+          "explanation": "The AI assistant's response is incorrect as it states that the allergy to mush works at 100%, which contradicts the ground truth that states the reaction is random. The completeness score is low because it does not accurately reflect the nature of the allergy, but it does mention a consequence (losing 2 PV) that is not in the ground truth. The relevance score is moderate as it addresses the question about the allergy but provides incorrect information.",
+          "overall_score": 1.33
+        }
+      },
+      {
+        "question": "est-ce qu'un mush peut éternuer en sa propre présence s'il a une allergie au Mush ?",
+        "ground_truth": " Oui, un Mush peut éternuer en sa propre présence s'il a une allergie au Mush.",
+        "rag_response": "Non, un mush ne peut pas éternuer en sa propre présence, même s'il a une allergie au Mush. Les mushs ne peuvent pas tomber malades ni subir des troubles psychologiques.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 1,
+          "relevance_score": 3,
+          "explanation": "The AI assistant's response is incorrect as it states that a mush cannot sneeze in its own presence, which directly contradicts the ground truth answer. It also introduces irrelevant information about mushs not being able to get sick or have psychological issues, which is not pertinent to the question. The response does not accurately reflect the possibility of a mush sneezing due to an allergy, leading to a low correctness score. The completeness score is low because it fails to address the key point of the question regarding the sneeze and allergy. The relevance score is slightly higher as it does attempt to answer the question, but the inaccuracies significantly detract from its overall quality.",
+          "overall_score": 1.33
+        }
+      },
+      {
+        "question": "Est-ce que plusieurs montures rocheuses sont cummulables entre-elles ?",
+        "ground_truth": " Non, les montures rocheuses ne sont cumulables entre elles. Une monture rocheuse se cumule cependant avec la trotinette anti-gravité.",
+        "rag_response": "Je ne sais pas.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 0,
+          "relevance_score": 1,
+          "explanation": "The AI assistant's response 'Je ne sais pas' does not provide any accurate information regarding the question about the cumulation of montures rocheuses. It fails to address the fact that montures rocheuses are not cumulable and does not mention the exception with the trotinette anti-gravité. While the response is somewhat relevant as it acknowledges a lack of knowledge, it does not contribute any useful information to the question asked.",
+          "overall_score": 0.33
+        }
+      },
+      {
+        "question": "Question : est ce que s'allonger sur un lit dans une pièce piégée provoque une contamination comme l'usage d'un équipement ?",
+        "ground_truth": " Oui, s'allonger sur un lit dans une pièce piégée provoque une contamination.",
+        "rag_response": "Non, s'allonger sur un lit dans une pièce piégée ne provoque pas de contamination. La contamination se produit uniquement lorsque quelqu'un interagit avec un objet interactif dans la pièce, comme utiliser un équipement ou un terminal.",
+        "evaluation": {
+          "correctness_score": 0,
+          "completeness_score": 1,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is incorrect as it contradicts the ground truth answer, which states that lying on a bed in a trapped room does cause contamination. While the response is relevant to the question, it fails to provide accurate information and only partially addresses the concept of contamination by mentioning interaction with equipment, which is not the focus of the original question.",
+          "overall_score": 2
+        }
+      },
+      {
+        "question": "Bonjour, lorsqu'un Mush active un piège, est-ce que c'est notifié dans le canal Mush ? Style 'Machin a activé son propre piège, le spore est perdu' ?",
+        "ground_truth": " Non, si un Mush déclenche un piège dans une pièce, il n'y a pas de message dans le canal Mush.",
+        "rag_response": "Non, lorsque un Mush active un piège, cela ne s'affiche pas dans le canal Mush. Au lieu de cela, le message indique que le Mush a récupéré un spore, sans mentionner qu'il a activé son propre piège.",
+        "evaluation": {
+          "correctness_score": 4,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response is mostly accurate, stating that there is no notification in the Mush channel when a Mush activates a trap. However, it incorrectly adds that the message indicates the Mush has recovered a spore, which is not mentioned in the ground truth. This leads to a slight deduction in correctness. The completeness score is lower because it does not explicitly state that there is no message at all in the Mush channel, which is a key point from the ground truth. The relevance score is high as the response directly addresses the question asked.",
+          "overall_score": 4
+        }
+      },
+      {
+        "question": "On est bien d'accord qu'un mush malade n'a pas de symptômes ?",
+        "ground_truth": " Non, un Mush subit bien les symptômes de ses maladies. Bien que les Mushs ne peuvent pas tomber malade, s'ils avaient une maladie avant d'être converti au Mush, ils subissent bien les symptômes de cette dernière.",
+        "rag_response": "Oui, un mush ne peut pas attraper de maladies et donc n'a pas de symptômes. Cependant, s'il était malade avant de devenir mush, il peut conserver cette maladie, mais sans symptômes associés.",
+        "evaluation": {
+          "correctness_score": 3,
+          "completeness_score": 3,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response contains some inaccuracies regarding the nature of Mushs and their symptoms. It correctly states that a Mush cannot catch diseases, but it incorrectly implies that they do not exhibit symptoms at all, which contradicts the ground truth. The response does mention that a Mush can retain a disease from before conversion, but it does not clarify that they experience symptoms from pre-existing conditions, which is a key point in the ground truth. The response is relevant to the question asked, hence the high relevance score.",
+          "overall_score": 3.67
+        }
+      },
+      {
+        "question": "Dites, est ce qu'il y a des exceptions aux pertes de moral en cas de décès ? Par ce que j'ai l'impression que ça fait plusieurs parties que je ne perd pas de moral quand des inactifs meurent de dépression...? (évidemment, je ne parle pas du moral des mushs)",
+        "ground_truth": " Oui, il existe des exceptions aux pertes de moral en cas de décès : les morts par dépression fatale ou par quarantaine ne retirent pas de moral.",
+        "rag_response": "Oui, il y a des exceptions aux pertes de moral en cas de décès. La mort par dépression fatale ne fait pas perdre de moral à l'équipage. De plus, la mise en quarantaine d'un équipier ne fait également pas perdre de moral. Si vous ne perdez pas de moral lors de la mort d'inactifs, cela pourrait être dû à ces exceptions.",
+        "evaluation": {
+          "correctness_score": 5,
+          "completeness_score": 5,
+          "relevance_score": 5,
+          "explanation": "The AI assistant's response accurately reflects the ground truth answer, stating that deaths from fatal depression and quarantine do not result in a loss of morale. It also addresses the user's observation about not losing morale when inactive characters die, linking it to the mentioned exceptions. All key points are covered, and the response is directly relevant to the question asked.",
+          "overall_score": 5
+        }
+      }
+    ]
   }
 ]

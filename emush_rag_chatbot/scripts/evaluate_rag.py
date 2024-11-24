@@ -44,9 +44,12 @@ Be strict in your evaluation. The response should be marked down for any inaccur
 
 class RAGEvaluator:
     def __init__(self):
-        self.rag_chain = RAGChain(top_k=4)  # Explicitly set default value
+        self.rag_chain = RAGChain()
         self.evaluator_llm = ChatOpenAI(
-            model="gpt-4o-mini", temperature=0, seed=42, openai_api_key=settings.OPENAI_API_KEY
+            model=settings.EVALUATION_MODEL,
+            temperature=settings.TEMPERATURE,
+            seed=settings.SEED,
+            openai_api_key=settings.OPENAI_API_KEY,
         )
         self.eval_prompt = ChatPromptTemplate.from_messages([("system", EVAL_PROMPT)])
         self.output_parser = JsonOutputParser()
@@ -64,7 +67,7 @@ class RAGEvaluator:
         results = []
 
         with open(test_file, "r", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
+            reader = csv.DictReader(f, delimiter=";")
             test_cases = list(reader)
 
         for case in tqdm(test_cases, desc="Evaluating responses"):
@@ -87,35 +90,48 @@ class RAGEvaluator:
 
         return results
 
+    def calculate_avg_scores(self, results: List[Dict]) -> Dict:
+        """Calculate average scores from evaluation results"""
+        avg_scores = {
+            "correctness": sum(r["evaluation"]["correctness_score"] for r in results) / len(results),
+            "completeness": sum(r["evaluation"]["completeness_score"] for r in results) / len(results),
+            "relevance": sum(r["evaluation"]["relevance_score"] for r in results) / len(results),
+            "overall": sum(r["evaluation"]["overall_score"] for r in results) / len(results),
+        }
+
+        return avg_scores
+
     def save_results(self, results: List[Dict], output_file: Path):
         """Save evaluation results to JSON file"""
         # Add metadata to results
         evaluation_record = {
             "evaluation_id": str(uuid.uuid4()),
             "timestamp": datetime.datetime.now().isoformat(),
-            "dataset_name": "test_set_v1",
+            "dataset_name": settings.EVALUATION_DATASET,
             "rag_params": {
-                "top_k": 4,
-                "model": "gpt-4",
-                "temperature": 0
+                "top_k": settings.TOP_K,
+                "model": settings.CHAT_MODEL,
+                "temperature": settings.TEMPERATURE,
+                "prompt_version": settings.PROMPT_VERSION,
             },
-            "results": results
+            "scores": self.calculate_avg_scores(results),
+            "results": results,
         }
-        
+
         # Save as JSON, loading existing results if file exists
-        output_file = output_file.with_suffix('.json')
+        output_file = output_file.with_suffix(".json")
         existing_results = []
-        
+
         if output_file.exists():
-            with open(output_file, 'r', encoding='utf-8') as f:
+            with open(output_file, "r", encoding="utf-8") as f:
                 existing_results = json.load(f)
-                
+
         if not isinstance(existing_results, list):
             existing_results = []
-            
+
         existing_results.append(evaluation_record)
-        
-        with open(output_file, 'w', encoding='utf-8') as f:
+
+        with open(output_file, "w", encoding="utf-8") as f:
             json.dump(existing_results, f, indent=2, ensure_ascii=False)
 
 
@@ -124,7 +140,7 @@ async def main():
 
     # Get script directory
     script_dir = Path(__file__).parent
-    test_file = script_dir / "test_set.csv"
+    test_file = script_dir / settings.EVALUATION_DATASET
     output_file = script_dir / "evaluation_results"  # Extension will be added in save_results
 
     # Run evaluation
@@ -134,12 +150,7 @@ async def main():
     evaluator.save_results(results, output_file)
 
     # Calculate and display average scores
-    avg_scores = {
-        "correctness": sum(r["evaluation"]["correctness_score"] for r in results) / len(results),
-        "completeness": sum(r["evaluation"]["completeness_score"] for r in results) / len(results),
-        "relevance": sum(r["evaluation"]["relevance_score"] for r in results) / len(results),
-        "overall": sum(r["evaluation"]["overall_score"] for r in results) / len(results),
-    }
+    avg_scores = evaluator.calculate_avg_scores(results)
 
     print("\nEvaluation Results:")
     print(f"Average Correctness Score: {avg_scores['correctness']:.2f}/5")

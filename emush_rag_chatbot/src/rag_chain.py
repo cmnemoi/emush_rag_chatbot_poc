@@ -7,20 +7,13 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
 from emush_rag_chatbot.config import settings
+from emush_rag_chatbot.src.prompts import PROMPTS
 from emush_rag_chatbot.src.vector_store import VectorStore
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SYSTEM_TEMPLATE = """You are an expert assistant for the eMush game.
-Use the following pieces of retrieved context to answer questions about the game.
-If you don't know the answer, just say that you don't know.
-Keep answers concise and accurate.
-
-Context:
-{context}
-
-"""
+SYSTEM_TEMPLATE = PROMPTS[settings.PROMPT_VERSION]
 
 HUMAN_TEMPLATE = """Question: {question}
 
@@ -32,11 +25,13 @@ Previous conversation:
 class RAGChain:
     """Implements the RAG pipeline for question answering"""
 
-    def __init__(self, top_k: int = 4):
+    def __init__(self):
         self.vector_store = VectorStore()
-        self.top_k = top_k
         self.llm = ChatOpenAI(
-            model=settings.CHAT_MODEL, temperature=0, seed=42, openai_api_key=settings.OPENAI_API_KEY
+            model=settings.CHAT_MODEL,
+            temperature=settings.TEMPERATURE,
+            seed=settings.SEED,
+            openai_api_key=settings.OPENAI_API_KEY,
         )
         self.prompt = ChatPromptTemplate.from_messages(
             [
@@ -79,7 +74,20 @@ class RAGChain:
         """
         try:
             # Retrieve relevant documents
-            docs = self.vector_store.similarity_search(query, k=self.top_k, filter_metadata=filter_metadata)
+            twinpedia_docs = self.vector_store.similarity_search(
+                query, k=settings.TOP_K, filter_metadata={"source": "Twinpedia"}
+            )
+            mushpedia_docs = self.vector_store.similarity_search(
+                query, k=settings.TOP_K, filter_metadata={"source": "Mushpedia"}
+            )
+            aide_aux_bolets_docs = self.vector_store.similarity_search(
+                query, k=settings.TOP_K, filter_metadata={"source": "Aide aux Bolets"}
+            )
+            mush_forums_docs = self.vector_store.similarity_search(
+                query, k=settings.TOP_K, filter_metadata={"source": "Mush Forums"}
+            )
+
+            docs = twinpedia_docs + mushpedia_docs + aide_aux_bolets_docs + mush_forums_docs
 
             # Format inputs
             formatted_history = self._format_chat_history(chat_history)
