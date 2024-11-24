@@ -1,6 +1,5 @@
 import asyncio
 import logging
-from typing import List
 from tqdm import tqdm
 from langchain_core.documents import Document as LangchainDocument
 
@@ -32,15 +31,15 @@ async def main():
             )
 
         # Process documents in batches
-        batch_size = 50
+        batch_size = 10
         total_batches = (len(langchain_docs) + batch_size - 1) // batch_size
-        
+
         with tqdm(total=total_batches, desc="Indexing documents") as pbar:
             for i in range(0, len(langchain_docs), batch_size):
-                batch = langchain_docs[i:i + batch_size]
+                batch = langchain_docs[i : i + batch_size]
                 await vector_store.add_documents(batch)
                 pbar.update(1)
-        
+
         logger.info(f"Successfully indexed {len(documents)} documents in {total_batches} batches")
 
     except Exception as e:

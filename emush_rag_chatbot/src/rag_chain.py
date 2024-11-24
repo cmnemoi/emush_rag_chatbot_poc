@@ -1,4 +1,4 @@
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
 import logging
 
 from langchain_openai import ChatOpenAI
@@ -20,7 +20,6 @@ Keep answers concise and accurate.
 Context:
 {context}
 
-Always cite your sources using the provided links.
 """
 
 HUMAN_TEMPLATE = """Question: {question}
@@ -65,7 +64,7 @@ class RAGChain:
         query: str,
         chat_history: Optional[List[Dict[str, str]]] = None,
         filter_metadata: Optional[Dict[str, Any]] = None,
-    ) -> str:
+    ) -> Tuple[str, List[Document]]:
         """
         Generate a response using the RAG pipeline
 
@@ -85,6 +84,8 @@ class RAGChain:
             formatted_history = self._format_chat_history(chat_history)
             formatted_docs = self._format_docs(docs)
 
+            logger.info(f"Retrieved {len(docs)} relevant documents")
+
             # Create and execute chain
             chain = (
                 {
@@ -99,7 +100,7 @@ class RAGChain:
 
             response = await chain.ainvoke({"question": query})
             logger.info(f"Generated response for query: {query}")
-            return response
+            return response, docs
 
         except Exception as e:
             logger.error(f"Error generating response: {e}")

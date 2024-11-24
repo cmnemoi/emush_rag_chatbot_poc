@@ -22,13 +22,16 @@ class ChatRequest(BaseModel):
 
 class SourceDocument(BaseModel):
     """Schema for source documents used in responses"""
+
     content: str
     title: str
     source: str
     link: str
 
+
 class ChatResponse(BaseModel):
     """Schema for chat responses"""
+
     response: str
     sources: List[SourceDocument]
 
@@ -54,16 +57,17 @@ async def chat_endpoint(request: ChatRequest):
         response, sources = await rag_chain.generate_response(
             query=request.query, chat_history=request.chat_history, filter_metadata=request.filter_metadata
         )
-        
+
         source_documents = [
             SourceDocument(
                 content=doc.page_content,
                 title=doc.metadata.get("title", ""),
                 source=doc.metadata.get("source", ""),
-                link=doc.metadata.get("link", "")
-            ) for doc in sources
+                link=doc.metadata.get("link", ""),
+            )
+            for doc in sources
         ]
-        
+
         return ChatResponse(response=response, sources=source_documents)
 
     except Exception as e:

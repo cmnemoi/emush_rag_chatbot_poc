@@ -22,7 +22,7 @@ class VectorStore:
         """Initialize the vector store with persistence"""
         return Chroma(persist_directory=str(settings.CHROMA_PERSIST_DIR), embedding_function=self.embeddings)
 
-    def add_documents(self, documents: List[Document]) -> None:
+    async def add_documents(self, documents: List[Document]) -> None:
         """
         Index documents in the vector store
 
@@ -30,7 +30,7 @@ class VectorStore:
             documents: List of documents to index
         """
         try:
-            self.vector_store.add_documents(documents)
+            await self.vector_store.aadd_documents(documents)
             logger.info(f"Successfully indexed {len(documents)} documents")
         except Exception as e:
             logger.error(f"Error indexing documents: {e}")

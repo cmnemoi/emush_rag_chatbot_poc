@@ -1,4 +1,4 @@
-from typing import List, Dict, Any, Iterator
+from typing import List, Dict, Any
 from pathlib import Path
 import json
 import logging
@@ -23,8 +23,9 @@ class Document(BaseModel):
 class DocumentLoader:
     """Loads and processes eMush game documentation from JSON files"""
 
-    def __init__(self, data_dir: str = "data", chunk_size: int = 1000, chunk_overlap: int = 100):
+    def __init__(self, data_dir: str = "data", chunk_size: int = 10_000, chunk_overlap: int = 100):
         self.data_dir = Path(data_dir)
+        self.chunk_size = chunk_size
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
@@ -58,16 +59,15 @@ class DocumentLoader:
                                     "title": doc.get("title", ""),
                                 }
                                 # Split long documents
-                                splits = self.text_splitter.split_text(doc["content"])
-                                for i, split_content in enumerate(splits):
-                                    split_doc = doc.copy()
-                                    split_doc["content"] = split_content
-                                    split_doc["metadata"] = {
-                                        **metadata,
-                                        "chunk": i,
-                                        "total_chunks": len(splits)
-                                    }
-                                    documents.append(Document(**split_doc))
+                                if len(doc["content"]) > self.chunk_size:
+                                    splits = self.text_splitter.split_text(doc["content"])
+                                    for i, split_content in enumerate(splits):
+                                        split_doc = doc.copy()
+                                        split_doc["content"] = split_content
+                                        split_doc["metadata"] = {**metadata, "chunk": i, "total_chunks": len(splits)}
+                                        documents.append(Document(**split_doc))
+                                else:
+                                    documents.append(Document(**doc))
                         else:
                             metadata = {
                                 "source": data.get("source", ""),
@@ -75,15 +75,14 @@ class DocumentLoader:
                                 "title": data.get("title", ""),
                             }
                             # Split long documents
-                            splits = self.text_splitter.split_text(data["content"])
-                            for i, split_content in enumerate(splits):
-                                split_doc = data.copy()
-                                split_doc["content"] = split_content
-                                split_doc["metadata"] = {
-                                    **metadata,
-                                    "chunk": i,
-                                    "total_chunks": len(splits)
-                                }
+                            if len(data["content"]) > self.chunk_size:
+                                splits = self.text_splitter.split_text(data["content"])
+                                for i, split_content in enumerate(splits):
+                                    split_doc = data.copy()
+                                    split_doc["content"] = split_content
+                                    split_doc["metadata"] = {**metadata, "chunk": i, "total_chunks": len(splits)}
+                                    documents.append(Document(**split_doc))
+                            else:
                                 documents.append(Document(**split_doc))
 
                 except json.JSONDecodeError as e:
