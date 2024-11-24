@@ -44,7 +44,7 @@ Be strict in your evaluation. The response should be marked down for any inaccur
 
 class RAGEvaluator:
     def __init__(self):
-        self.rag_chain = RAGChain()
+        self.rag_chain = RAGChain(top_k=4)  # Explicitly set default value
         self.evaluator_llm = ChatOpenAI(
             model="gpt-4o-mini", temperature=0, seed=42, openai_api_key=settings.OPENAI_API_KEY
         )

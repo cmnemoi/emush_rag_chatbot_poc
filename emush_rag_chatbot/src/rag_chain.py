@@ -32,8 +32,9 @@ Previous conversation:
 class RAGChain:
     """Implements the RAG pipeline for question answering"""
 
-    def __init__(self):
+    def __init__(self, top_k: int = 4):
         self.vector_store = VectorStore()
+        self.top_k = top_k
         self.llm = ChatOpenAI(
             model=settings.CHAT_MODEL, temperature=0, seed=42, openai_api_key=settings.OPENAI_API_KEY
         )
@@ -78,7 +79,7 @@ class RAGChain:
         """
         try:
             # Retrieve relevant documents
-            docs = self.vector_store.similarity_search(query, filter_metadata=filter_metadata)
+            docs = self.vector_store.similarity_search(query, k=self.top_k, filter_metadata=filter_metadata)
 
             # Format inputs
             formatted_history = self._format_chat_history(chat_history)
