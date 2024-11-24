@@ -116,13 +116,17 @@ class RAGEvaluator:
             }
             flattened_results.append(row)
             
-        # Save as CSV
-        if flattened_results:
+        # Save as CSV, appending if file exists
+        output_file = output_file.with_suffix('.csv')
+        file_exists = output_file.exists()
+        
+        mode = "a" if file_exists else "w"
+        with open(output_file, mode, newline="", encoding="utf-8") as f:
             fieldnames = flattened_results[0].keys()
-            with open(output_file.with_suffix('.csv'), "w", newline="", encoding="utf-8") as f:
-                writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            if not file_exists:
                 writer.writeheader()
-                writer.writerows(flattened_results)
+            writer.writerows(flattened_results)
 
 
 async def main():
