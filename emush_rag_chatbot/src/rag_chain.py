@@ -14,8 +14,9 @@ logger = logging.getLogger(__name__)
 
 REFORMULATE_TEMPLATE = """You are an expert at reformulating questions about the eMush game.
 Your task is to reformulate the user's question to make it clearer and more specific.
-Keep the reformulated question concise and focused on the key information needed.
-Maintain the original intent but make it more suitable for information retrieval.
+If the user's query is ambiguous, complex, or could benefit from clarification or decomposition to enhance retrieval accuracy, please reformulate it accordingly. 
+If the query is already clear and straightforward, no reformulation is necessary.
+Do NOT answer the user's original question. Just reformulate it.
 
 Original question: {question}
 
