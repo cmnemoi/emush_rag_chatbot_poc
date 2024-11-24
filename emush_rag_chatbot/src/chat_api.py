@@ -20,9 +20,17 @@ class ChatRequest(BaseModel):
     filter_metadata: Optional[Dict[str, Any]] = None
 
 
+class SourceDocument(BaseModel):
+    """Schema for source documents used in responses"""
+    content: str
+    title: str
+    source: str
+    link: str
+
 class ChatResponse(BaseModel):
     """Schema for chat responses"""
     response: str
+    sources: List[SourceDocument]
 
 
 @app.get("/health")
@@ -43,10 +51,20 @@ async def chat_endpoint(request: ChatRequest):
         Generated response with source citations
     """
     try:
-        response = await rag_chain.generate_response(
+        response, sources = await rag_chain.generate_response(
             query=request.query, chat_history=request.chat_history, filter_metadata=request.filter_metadata
         )
-        return ChatResponse(response=response)
+        
+        source_documents = [
+            SourceDocument(
+                content=doc.page_content,
+                title=doc.metadata.get("title", ""),
+                source=doc.metadata.get("source", ""),
+                link=doc.metadata.get("link", "")
+            ) for doc in sources
+        ]
+        
+        return ChatResponse(response=response, sources=source_documents)
 
     except Exception as e:
         logger.error(f"Error processing chat request: {e}")
