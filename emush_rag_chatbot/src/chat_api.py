@@ -1,4 +1,4 @@
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Optional
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import logging
@@ -17,7 +17,6 @@ class ChatRequest(BaseModel):
 
     query: str
     chat_history: Optional[List[Dict[str, str]]] = None
-    filter_metadata: Optional[Dict[str, Any]] = None
 
 
 class SourceDocument(BaseModel):
@@ -54,9 +53,7 @@ async def chat_endpoint(request: ChatRequest):
         Generated response with source citations
     """
     try:
-        response, sources = await rag_chain.generate_response(
-            query=request.query, chat_history=request.chat_history, filter_metadata=request.filter_metadata
-        )
+        response, sources = await rag_chain.generate_response(query=request.query, chat_history=request.chat_history)
 
         source_documents = [
             SourceDocument(

@@ -1,4 +1,4 @@
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Dict, Optional, Tuple
 import logging
 
 from langchain_openai import ChatOpenAI
@@ -59,7 +59,6 @@ class RAGChain:
         self,
         query: str,
         chat_history: Optional[List[Dict[str, str]]] = None,
-        filter_metadata: Optional[Dict[str, Any]] = None,
     ) -> Tuple[str, List[Document]]:
         """
         Generate a response using the RAG pipeline

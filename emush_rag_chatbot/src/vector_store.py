@@ -36,9 +36,7 @@ class VectorStore:
             logger.error(f"Error indexing documents: {e}")
             raise
 
-    def similarity_search(
-        self, query: str, k: int = 4, filter_metadata: Dict[str, Any] | None = None
-    ) -> List[Document]:
+    def similarity_search(self, query: str, k: int, filter_metadata: Dict[str, Any] | None = None) -> List[Document]:
         """
         Perform similarity search with optional metadata filtering
 
