@@ -11,6 +11,12 @@ check-lint:
 check-types:
 	uv run mypy .
 
+evaluate-rag:
+	uv run python emush_rag_chatbot/scripts/evaluate_rag.py
+
+index-documents:
+	uv run python emush_rag_chatbot/scripts/index_documents.py
+
 install:
 	uv lock --locked
 	uv sync --locked --group dev --group lint --group test
@@ -18,6 +24,9 @@ install:
 lint:
 	uv run ruff format .
 	uv run ruff check . --fix
+
+run-chatbot:
+	uv run python emush_rag_chatbot/main.py
 
 semantic-release:
 	uv run semantic-release version --no-changelog --no-push --no-vcs-release --skip-build
