@@ -5,11 +5,11 @@ import json
 import logging
 import uuid
 from pathlib import Path
-from typing import List, Dict
+from typing import Dict, List
 
-from langchain_openai import ChatOpenAI
-from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
 from tqdm import tqdm
 
 from emush_rag_chatbot.config import settings

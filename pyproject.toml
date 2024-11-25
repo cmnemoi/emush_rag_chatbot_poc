@@ -35,10 +35,14 @@ lint = [
 test = [
     "pytest>=8.3.3",
     "pytest-cov>=6.0.0",
+    "pytest-asyncio>=0.24.0",
 ]
 
 [tool.ruff]
 line-length = 119
+
+[tool.ruff.lint]
+select = ["I"]
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]

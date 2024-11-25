@@ -1,15 +1,31 @@
-from typing import List, Dict, Optional
+import logging
+from typing import Dict, List, Optional
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-import logging
 
+from emush_rag_chatbot.src.llm import OpenAILLM
 from emush_rag_chatbot.src.rag_chain import RAGChain
+from emush_rag_chatbot.src.vector_store import ChromaVectorStore
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = FastAPI(title="eMush RAG Chatbot")
-rag_chain = RAGChain()
+
+# Initialize RAG chain lazily
+_rag_chain = None
+
+
+def get_rag_chain() -> RAGChain:
+    """Get or create RAG chain instance"""
+    global _rag_chain
+    if _rag_chain is None:
+        _rag_chain = RAGChain(
+            vector_store=ChromaVectorStore(),
+            llm=OpenAILLM(),
+        )
+    return _rag_chain
 
 
 class ChatRequest(BaseModel):
@@ -53,6 +69,7 @@ async def chat_endpoint(request: ChatRequest):
         Generated response with source citations
     """
     try:
+        rag_chain = get_rag_chain()
         response, sources = await rag_chain.generate_response(query=request.query, chat_history=request.chat_history)
 
         source_documents = [

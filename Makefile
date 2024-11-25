@@ -1,4 +1,4 @@
-all: setup-git-hooks install check test 
+all: setup-env-variables setup-git-hooks install check test 
 
 check: check-format check-lint check-types
 
@@ -34,6 +34,9 @@ semantic-release:
 	git add pyproject.toml uv.lock
 	git commit --allow-empty --amend --no-edit
 
+setup-env-variables:
+	cp .env.example .env
+
 setup-git-hooks:
 	chmod +x hooks/pre-commit
 	chmod +x hooks/pre-push
@@ -43,4 +46,4 @@ setup-git-hooks:
 test:
 	uv run pytest -v --cov=emush_rag_chatbot --cov-report=xml
 
-.PHONY: all check check-format check-lint check-types install lint semantic-release setup-git-hooks test
+.PHONY: all check check-format check-lint check-types install lint semantic-release setup-env-variables setup-git-hooks test

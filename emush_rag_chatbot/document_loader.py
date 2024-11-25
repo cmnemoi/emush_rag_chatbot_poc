@@ -1,9 +1,9 @@
-from typing import List, Dict, Any
-from pathlib import Path
 import json
 import logging
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from pathlib import Path
+from typing import Any, Dict, List
 
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 from pydantic import BaseModel, Field
 
 logging.basicConfig(level=logging.INFO)

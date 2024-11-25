@@ -1,11 +1,12 @@
 import asyncio
 import logging
-from tqdm import tqdm
-from langchain_core.documents import Document as LangchainDocument
 
+from langchain_core.documents import Document as LangchainDocument
+from tqdm import tqdm
+
+from emush_rag_chatbot.config import settings
 from emush_rag_chatbot.document_loader import DocumentLoader
 from emush_rag_chatbot.src.vector_store import VectorStore
-from emush_rag_chatbot.config import settings
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

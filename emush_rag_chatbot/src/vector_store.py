@@ -1,9 +1,9 @@
-from typing import List, Dict, Any
 import logging
+from typing import Any, Dict, List, Protocol, runtime_checkable
 
-from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
+from langchain_openai import OpenAIEmbeddings
 
 from emush_rag_chatbot.config import settings
 
@@ -11,8 +11,21 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class VectorStore:
-    """Manages document embeddings and similarity search"""
+@runtime_checkable
+class VectorStore(Protocol):
+    """Abstract base class for vector stores"""
+
+    async def add_documents(self, documents: List[Document]) -> None:
+        """Add documents to the vector store"""
+        ...
+
+    def similarity_search(self, query: str, k: int, filter_metadata: Dict[str, Any] | None = None) -> List[Document]:
+        """Perform similarity search with optional metadata filtering"""
+        ...
+
+
+class ChromaVectorStore(VectorStore):
+    """Manages document embeddings and similarity search using Chroma"""
 
     def __init__(self):
         self.embeddings = OpenAIEmbeddings(model=settings.EMBEDDING_MODEL, openai_api_key=settings.OPENAI_API_KEY)
@@ -53,3 +66,26 @@ class VectorStore:
         except Exception as e:
             logger.error(f"Error performing similarity search: {e}")
             raise
+
+
+class FakeVectorStore(VectorStore):
+    """A fake vector store implementation for testing"""
+
+    def __init__(self, documents: List[Document] | None = None):
+        self.documents = documents or []
+
+    async def add_documents(self, documents: List[Document]) -> None:
+        """Add documents to the fake store"""
+        self.documents.extend(documents)
+        logger.info(f"Added {len(documents)} documents to fake store")
+
+    def similarity_search(self, query: str, k: int, filter_metadata: Dict[str, Any] | None = None) -> List[Document]:
+        """Return a subset of stored documents, ignoring actual similarity"""
+        filtered_docs = self.documents
+        if filter_metadata:
+            filtered_docs = [
+                doc
+                for doc in self.documents
+                if all(doc.metadata.get(key) == value for key, value in filter_metadata.items())
+            ]
+        return filtered_docs[:k]

@@ -1,0 +1,365 @@
+diff --git a/.vscode/settings.json b/.vscode/settings.json
+index d89bf88..26f5b2e 100644
+--- a/.vscode/settings.json
++++ b/.vscode/settings.json
+@@ -11,7 +11,7 @@
+             "splitTerminals": [
+                 {
+                     "name": "watch tests",
+-                    "commands": ["uv run ptw . --clear --now"]
++                    "commands": ["uv run ptw . --clear --now -- emush_rag_chatbot/tests/unit"]
+                 },
+             ]
+         },
+@@ -28,6 +28,10 @@
+         "tests"
+     ],
+     "python.testing.unittestEnabled": false,
+-    "python.testing.pytestEnabled": true
++    "python.testing.pytestEnabled": true,
++    "[python]": {
++      "editor.formatOnSave": true,
++      "editor.defaultFormatter": "charliermarsh.ruff"
++    }
+ }
+ 
+diff --git a/Makefile b/Makefile
+index 12acad1..e84df31 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,4 +1,4 @@
+-all: setup-git-hooks install check test 
++all: setup-env-variables setup-git-hooks install check test 
+ 
+ check: check-format check-lint check-types
+ 
+@@ -34,6 +34,9 @@ semantic-release:
+ 	git add pyproject.toml uv.lock
+ 	git commit --allow-empty --amend --no-edit
+ 
++setup-env-variables:
++	cp .env.example .env
++
+ setup-git-hooks:
+ 	chmod +x hooks/pre-commit
+ 	chmod +x hooks/pre-push
+@@ -43,4 +46,4 @@ setup-git-hooks:
+ test:
+ 	uv run pytest -v --cov=emush_rag_chatbot --cov-report=xml
+ 
+-.PHONY: all check check-format check-lint check-types install lint semantic-release setup-git-hooks test
+\ No newline at end of file
++.PHONY: all check check-format check-lint check-types install lint semantic-release setup-env-variables setup-git-hooks test
+\ No newline at end of file
+diff --git a/emush_rag_chatbot/config.py b/emush_rag_chatbot/config.py
+index cf11193..a971c80 100644
+--- a/emush_rag_chatbot/config.py
++++ b/emush_rag_chatbot/config.py
+@@ -1,4 +1,5 @@
+ from pathlib import Path
++
+ from pydantic_settings import BaseSettings  # type: ignore
+ 
+ 
+diff --git a/emush_rag_chatbot/document_loader.py b/emush_rag_chatbot/document_loader.py
+index e372b06..26ce7b2 100644
+--- a/emush_rag_chatbot/document_loader.py
++++ b/emush_rag_chatbot/document_loader.py
+@@ -1,9 +1,9 @@
+-from typing import List, Dict, Any
+-from pathlib import Path
+ import json
+ import logging
+-from langchain.text_splitter import RecursiveCharacterTextSplitter
++from pathlib import Path
++from typing import Any, Dict, List
+ 
++from langchain.text_splitter import RecursiveCharacterTextSplitter
+ from pydantic import BaseModel, Field
+ 
+ logging.basicConfig(level=logging.INFO)
+diff --git a/emush_rag_chatbot/scripts/evaluate_rag.py b/emush_rag_chatbot/scripts/evaluate_rag.py
+index 5d806c3..6db66e0 100644
+--- a/emush_rag_chatbot/scripts/evaluate_rag.py
++++ b/emush_rag_chatbot/scripts/evaluate_rag.py
+@@ -5,11 +5,11 @@ import json
+ import logging
+ import uuid
+ from pathlib import Path
+-from typing import List, Dict
++from typing import Dict, List
+ 
+-from langchain_openai import ChatOpenAI
+-from langchain_core.prompts import ChatPromptTemplate
+ from langchain_core.output_parsers import JsonOutputParser
++from langchain_core.prompts import ChatPromptTemplate
++from langchain_openai import ChatOpenAI
+ from tqdm import tqdm
+ 
+ from emush_rag_chatbot.config import settings
+diff --git a/emush_rag_chatbot/scripts/index_documents.py b/emush_rag_chatbot/scripts/index_documents.py
+index e30ea52..f96c933 100644
+--- a/emush_rag_chatbot/scripts/index_documents.py
++++ b/emush_rag_chatbot/scripts/index_documents.py
+@@ -1,11 +1,12 @@
+ import asyncio
+ import logging
+-from tqdm import tqdm
++
+ from langchain_core.documents import Document as LangchainDocument
++from tqdm import tqdm
+ 
++from emush_rag_chatbot.config import settings
+ from emush_rag_chatbot.document_loader import DocumentLoader
+ from emush_rag_chatbot.src.vector_store import VectorStore
+-from emush_rag_chatbot.config import settings
+ 
+ logging.basicConfig(level=logging.INFO)
+ logger = logging.getLogger(__name__)
+diff --git a/emush_rag_chatbot/src/chat_api.py b/emush_rag_chatbot/src/chat_api.py
+index 390c28b..9c9949e 100644
+--- a/emush_rag_chatbot/src/chat_api.py
++++ b/emush_rag_chatbot/src/chat_api.py
+@@ -1,15 +1,31 @@
+-from typing import List, Dict, Optional
++import logging
++from typing import Dict, List, Optional
++
+ from fastapi import FastAPI, HTTPException
+ from pydantic import BaseModel
+-import logging
+ 
++from emush_rag_chatbot.src.llm import OpenAILLM
+ from emush_rag_chatbot.src.rag_chain import RAGChain
++from emush_rag_chatbot.src.vector_store import ChromaVectorStore
+ 
+ logging.basicConfig(level=logging.INFO)
+ logger = logging.getLogger(__name__)
+ 
+ app = FastAPI(title="eMush RAG Chatbot")
+-rag_chain = RAGChain()
++
++# Initialize RAG chain lazily
++_rag_chain = None
++
++
++def get_rag_chain() -> RAGChain:
++    """Get or create RAG chain instance"""
++    global _rag_chain
++    if _rag_chain is None:
++        _rag_chain = RAGChain(
++            vector_store=ChromaVectorStore(),
++            llm=OpenAILLM(),
++        )
++    return _rag_chain
+ 
+ 
+ class ChatRequest(BaseModel):
+@@ -53,6 +69,7 @@ async def chat_endpoint(request: ChatRequest):
+         Generated response with source citations
+     """
+     try:
++        rag_chain = get_rag_chain()
+         response, sources = await rag_chain.generate_response(query=request.query, chat_history=request.chat_history)
+ 
+         source_documents = [
+diff --git a/emush_rag_chatbot/src/rag_chain.py b/emush_rag_chatbot/src/rag_chain.py
+index 11163da..08ebf83 100644
+--- a/emush_rag_chatbot/src/rag_chain.py
++++ b/emush_rag_chatbot/src/rag_chain.py
+@@ -1,12 +1,12 @@
+-from typing import List, Dict, Optional, Tuple
+ import logging
++from typing import Dict, List, Optional, Tuple
+ 
+-from langchain_openai import ChatOpenAI
+ from langchain_core.documents import Document
+ from langchain_core.output_parsers import StrOutputParser
+ from langchain_core.prompts import ChatPromptTemplate
+ 
+ from emush_rag_chatbot.config import settings
++from emush_rag_chatbot.src.llm import LLM
+ from emush_rag_chatbot.src.prompts import PROMPTS
+ from emush_rag_chatbot.src.vector_store import VectorStore
+ 
+@@ -25,14 +25,9 @@ Previous conversation:
+ class RAGChain:
+     """Implements the RAG pipeline for question answering"""
+ 
+-    def __init__(self):
+-        self.vector_store = VectorStore()
+-        self.llm = ChatOpenAI(
+-            model=settings.CHAT_MODEL,
+-            temperature=settings.TEMPERATURE,
+-            seed=settings.SEED,
+-            openai_api_key=settings.OPENAI_API_KEY,
+-        )
++    def __init__(self, vector_store: VectorStore, llm: LLM):
++        self.vector_store = vector_store
++        self.llm = llm
+         self.prompt = ChatPromptTemplate.from_messages(
+             [
+                 ("system", SYSTEM_TEMPLATE),
+@@ -94,22 +89,15 @@ class RAGChain:
+ 
+             logger.info(f"Retrieved {len(docs)} relevant documents")
+ 
+-            # Create and execute chain
+-            chain = (
+-                {
+-                    "context": lambda x: formatted_docs,
+-                    "question": lambda x: x["question"],
+-                    "chat_history": lambda x: formatted_history,
+-                }
+-                | self.prompt
+-                | self.llm
+-                | StrOutputParser()
++            # Format prompt
++            prompt = self.prompt.format_messages(
++                context=formatted_docs, question=query, chat_history=formatted_history
+             )
+ 
+-            response = await chain.ainvoke({"question": query})
+-            logger.info(f"Generated response for query: {query}")
+-            return response, docs
++            # Generate response directly using LLM
++            response = await self.llm.invoke(prompt)
+ 
++            return response, docs
+         except Exception as e:
+             logger.error(f"Error generating response: {e}")
+             raise
+diff --git a/emush_rag_chatbot/src/vector_store.py b/emush_rag_chatbot/src/vector_store.py
+index a10a96a..46cd2e4 100644
+--- a/emush_rag_chatbot/src/vector_store.py
++++ b/emush_rag_chatbot/src/vector_store.py
+@@ -1,9 +1,9 @@
+-from typing import List, Dict, Any
+ import logging
++from typing import Any, Dict, List, Protocol, runtime_checkable
+ 
+-from langchain_openai import OpenAIEmbeddings
+ from langchain_chroma import Chroma
+ from langchain_core.documents import Document
++from langchain_openai import OpenAIEmbeddings
+ 
+ from emush_rag_chatbot.config import settings
+ 
+@@ -11,8 +11,21 @@ logging.basicConfig(level=logging.INFO)
+ logger = logging.getLogger(__name__)
+ 
+ 
+-class VectorStore:
+-    """Manages document embeddings and similarity search"""
++@runtime_checkable
++class VectorStore(Protocol):
++    """Abstract base class for vector stores"""
++
++    async def add_documents(self, documents: List[Document]) -> None:
++        """Add documents to the vector store"""
++        ...
++
++    def similarity_search(self, query: str, k: int, filter_metadata: Dict[str, Any] | None = None) -> List[Document]:
++        """Perform similarity search with optional metadata filtering"""
++        ...
++
++
++class ChromaVectorStore(VectorStore):
++    """Manages document embeddings and similarity search using Chroma"""
+ 
+     def __init__(self):
+         self.embeddings = OpenAIEmbeddings(model=settings.EMBEDDING_MODEL, openai_api_key=settings.OPENAI_API_KEY)
+@@ -53,3 +66,26 @@ class VectorStore:
+         except Exception as e:
+             logger.error(f"Error performing similarity search: {e}")
+             raise
++
++
++class FakeVectorStore(VectorStore):
++    """A fake vector store implementation for testing"""
++
++    def __init__(self, documents: List[Document] | None = None):
++        self.documents = documents or []
++
++    async def add_documents(self, documents: List[Document]) -> None:
++        """Add documents to the fake store"""
++        self.documents.extend(documents)
++        logger.info(f"Added {len(documents)} documents to fake store")
++
++    def similarity_search(self, query: str, k: int, filter_metadata: Dict[str, Any] | None = None) -> List[Document]:
++        """Return a subset of stored documents, ignoring actual similarity"""
++        filtered_docs = self.documents
++        if filter_metadata:
++            filtered_docs = [
++                doc
++                for doc in self.documents
++                if all(doc.metadata.get(key) == value for key, value in filter_metadata.items())
++            ]
++        return filtered_docs[:k]
+diff --git a/pyproject.toml b/pyproject.toml
+index ca7933c..4450a26 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -35,11 +35,15 @@ lint = [
+ test = [
+     "pytest>=8.3.3",
+     "pytest-cov>=6.0.0",
++    "pytest-asyncio>=0.24.0",
+ ]
+ 
+ [tool.ruff]
+ line-length = 119
+ 
++[tool.ruff.lint]
++select = ["I"]
++
+ [tool.semantic_release]
+ version_toml = ["pyproject.toml:project.version"]
+ 
+diff --git a/tests/test_main.py b/tests/test_main.py
+deleted file mode 100644
+index 3fb8a97..0000000
+--- a/tests/test_main.py
++++ /dev/null
+@@ -1,2 +0,0 @@
+-def test_dummy() -> None:
+-    assert True
+diff --git a/uv.lock b/uv.lock
+index 640be2b..43b892f 100644
+--- a/uv.lock
++++ b/uv.lock
+@@ -379,6 +379,7 @@ lint = [
+ ]
+ test = [
+     { name = "pytest" },
++    { name = "pytest-asyncio" },
+     { name = "pytest-cov" },
+ ]
+ 
+@@ -409,6 +410,7 @@ lint = [
+ ]
+ test = [
+     { name = "pytest", specifier = ">=8.3.3" },
++    { name = "pytest-asyncio", specifier = ">=0.24.0" },
+     { name = "pytest-cov", specifier = ">=6.0.0" },
+ ]
+ 
+@@ -1412,6 +1414,18 @@ wheels = [
+     { url = "https://files.pythonhosted.org/packages/6b/77/7440a06a8ead44c7757a64362dd22df5760f9b12dc5f11b6188cd2fc27a0/pytest-8.3.3-py3-none-any.whl", hash = "sha256:a6853c7375b2663155079443d2e45de913a911a11d669df02a50814944db57b2", size = 342341 },
+ ]
+ 
++[[package]]
++name = "pytest-asyncio"
++version = "0.24.0"
++source = { registry = "https://pypi.org/simple" }
++dependencies = [
++    { name = "pytest" },
++]
++sdist = { url = "https://files.pythonhosted.org/packages/52/6d/c6cf50ce320cf8611df7a1254d86233b3df7cc07f9b5f5cbcb82e08aa534/pytest_asyncio-0.24.0.tar.gz", hash = "sha256:d081d828e576d85f875399194281e92bf8a68d60d72d1a2faf2feddb6c46b276", size = 49855 }
++wheels = [
++    { url = "https://files.pythonhosted.org/packages/96/31/6607dab48616902f76885dfcf62c08d929796fc3b2d2318faf9fd54dbed9/pytest_asyncio-0.24.0-py3-none-any.whl", hash = "sha256:a811296ed596b69bf0b6f3dc40f83bcaf341b155a269052d82efa2b25ac7037b", size = 18024 },
++]
++
+ [[package]]
+ name = "pytest-cov"
+ version = "6.0.0"

@@ -1,12 +1,12 @@
-from typing import List, Dict, Optional, Tuple
 import logging
+from typing import Dict, List, Optional, Tuple
 
-from langchain_openai import ChatOpenAI
 from langchain_core.documents import Document
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
 from emush_rag_chatbot.config import settings
+from emush_rag_chatbot.src.llm import LLM
 from emush_rag_chatbot.src.prompts import PROMPTS
 from emush_rag_chatbot.src.vector_store import VectorStore
 
@@ -25,14 +25,9 @@ Previous conversation:
 class RAGChain:
     """Implements the RAG pipeline for question answering"""
 
-    def __init__(self):
-        self.vector_store = VectorStore()
-        self.llm = ChatOpenAI(
-            model=settings.CHAT_MODEL,
-            temperature=settings.TEMPERATURE,
-            seed=settings.SEED,
-            openai_api_key=settings.OPENAI_API_KEY,
-        )
+    def __init__(self, vector_store: VectorStore, llm: LLM):
+        self.vector_store = vector_store
+        self.llm = llm
         self.prompt = ChatPromptTemplate.from_messages(
             [
                 ("system", SYSTEM_TEMPLATE),
@@ -94,22 +89,15 @@ class RAGChain:
 
             logger.info(f"Retrieved {len(docs)} relevant documents")
 
-            # Create and execute chain
-            chain = (
-                {
-                    "context": lambda x: formatted_docs,
-                    "question": lambda x: x["question"],
-                    "chat_history": lambda x: formatted_history,
-                }
-                | self.prompt
-                | self.llm
-                | StrOutputParser()
+            # Format prompt
+            prompt = self.prompt.format_messages(
+                context=formatted_docs, question=query, chat_history=formatted_history
             )
 
-            response = await chain.ainvoke({"question": query})
-            logger.info(f"Generated response for query: {query}")
-            return response, docs
+            # Generate response directly using LLM
+            response = await self.llm.invoke(prompt)
 
+            return response, docs
         except Exception as e:
             logger.error(f"Error generating response: {e}")
             raise
