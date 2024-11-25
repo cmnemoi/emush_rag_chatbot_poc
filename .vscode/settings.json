@@ -18,6 +18,14 @@
         {
             "splitTerminals": [
                 {
+                    "name": "watch streamlit",
+                    "commands": ["make run-streamlit"]
+                },
+            ]
+        },
+        {
+            "splitTerminals": [
+                {
                     "name": "watch tests",
                     "commands": ["uv run ptw . --clear --now -- tests/unit"]
                 },

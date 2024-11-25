@@ -28,6 +28,9 @@ lint:
 run-chatbot:
 	uv run fastapi dev emush_rag_chatbot/api.py --reload --host 0.0.0.0 --port 8000 
 
+run-streamlit:
+	uv run streamlit run emush_rag_chatbot/streamlit_app.py --server.port 8501 --server.address 0.0.0.0
+
 semantic-release:
 	uv run semantic-release version --no-changelog --no-push --no-vcs-release --skip-build --no-commit --no-tag
 	uv lock
@@ -46,4 +49,4 @@ setup-git-hooks:
 test:
 	uv run pytest -v --cov=emush_rag_chatbot --cov-report=xml
 
-.PHONY: all check check-format check-lint check-types install lint run-chatbot semantic-release setup-env-variables setup-git-hooks test
+.PHONY: all check check-format check-lint check-types install lint run-chatbot run-streamlit semantic-release setup-env-variables setup-git-hooks test

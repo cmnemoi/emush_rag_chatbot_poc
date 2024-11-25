@@ -26,12 +26,25 @@ curl -sSL https://raw.githubusercontent.com/cmnemoi/emush_rag_chatbot_poc/main/c
 
 A tiny indexed [Chroma vector database](emush_rag_chatbot/chroma_db/) with some [data](emush_rag_chatbot/data/data.json) is included in the repository to get started.
 
+### REST API
+
 Start the API server:
 ```bash
 make run-chatbot
 ```
 
 The API will be available at `http://localhost:8000` with Swagger documentation at `/docs`.
+
+### Web Interface
+
+Start the Streamlit web interface:
+```bash
+make run-streamlit
+```
+
+The web interface will be available at `http://localhost:8501`.
+
+Note: Make sure the API server is running before starting the web interface.
 
 ### Example API Request
 
@@ -49,7 +62,7 @@ curl -X POST "http://localhost:8000/chat" \
 
 To get more accurate answers, you need more indexed data.
 
-For this, use [Mush Wikis Scraper](https://github.com/cmnemoi/mush_wikis_scraper) to download all knowledge base of the commmunity : `uvx --from mush-wikis-scraper mush-wiki-scrap --format text > emush_rag_chatbot/data/data.json`
+For this, use [Mush Wikis Scraper](https://github.com/cmnemoi/mush_wikis_scraper) to download all knowledge base of the commmunity : `uvx --from mush-wikis-scraper mush-wikis-scrap --format text > emush_rag_chatbot/data/data.json`
 
 Then index the data in vector store with: `make index-documents`
 
