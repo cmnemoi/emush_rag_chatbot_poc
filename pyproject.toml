@@ -23,6 +23,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "fastapi-cli>=0.0.5",
     "pytest-watcher>=0.4.3",
     "python-semantic-release>=9.14.0",
 ]

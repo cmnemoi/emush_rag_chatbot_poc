@@ -19,7 +19,7 @@
             "splitTerminals": [
                 {
                     "name": "watch tests",
-                    "commands": ["uv run ptw . --clear --now -- emush_rag_chatbot/tests/unit"]
+                    "commands": ["uv run ptw . --clear --now -- tests/unit"]
                 },
             ]
         },

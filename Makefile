@@ -26,7 +26,7 @@ lint:
 	uv run ruff check . --fix
 
 run-chatbot:
-	uv run python emush_rag_chatbot/main.py
+	uv run fastapi dev emush_rag_chatbot/api.py --reload --host 0.0.0.0 --port 8000 
 
 semantic-release:
 	uv run semantic-release version --no-changelog --no-push --no-vcs-release --skip-build --no-commit --no-tag
@@ -46,4 +46,4 @@ setup-git-hooks:
 test:
 	uv run pytest -v --cov=emush_rag_chatbot --cov-report=xml
 
-.PHONY: all check check-format check-lint check-types install lint semantic-release setup-env-variables setup-git-hooks test
+.PHONY: all check check-format check-lint check-types install lint run-chatbot semantic-release setup-env-variables setup-git-hooks test

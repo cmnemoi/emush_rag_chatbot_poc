@@ -3,7 +3,7 @@ import os
 import pytest
 from fastapi.testclient import TestClient
 
-from emush_rag_chatbot.chat_api import ChatRequest, ChatResponse, app
+from emush_rag_chatbot.api import ChatRequest, ChatResponse, app
 
 
 @pytest.fixture(scope="session", autouse=True)
