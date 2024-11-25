@@ -4,9 +4,9 @@ from typing import Dict, List, Optional
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from emush_rag_chatbot.src.llm import OpenAILLM
-from emush_rag_chatbot.src.rag_chain import RAGChain
-from emush_rag_chatbot.src.vector_store import ChromaVectorStore
+from emush_rag_chatbot.llm import OpenAILLM
+from emush_rag_chatbot.rag_chain import RAGChain
+from emush_rag_chatbot.vector_store import ChromaVectorStore
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

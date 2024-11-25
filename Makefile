@@ -12,10 +12,10 @@ check-types:
 	uv run mypy .
 
 evaluate-rag:
-	uv run python emush_rag_chatbot/scripts/evaluate_rag.py
+	uv run python scripts/evaluate_rag.py
 
 index-documents:
-	uv run python emush_rag_chatbot/scripts/index_documents.py
+	uv run python scripts/index_documents.py
 
 install:
 	uv lock --locked

@@ -6,9 +6,9 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
 from emush_rag_chatbot.config import settings
-from emush_rag_chatbot.src.llm import LLM
-from emush_rag_chatbot.src.prompts import PROMPTS
-from emush_rag_chatbot.src.vector_store import VectorStore
+from emush_rag_chatbot.llm import LLM
+from emush_rag_chatbot.prompts import PROMPTS
+from emush_rag_chatbot.vector_store import VectorStore
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

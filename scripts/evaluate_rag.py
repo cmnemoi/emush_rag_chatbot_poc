@@ -13,7 +13,7 @@ from langchain_openai import ChatOpenAI
 from tqdm import tqdm
 
 from emush_rag_chatbot.config import settings
-from emush_rag_chatbot.src.rag_chain import RAGChain
+from emush_rag_chatbot.rag_chain import RAGChain
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

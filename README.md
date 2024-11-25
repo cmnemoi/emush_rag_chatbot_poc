@@ -24,7 +24,7 @@ curl -sSL https://raw.githubusercontent.com/cmnemoi/emush_rag_chatbot_poc/main/c
 
 ## Usage
 
-A tiny indexed Chroma vector database (emush_rag_chatbot/chroma_db/chroma.sqlite2) with some data ([emush_rag_chatbot/data/data.json](emush_rag_chatbot/data/data.json)) is included in the repository to get started.
+A tiny indexed [Chroma vector database](emush_rag_chatbot/chroma_db/) with some [data](emush_rag_chatbot/data/data.json) is included in the repository to get started.
 
 Start the API server:
 ```bash
@@ -51,7 +51,14 @@ To get more accurate answers, you need more indexed data.
 
 For this, use [Mush Wikis Scraper](https://github.com/cmnemoi/mush_wikis_scraper) to download all knowledge base of the commmunity : `uvx --from mush-wikis-scraper mush-wiki-scrap --format text > emush_rag_chatbot/data/data.json`
 
-Then index the data in vector storewith: `make index-documents`
+Then index the data in vector store with: `make index-documents`
+
+### Evaluation
+
+Run evaluation with:
+```bash
+make evaluate-rag
+```
 
 ### Testing
 

@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 from emush_rag_chatbot.config import settings
 from emush_rag_chatbot.document_loader import DocumentLoader
-from emush_rag_chatbot.src.vector_store import ChromaVectorStore
+from emush_rag_chatbot.vector_store import ChromaVectorStore
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

@@ -1,9 +1,9 @@
 import pytest
 from langchain_core.documents import Document
 
-from emush_rag_chatbot.src.llm import FakeLLM
-from emush_rag_chatbot.src.rag_chain import RAGChain
-from emush_rag_chatbot.src.vector_store import FakeVectorStore
+from emush_rag_chatbot.llm import FakeLLM
+from emush_rag_chatbot.rag_chain import RAGChain
+from emush_rag_chatbot.vector_store import FakeVectorStore
 
 
 @pytest.fixture
