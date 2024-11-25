@@ -1,6 +1,53 @@
 # CHANGELOG
 
 
+## v0.2.0 (2024-11-25)
+
+### Chores
+
+- Switch to fastapi-cli for development
+  ([`8a1bc38`](https://github.com/cmnemoi/emush_rag_chatbot_poc/commit/8a1bc38b98fdcd3c170d17108d7a885707cfa758))
+
+- Add fastapi-cli to dev dependencies - Update run-chatbot command to use fastapi CLI - Fix test
+  watch path to match new project structure
+
+- Enhance Makefile and hooks for better semantic-release integration; update README for eMush RAG
+  Chatbot repo rebranding
+  ([`692ffc5`](https://github.com/cmnemoi/emush_rag_chatbot_poc/commit/692ffc5739dd89bb8bfb2222a32d9172525256bd))
+
+### Documentation
+
+- Improve README and development setup
+  ([`2e76ffc`](https://github.com/cmnemoi/emush_rag_chatbot_poc/commit/2e76ffc0e1ef1673eb1062752c740fed27429a9b))
+
+- Add watch API terminal to VSCode configuration - Update README: - Clarify data sources (wikis,
+  tutorials, forums) - Add section about improving RAG performance - Remove manual env file creation
+  (now automated) - Update example query - Fix vector store import in index_documents script
+
+### Features
+
+- Add a streamlit app
+  ([`886509c`](https://github.com/cmnemoi/emush_rag_chatbot_poc/commit/886509c5dccbeec676849c08cbb9cca9f107c7a3))
+
+### Refactoring
+
+- Flatten project structure
+  ([`138fa9b`](https://github.com/cmnemoi/emush_rag_chatbot_poc/commit/138fa9b0e644121b1638a946edd62c55ea829fcf))
+
+- Move core modules out of src/ directory: - Move chat_api.py, llm.py, rag_chain.py, and
+  vector_store.py to root package - Update imports in tests and scripts - Update paths in Makefile
+  for scripts - Improve README: - Fix typos and formatting - Add evaluation section - Make database
+  and data links more readable
+
+- Improve project structure and development setup
+  ([`b8dc551`](https://github.com/cmnemoi/emush_rag_chatbot_poc/commit/b8dc5519d349ad9b11a3e783abb88bec2b7c6fbb))
+
+- Reorganize code with Protocol-based vector store abstraction - Add FakeVectorStore for testing
+  purposes - Implement lazy initialization for RAG chain - Update development tooling: - Configure
+  Ruff for import sorting - Add pytest-asyncio for better test support - Set up automatic env file
+  creation - Improve test watching configuration
+
+
 ## v0.1.0 (2024-11-24)
 
 ### Bug Fixes
