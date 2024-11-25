@@ -10,6 +10,14 @@
         {
             "splitTerminals": [
                 {
+                    "name": "watch api",
+                    "commands": ["make run-chatbot"]
+                },
+            ]
+        },
+        {
+            "splitTerminals": [
+                {
                     "name": "watch tests",
                     "commands": ["uv run ptw . --clear --now -- emush_rag_chatbot/tests/unit"]
                 },

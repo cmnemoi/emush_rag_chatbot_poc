@@ -4,7 +4,7 @@
 [![Continuous Delivery](https://github.com/cmnemoi/emush_rag_chatbot_poc/actions/workflows/create_github_release.yaml/badge.svg)](https://github.com/cmnemoi/emush_rag_chatbot_poc/actions/workflows/create_github_release.yaml)
 [![codecov](https://codecov.io/gh/cmnemoi/emush_rag_chatbot_poc/graph/badge.svg?token=FLAARH38AG)](https://codecov.io/gh/cmnemoi/emush_rag_chatbot_poc)
 
-A Retrieval-Augmented Generation (RAG) chatbot that can answer questions about the eMush game using official documentation and community resources.
+A Retrieval-Augmented Generation (RAG) chatbot that can answer questions about the eMush game using wikis, tutorials and QA Mush forums.
 
 ## Features
 
@@ -22,18 +22,13 @@ Then run the following command:
 curl -sSL https://raw.githubusercontent.com/cmnemoi/emush_rag_chatbot_poc/main/clone-and-install | bash
 ```
 
-## Configuration
-
-Create a `.env` file in the project root with your OpenAI API key:
-```
-OPENAI_API_KEY=your_api_key_here
-```
-
 ## Usage
+
+A tiny indexed Chroma vector database (emush_rag_chatbot/chroma_db/chroma.sqlite2) with some data ([emush_rag_chatbot/data/data.json](emush_rag_chatbot/data/data.json)) is included in the repository to get started.
 
 Start the API server:
 ```bash
-uv run emush_rag_chatbot/main.py
+make run-chatbot
 ```
 
 The API will be available at `http://localhost:8000` with Swagger documentation at `/docs`.
@@ -44,11 +39,21 @@ The API will be available at `http://localhost:8000` with Swagger documentation 
 curl -X POST "http://localhost:8000/chat" \
      -H "Content-Type: application/json" \
      -d '{
-           "query": "What are the basic actions in eMush?",
+           "query": "What is the goal of the game?",
          }'
 ```
 
 ## Development
+
+### Better RAG performance
+
+To get more accurate answers, you need more indexed data.
+
+For this, use [Mush Wikis Scraper](https://github.com/cmnemoi/mush_wikis_scraper) to download all knowledge base of the commmunity : `uvx --from mush-wikis-scraper mush-wiki-scrap --format text > emush_rag_chatbot/data/data.json`
+
+Then index the data in vector storewith: `make index-documents`
+
+### Testing
 
 Run tests with:
 ```bash

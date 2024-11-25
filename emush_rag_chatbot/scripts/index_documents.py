@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 from emush_rag_chatbot.config import settings
 from emush_rag_chatbot.document_loader import DocumentLoader
-from emush_rag_chatbot.src.vector_store import VectorStore
+from emush_rag_chatbot.src.vector_store import ChromaVectorStore
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -17,7 +17,7 @@ async def main():
     try:
         # Initialize document loader and vector store
         loader = DocumentLoader(str(settings.DATA_DIR))
-        vector_store = VectorStore()
+        vector_store = ChromaVectorStore()
 
         # Load documents
         documents = loader.load_documents()
